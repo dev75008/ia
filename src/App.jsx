@@ -223,7 +223,7 @@ export default function App() {
   }, []) // Chargement initial et actualisation périodique.
 
   useEffect(() => {
-    if (loading || hasIntroAnimated.current) return
+    if (hasIntroAnimated.current) return
     hasIntroAnimated.current = true
     const ctx = gsap.context(() => {
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -231,24 +231,38 @@ export default function App() {
         .from('.hero .eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.35')
         .from('.hero-title', { y: 32, opacity: 0, duration: 0.85 }, '-=0.25')
         .from('.hero-copy, .hero-stats', { y: 16, opacity: 0, duration: 0.55, stagger: 0.12 }, '-=0.4')
-      gsap.utils.toArray('.reveal-section').forEach((section) => gsap.from(section, {
-        y: 28,
-        autoAlpha: 0,
-        duration: 0.7,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: section, start: 'top 90%', once: true },
+      gsap.utils.toArray('.reveal-section').forEach((section, index) => gsap.from(section, {
+        y: 28, opacity: 0, duration: 0.7, delay: 0.15 + index * 0.12, ease: 'power2.out',
       }))
-      ScrollTrigger.refresh()
     }, rootRef)
     return () => ctx.revert()
-  }, [loading])
+  }, [])
 
   useEffect(() => {
     if (!articles.length) return
     const cards = gsap.utils.toArray('.article-card')
-    gsap.fromTo(cards, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55, stagger: 0.075, ease: 'power3.out', overwrite: 'auto' })
+    gsap.fromTo(cards, { y: 24, opacity: 0, scale: 0.985 }, { y: 0, opacity: 1, scale: 1, duration: 0.72, stagger: 0.09, ease: 'power3.out', overwrite: 'auto' })
     const trendCards = gsap.utils.toArray('.trend-card')
-    gsap.fromTo(trendCards, { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.09, ease: 'power3.out', overwrite: 'auto' })
+    gsap.fromTo(trendCards, { y: 20, opacity: 0, scale: 0.98 }, { y: 0, opacity: 1, scale: 1, duration: 0.65, stagger: 0.11, ease: 'power3.out', overwrite: 'auto' })
+  }, [articles, category, source, query, sort])
+
+  useEffect(() => {
+    const cards = gsap.utils.toArray('.article-card, .trend-card')
+    const cleanups = cards.map((card) => {
+      const enter = () => gsap.to(card, { y: -5, scale: 1.012, duration: 0.22, ease: 'power2.out', overwrite: 'auto' })
+      const leave = () => gsap.to(card, { y: 0, scale: 1, duration: 0.3, ease: 'power2.out', overwrite: 'auto' })
+      card.addEventListener('mouseenter', enter)
+      card.addEventListener('mouseleave', leave)
+      card.addEventListener('focus', enter)
+      card.addEventListener('blur', leave)
+      return () => {
+        card.removeEventListener('mouseenter', enter)
+        card.removeEventListener('mouseleave', leave)
+        card.removeEventListener('focus', enter)
+        card.removeEventListener('blur', leave)
+      }
+    })
+    return () => cleanups.forEach((cleanup) => cleanup())
   }, [articles, category, source, query, sort])
 
   const categories = useMemo(() => ['Toutes', ...new Set(articles.map((article) => article.category))], [articles])
