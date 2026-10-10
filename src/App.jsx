@@ -163,7 +163,7 @@ export default function App() {
   const rootRef = useRef(null)
   const refreshRef = useRef(null)
   const fetchingRef = useRef(false)
-  const hasAnimated = useRef(false)
+  const hasIntroAnimated = useRef(false)
 
   const loadFeeds = useCallback(async (force = false) => {
     if (fetchingRef.current) return
@@ -223,27 +223,32 @@ export default function App() {
   }, []) // Chargement initial et actualisation périodique.
 
   useEffect(() => {
-    if (hasAnimated.current) return
-    hasAnimated.current = true
+    if (loading || hasIntroAnimated.current) return
+    hasIntroAnimated.current = true
     const ctx = gsap.context(() => {
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
       intro.from('.header-inner', { y: -18, opacity: 0, duration: 0.75 })
         .from('.hero .eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.35')
         .from('.hero-title', { y: 32, opacity: 0, duration: 0.85 }, '-=0.25')
         .from('.hero-copy, .hero-stats', { y: 16, opacity: 0, duration: 0.55, stagger: 0.12 }, '-=0.4')
-      gsap.utils.toArray('.reveal-section').forEach((section) => {
-        gsap.from(section, { y: 28, opacity: 0, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: section, start: 'top 88%', once: true } })
-      })
+      gsap.utils.toArray('.reveal-section').forEach((section) => gsap.from(section, {
+        y: 28,
+        autoAlpha: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: section, start: 'top 90%', once: true },
+      }))
+      ScrollTrigger.refresh()
     }, rootRef)
     return () => ctx.revert()
-  }, [])
+  }, [loading])
 
   useEffect(() => {
     if (!articles.length) return
     const cards = gsap.utils.toArray('.article-card')
-    gsap.fromTo(cards, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, stagger: 0.045, ease: 'power2.out', overwrite: true })
+    gsap.fromTo(cards, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55, stagger: 0.075, ease: 'power3.out', overwrite: 'auto' })
     const trendCards = gsap.utils.toArray('.trend-card')
-    gsap.fromTo(trendCards, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, stagger: 0.07, ease: 'power2.out', overwrite: true })
+    gsap.fromTo(trendCards, { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, stagger: 0.09, ease: 'power3.out', overwrite: 'auto' })
   }, [articles, category, source, query, sort])
 
   const categories = useMemo(() => ['Toutes', ...new Set(articles.map((article) => article.category))], [articles])
