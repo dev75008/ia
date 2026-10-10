@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
 
 permissions:
   contents: read
@@ -27,6 +29,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Refresh static RSS snapshot
+        run: node scripts/fetch-feeds.mjs
       - name: Build React app
         run: npm run build
       - name: Setup Pages

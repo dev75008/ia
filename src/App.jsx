@@ -16,9 +16,10 @@ const FEEDS = [
   { name: 'LeBigData', url: 'https://www.lebigdata.fr/feed' },
   { name: 'Numerama · IA', url: 'https://www.numerama.com/tag/intelligence-artificielle/feed/' },
 ]
-const CACHE_KEY = 'ianews-react-feed-v1'
+const CACHE_KEY = 'ianews-react-feed-v2'
 const CACHE_TTL = 15 * 60 * 1000
 const REFRESH_MS = 15 * 60 * 1000
+const AI_RELEVANCE = /\bIA\b|intelligence artificielle|ia générative|ia agentique|chatgpt|openai|anthropic|mistral|gemini|llama|copilot|gpt-[\w.]+|modèle[s]? de langage|large language model|\bllm\b|machine learning|apprentissage automatique|deep learning|robotique|humanoïde|agent[s]? intelligent[s]?/i
 
 function clean(value = '') {
   const node = document.createElement('div')
@@ -50,6 +51,7 @@ function parseItem(item, feed) {
   const link = safeUrl(item.link || item.guid)
   if (!title || !link) return null
   const description = clean(item.description || item.content || item['content:encoded'] || '').slice(0, 420)
+  if (!AI_RELEVANCE.test(`${title} ${description}`)) return null
   const dateValue = item.pubDate || item.isoDate || item.date
   const date = dateValue && Number.isFinite(new Date(dateValue).getTime()) ? new Date(dateValue) : new Date(0)
   let image = safeUrl(item.thumbnail || item.enclosure?.link || '')
@@ -122,6 +124,14 @@ function faviconFor(feedUrl) {
   try { return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(new URL(feedUrl).hostname)}&sz=64` } catch { return '' }
 }
 
+async function getStaticSnapshot() {
+  const response = await fetch(`${import.meta.env.BASE_URL}feed-snapshot.json?v=${Date.now()}`, { cache: 'no-store' })
+  if (!response.ok) throw new Error(`Snapshot indisponible (${response.status})`)
+  const data = await response.json()
+  if (!Array.isArray(data.articles)) throw new Error('Snapshot RSS invalide')
+  return data
+}
+
 function Skeletons({ count = 6 }) {
   return Array.from({ length: count }, (_, index) => <div className="skeleton" key={index} aria-hidden="true" />)
 }
@@ -154,7 +164,9 @@ export default function App() {
   const [source, setSource] = useState('all')
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState('date')
-  const [theme, setTheme] = useState(() => localStorage.getItem('ianews-theme') || 'dark')
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('ianews-theme') || 'dark' } catch { return 'dark' }
+  })
   const [lastFetch, setLastFetch] = useState(null)
   const [failedFeeds, setFailedFeeds] = useState(0)
   const [loading, setLoading] = useState(true)
@@ -163,7 +175,6 @@ export default function App() {
   const rootRef = useRef(null)
   const refreshRef = useRef(null)
   const fetchingRef = useRef(false)
-  const hasIntroAnimated = useRef(false)
 
   const loadFeeds = useCallback(async (force = false) => {
     if (fetchingRef.current) return
@@ -173,16 +184,26 @@ export default function App() {
     if (!force) {
       try {
         const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null')
-        if (cached && Date.now() - cached.saved < CACHE_TTL && Array.isArray(cached.articles)) {
+        if (cached && Date.now() - cached.saved < CACHE_TTL && Array.isArray(cached.articles) && cached.articles.length) {
           setArticles(cached.articles)
           setLastFetch(cached.saved)
           setFailedFeeds(cached.failed || 0)
           setLoading(false)
+          setStatus(cached.failed ? `Cache local · ${cached.failed} flux indisponible${cached.failed > 1 ? 's' : ''}.` : '')
           setFetching(false)
           fetchingRef.current = false
           return
         }
       } catch { /* Cache absent ou invalide : on recharge les sources. */ }
+      try {
+        const snapshot = await getStaticSnapshot()
+        if (snapshot.articles.length) {
+          setArticles(snapshot.articles)
+          setLastFetch(snapshot.updatedAt ? new Date(snapshot.updatedAt).getTime() : Date.now())
+          setLoading(false)
+          setStatus('Édition récente · synchronisation des flux en direct…')
+        }
+      } catch { /* Les proxys directs peuvent encore fournir les actualités. */ }
     }
     const results = await Promise.allSettled(FEEDS.map(fetchFeed))
     let failures = 0
@@ -192,19 +213,31 @@ export default function App() {
       else failures += 1
     })
     const seen = new Set()
-    const merged = collected.filter((article) => {
+    let merged = collected.filter((article) => {
       const key = (article.link || article.title).toLowerCase().replace(/[?#].*$/, '').replace(/\/$/, '')
       if (seen.has(key)) return false
       seen.add(key)
       return true
     }).sort((a, b) => new Date(b.date) - new Date(a.date))
+    let usedSnapshot = false
+    if (!merged.length) {
+      try {
+        const snapshot = await getStaticSnapshot()
+        if (snapshot.articles.length) {
+          merged = snapshot.articles
+          usedSnapshot = true
+        }
+      } catch { /* Le site reste utilisable même si le snapshot statique n’est pas disponible. */ }
+    }
     const saved = Date.now()
     setArticles(merged)
     setLastFetch(saved)
     setFailedFeeds(failures)
     setLoading(false)
     try { localStorage.setItem(CACHE_KEY, JSON.stringify({ saved, articles: merged, failed: failures })) } catch { /* Le site continue sans cache si le stockage est plein. */ }
-    setStatus(merged.length ? '' : `Aucun article reçu · ${failures} flux indisponible${failures > 1 ? 's' : ''}. Réessayez dans un instant.`)
+    setStatus(merged.length
+      ? usedSnapshot ? 'Flux en direct momentanément indisponibles · affichage de la dernière édition.' : ''
+      : `Impossible de charger les flux d’actualité (${failures || FEEDS.length} sources). Réessayez ou revenez dans quelques minutes.`)
     setFetching(false)
     fetchingRef.current = false
   }, [])
@@ -223,14 +256,14 @@ export default function App() {
   }, []) // Chargement initial et actualisation périodique.
 
   useEffect(() => {
-    if (hasIntroAnimated.current) return
-    hasIntroAnimated.current = true
     const ctx = gsap.context(() => {
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
       intro.from('.header-inner', { y: -18, opacity: 0, duration: 0.75 })
         .from('.hero .eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.35')
         .from('.hero-title', { y: 32, opacity: 0, duration: 0.85 }, '-=0.25')
         .from('.hero-copy, .hero-stats', { y: 16, opacity: 0, duration: 0.55, stagger: 0.12 }, '-=0.4')
+      gsap.to('.gradient-text', { backgroundPosition: '100% 50%', duration: 3.2, repeat: -1, yoyo: true, ease: 'sine.inOut' })
+      gsap.to('.live-dot', { scale: 1.7, opacity: 0.55, duration: 0.8, repeat: -1, yoyo: true, ease: 'sine.inOut' })
       gsap.utils.toArray('.reveal-section').forEach((section, index) => gsap.from(section, {
         y: 28, opacity: 0, duration: 0.7, delay: 0.15 + index * 0.12, ease: 'power2.out',
       }))
