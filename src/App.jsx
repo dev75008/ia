@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowUpRight, Clock3, LoaderCircle, Moon, RefreshCw, Search, Sun, Sparkles } from 'lucide-react'
 
-gsap.registerPlugin(ScrollTrigger)
 
 // Ajoutez, retirez ou modifiez les sources dans cette liste.
 const FEEDS = [
@@ -165,7 +163,7 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [sort, setSort] = useState('date')
   const [theme, setTheme] = useState(() => {
-    try { return localStorage.getItem('ianews-theme') || 'dark' } catch { return 'dark' }
+    try { return localStorage.getItem('ianews-theme') || 'light' } catch { return 'light' }
   })
   const [lastFetch, setLastFetch] = useState(null)
   const [failedFeeds, setFailedFeeds] = useState(0)
@@ -244,7 +242,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#080a12' : '#f7f8fc')
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#101012' : '#f5f5f7')
     try { localStorage.setItem('ianews-theme', theme) } catch { /* Préférence limitée à la session. */ }
   }, [theme])
 
@@ -256,14 +254,14 @@ export default function App() {
   }, []) // Chargement initial et actualisation périodique.
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const ctx = gsap.context(() => {
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
       intro.from('.header-inner', { y: -18, opacity: 0, duration: 0.75 })
         .from('.hero .eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.35')
         .from('.hero-title', { y: 32, opacity: 0, duration: 0.85 }, '-=0.25')
         .from('.hero-copy, .hero-stats', { y: 16, opacity: 0, duration: 0.55, stagger: 0.12 }, '-=0.4')
-      gsap.to('.gradient-text', { backgroundPosition: '100% 50%', duration: 3.2, repeat: -1, yoyo: true, ease: 'sine.inOut' })
-      gsap.to('.live-dot', { scale: 1.7, opacity: 0.55, duration: 0.8, repeat: -1, yoyo: true, ease: 'sine.inOut' })
+      intro.from('.hero-actions, .hero-art', { y: 24, opacity: 0, duration: 0.9, stagger: 0.12 }, '-=0.4')
       gsap.utils.toArray('.reveal-section').forEach((section, index) => gsap.from(section, {
         y: 28, opacity: 0, duration: 0.7, delay: 0.15 + index * 0.12, ease: 'power2.out',
       }))
@@ -272,30 +270,11 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (!articles.length) return
+    if (!articles.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const cards = gsap.utils.toArray('.article-card')
-    gsap.fromTo(cards, { y: 24, opacity: 0, scale: 0.985 }, { y: 0, opacity: 1, scale: 1, duration: 0.72, stagger: 0.09, ease: 'power3.out', overwrite: 'auto' })
+    if (cards.length) gsap.fromTo(cards, { y: 24, opacity: 0, scale: 0.985 }, { y: 0, opacity: 1, scale: 1, duration: 0.72, stagger: { each: 0.035, amount: 0.65 }, ease: 'power3.out', overwrite: 'auto' })
     const trendCards = gsap.utils.toArray('.trend-card')
-    gsap.fromTo(trendCards, { y: 20, opacity: 0, scale: 0.98 }, { y: 0, opacity: 1, scale: 1, duration: 0.65, stagger: 0.11, ease: 'power3.out', overwrite: 'auto' })
-  }, [articles, category, source, query, sort])
-
-  useEffect(() => {
-    const cards = gsap.utils.toArray('.article-card, .trend-card')
-    const cleanups = cards.map((card) => {
-      const enter = () => gsap.to(card, { y: -5, scale: 1.012, duration: 0.22, ease: 'power2.out', overwrite: 'auto' })
-      const leave = () => gsap.to(card, { y: 0, scale: 1, duration: 0.3, ease: 'power2.out', overwrite: 'auto' })
-      card.addEventListener('mouseenter', enter)
-      card.addEventListener('mouseleave', leave)
-      card.addEventListener('focus', enter)
-      card.addEventListener('blur', leave)
-      return () => {
-        card.removeEventListener('mouseenter', enter)
-        card.removeEventListener('mouseleave', leave)
-        card.removeEventListener('focus', enter)
-        card.removeEventListener('blur', leave)
-      }
-    })
-    return () => cleanups.forEach((cleanup) => cleanup())
+    if (trendCards.length) gsap.fromTo(trendCards, { y: 20, opacity: 0, scale: 0.98 }, { y: 0, opacity: 1, scale: 1, duration: 0.65, stagger: 0.11, ease: 'power3.out', overwrite: 'auto' })
   }, [articles, category, source, query, sort])
 
   const categories = useMemo(() => ['Toutes', ...new Set(articles.map((article) => article.category))], [articles])
@@ -312,6 +291,7 @@ export default function App() {
       <header className="site-header glass">
         <div className="wrap header-inner">
           <a className="brand" href="#top" aria-label="IA News, accueil"><span className="brand-mark">IA</span><span>IA<span className="brand-dot">•</span>News</span></a>
+          <nav className="header-nav" aria-label="Navigation principale"><a href="#trending-title">À la une</a><a href="#feed-title">Les actualités</a></nav>
           <label className="search-box"><Search size={16} aria-hidden="true" /><span className="sr-only">Rechercher dans les actualités</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher une actualité…" /></label>
           <button className="icon-button" type="button" aria-label={theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre'} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>{theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}</button>
         </div>
@@ -319,19 +299,21 @@ export default function App() {
 
       <main id="top">
         <section className="hero wrap">
-          <div className="eyebrow"><span className="live-dot" /> veille francophone · en direct</div>
-          <h1 className="hero-title">L’IA en français,<br /><span className="gradient-text">en temps réel.</span></h1>
-          <p className="hero-copy">Les idées, les annonces et les avancées qui façonnent l’intelligence artificielle. Toute l’actualité francophone, réunie au même endroit.</p>
+          <div className="eyebrow"><span className="live-dot" /> Le regard francophone sur l’intelligence artificielle</div>
+          <h1 className="hero-title">Comprendre l’IA.<br /><span className="gradient-text">Voir plus loin.</span></h1>
+          <p className="hero-copy">Les idées qui émergent. Les avancées qui comptent. Toute l’actualité de l’intelligence artificielle, dans une lecture simple et éclairée.</p>
+          <div className="hero-actions"><a className="primary-link" href="#feed-title">Explorer les actualités <ArrowUpRight size={16} aria-hidden="true" /></a><a className="text-link" href="#trending-title">Découvrir la sélection <span aria-hidden="true">›</span></a></div>
+          <div className="hero-art" aria-hidden="true"><div className="orb orb-one" /><div className="orb orb-two" /><div className="orb orb-three" /><span className="art-caption">Une nouvelle perspective.</span></div>
           <div className="hero-stats"><span><strong>{articles.length.toLocaleString('fr-FR')}</strong> articles</span><i /><span>Mis à jour <strong>{lastFetch ? new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(lastFetch) : 'au démarrage'}</strong></span><i /><span>{new Set(articles.map((article) => article.source)).size || FEEDS.length} sources</span></div>
         </section>
 
         <section className="trending wrap reveal-section" aria-labelledby="trending-title">
-          <div className="section-heading"><div><span className="section-eyebrow">SÉLECTION DU MOMENT</span><h2 id="trending-title">À la une<span className="heading-period">.</span></h2><p>Les dernières nouvelles à ne pas manquer.</p></div><span className="section-index">01 — 05</span></div>
+          <div className="section-heading"><div><span className="section-eyebrow">L’ESSENTIEL</span><h2 id="trending-title">À la une<span className="heading-period">.</span></h2><p>Les dernières nouvelles à ne pas manquer.</p></div><span className="section-index">01 — 05</span></div>
           <div className="trend-grid">{loading ? <Skeletons count={5} /> : trending.length ? trending.map((article, index) => <a className="trend-card glass" href={article.link} target="_blank" rel="noopener noreferrer" key={article.link}><span className="trend-number">0{index + 1}</span><h3>{article.title}</h3><span className="trend-source">{article.source} · {relativeDate(article.date)}</span><ArrowUpRight className="trend-arrow" size={15} aria-hidden="true" /></a>) : <div className="empty trend-empty">Les tendances apparaîtront dès réception des flux.</div>}</div>
         </section>
 
         <section className="feed-section wrap reveal-section" aria-labelledby="feed-title">
-          <div className="section-heading feed-heading"><div><span className="section-eyebrow">LE DIRECT</span><h2 id="feed-title">Le fil de l’IA<span className="heading-period">.</span></h2><p>Tout ce qui se passe, sélectionné pour vous.</p></div><span className="section-index">{String(filtered.length).padStart(2, '0')} ARTICLES</span></div>
+          <div className="section-heading feed-heading"><div><span className="section-eyebrow">LE DIRECT</span><h2 id="feed-title">Le fil de l’IA<span className="heading-period">.</span></h2><p>Votre regard sur un monde qui évolue.</p></div><span className="section-index">{String(filtered.length).padStart(2, '0')} ARTICLES</span></div>
           <div className="toolbar" aria-label="Filtres des actualités">
             <div className="chips" role="group" aria-label="Filtrer par catégorie">{categories.map((item) => <button className={`chip ${category === item ? 'active' : ''}`} type="button" aria-pressed={category === item} key={item} onClick={() => setCategory(item)}>{item}</button>)}</div>
             <label className="sr-only" htmlFor="source-filter">Filtrer par source</label><select id="source-filter" value={source} onChange={(event) => setSource(event.target.value)}><option value="all">Toutes les sources</option>{sources.map((item) => <option key={item} value={item}>{item}</option>)}</select>
