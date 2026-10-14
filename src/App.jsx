@@ -325,7 +325,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><div className="wrap footer-inner"><a className="footer-brand" href="#top"><span className="brand-mark">IA</span> IA•News</a><span>© {new Date().getFullYear()} · Une veille indépendante sur l’intelligence artificielle.</span><a className="footer-link" href="https://github.com/dev75008/ia" target="_blank" rel="noopener noreferrer">Le projet sur GitHub <ArrowUpRight size={13} /></a></div><div className="wrap footer-note">Articles issus de flux RSS publics · Les contenus appartiennent à leurs éditeurs.</div></footer>
+      <footer className="site-footer"><div className="wrap footer-inner"><a className="footer-brand" href="#top"><span className="brand-mark">IA</span> IA•News</a><span>© {new Date().getFullYear()} · Une veille indépendante sur l’intelligence artificielle.</span></div><div className="wrap footer-note">Articles issus de flux RSS publics · Les contenus appartiennent à leurs éditeurs.</div></footer>
     </div>
   )
 }
