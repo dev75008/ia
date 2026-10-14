@@ -164,7 +164,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [sort, setSort] = useState('date')
   const [theme, setTheme] = useState(() => {
-    try { return localStorage.getItem('ianews-theme') || 'light' } catch { return 'light' }
+    try { return localStorage.getItem('ianews-theme') || 'dark' } catch { return 'dark' }
   })
   const [lastFetch, setLastFetch] = useState(null)
   const [failedFeeds, setFailedFeeds] = useState(0)
@@ -243,7 +243,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#171717' : '#ffffff')
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#272727' : '#f8f5f0')
     try { localStorage.setItem('ianews-theme', theme) } catch { /* Préférence limitée à la session. */ }
   }, [theme])
 
@@ -258,7 +258,7 @@ export default function App() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const ctx = gsap.context(() => {
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
-      intro.from('.header-inner', { y: -18, opacity: 0, duration: 0.75 })
+      intro.from('.header-inner', { opacity: 0, duration: 0.75 })
         .from('.hero .eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.35')
         .from('.hero-title', { y: 32, opacity: 0, duration: 0.85 }, '-=0.25')
         .from('.hero-copy, .hero-stats', { y: 16, opacity: 0, duration: 0.55, stagger: 0.12 }, '-=0.4')
@@ -289,10 +289,10 @@ export default function App() {
 
   return (
     <div className="app-shell" ref={rootRef}>
-      <aside className="side-rail" aria-label="Repères de navigation"><span className="rail-name">VEILLE INDÉPENDANTE</span><a href="#feed-title" aria-label="Aller aux actualités"><ArrowDown size={17} /></a><span className="rail-index">FR / IA</span></aside>
+      <aside className="side-rail" aria-label="Repères de navigation"><span className="rail-name">L’IA SOUS UN NOUVEL ANGLE</span><a href="#feed-title" aria-label="Aller aux actualités"><ArrowDown size={17} /></a><span className="rail-index">FR / IA</span></aside>
       <header className="site-header">
         <div className="wrap header-inner">
-          <a className="brand" href="#top" aria-label="IA News, accueil"><span className="brand-mark">IA</span><span>IA<span className="brand-dot">•</span>News</span></a>
+          <a className="brand" href="#top" aria-label="IA News, accueil"><svg className="brand-symbol" width="45" height="34" viewBox="0 0 45 34" fill="none" aria-hidden="true"><path d="M5 28V13L22 4L39 13V28H5ZM22 4V28M5 13L22 21L39 13M12 9V24M32 9V24" stroke="currentColor" strokeWidth="1.1" /><circle cx="22" cy="4" r="2" fill="currentColor" /></svg><span className="brand-word">IA<span className="brand-dot">•</span>NEWS</span><span className="brand-tagline">REGARDS SUR DEMAIN</span></a>
           <nav id="main-navigation" className={`header-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Navigation principale"><a href="#top" onClick={() => setMenuOpen(false)}>Accueil</a><a href="#trending-title" onClick={() => setMenuOpen(false)}>À la une</a><a href="#feed-title" onClick={() => setMenuOpen(false)}>Les actualités</a></nav>
           <label className="search-box"><Search size={16} aria-hidden="true" /><span className="sr-only">Rechercher dans les actualités</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher une actualité…" /></label>
           <button className="icon-button" type="button" aria-label={theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre'} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>{theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}</button>
@@ -305,24 +305,29 @@ export default function App() {
           <div className="hero-backdrop" aria-hidden="true" />
           <div className="hero-frame" aria-hidden="true" />
           <div className="hero-content">
-            <div className="eyebrow">Intelligence artificielle / Regards francophones</div>
-            <h1 id="hero-title" className="hero-title">IA<span className="hero-dot">•</span>NEWS</h1>
-            <p className="hero-subtitle">LE MONDE CHANGE. COMPRENEZ POURQUOI.</p>
-            <p className="hero-copy">Les idées, les talents et les avancées qui dessinent notre avenir. Une autre perspective sur l’intelligence artificielle.</p>
+            <div className="eyebrow">L’INTELLIGENCE ARTIFICIELLE, AUTREMENT</div>
+            <h1 id="hero-title" className="hero-title">L’intelligence<br />qui façonne<br /><span>demain.</span></h1>
+            <p className="hero-subtitle">LES IDÉES D’AUJOURD’HUI. LE MONDE DE DEMAIN.</p>
+            <p className="hero-copy">Découvrez les avancées, les talents et les idées qui transforment notre monde. Toute l’actualité de l’IA, en français.</p>
             <div className="hero-actions"><a className="primary-link" href="#feed-title">Explorer les actualités <ArrowUpRight size={17} aria-hidden="true" /></a></div>
           </div>
-          <div className="hero-caption"><span>01 / UNE NOUVELLE PERSPECTIVE</span><span>TECHNOLOGIE · RECHERCHE · SOCIÉTÉ</span></div>
+          <div className="hero-caption"><span>IA•NEWS / VEILLE FRANCOPHONE</span><span>TECHNOLOGIE · RECHERCHE · SOCIÉTÉ</span></div>
           <a className="hero-scroll" href="#trending-title" aria-label="Découvrir la sélection"><ArrowDown size={20} /></a>
         </section>
         <div className="edition-bar wrap"><span className="edition-label">L’ÉDITION IA•NEWS</span><div className="hero-stats"><span><strong>{articles.length.toLocaleString('fr-FR')}</strong> articles</span><i /><span>Mis à jour <strong>{lastFetch ? new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(lastFetch) : 'au démarrage'}</strong></span><i /><span>{new Set(articles.map((article) => article.source)).size || FEEDS.length} sources</span></div></div>
 
+        <section className="intro-section wrap reveal-section" aria-labelledby="intro-title">
+          <div><span className="section-eyebrow">LE REGARD IA•NEWS</span><h2 id="intro-title">Comprendre.<br /><span>Voir plus loin.</span></h2></div>
+          <div className="intro-copy"><p>L’intelligence artificielle redessine nos façons de créer, de travailler et de penser. Nous réunissons les regards francophones pour vous aider à suivre ce mouvement.</p><p>Recherche, modèles génératifs, entreprises et société : explorez les sujets qui comptent, à votre rythme.</p><a className="intro-link" href="#feed-title">Découvrir le fil <ArrowUpRight size={16} aria-hidden="true" /></a></div>
+        </section>
+
         <section className="trending wrap reveal-section" data-section="01" aria-labelledby="trending-title">
-          <div className="section-heading"><div><span className="section-eyebrow">L’ESSENTIEL</span><h2 id="trending-title">À la une<span className="heading-period">.</span></h2><p>Les dernières nouvelles à ne pas manquer.</p></div><span className="section-index">01 — 05</span></div>
-          <div className="trend-grid">{loading ? <Skeletons count={5} /> : trending.length ? trending.map((article, index) => <a className="trend-card" href={article.link} target="_blank" rel="noopener noreferrer" key={article.link}><span className="trend-number">0{index + 1}</span><h3>{article.title}</h3><span className="trend-source">{article.source} · {relativeDate(article.date)}</span><ArrowUpRight className="trend-arrow" size={15} aria-hidden="true" /></a>) : <div className="empty trend-empty">Les tendances apparaîtront dès réception des flux.</div>}</div>
+          <div className="section-heading"><div><span className="section-eyebrow">L’ESSENTIEL</span><h2 id="trending-title">À la <span className="heading-accent">une</span></h2><p>Les dernières nouvelles à ne pas manquer.</p></div><span className="section-index">01 — 05</span></div>
+          <div className="trend-grid">{loading ? <Skeletons count={5} /> : trending.length ? trending.map((article, index) => <a className="trend-card" href={article.link} target="_blank" rel="noopener noreferrer" key={article.link}><div className="trend-media" aria-hidden="true">{article.image ? <img src={article.image} alt="" loading="lazy" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none' }} /> : <Sparkles size={38} strokeWidth={1} />}</div><span className="trend-number">0{index + 1}</span><h3>{article.title}</h3><span className="trend-source">{article.source} · {relativeDate(article.date)}</span><ArrowUpRight className="trend-arrow" size={15} aria-hidden="true" /></a>) : <div className="empty trend-empty">Les tendances apparaîtront dès réception des flux.</div>}</div>
         </section>
 
         <section className="feed-section wrap reveal-section" data-section="02" aria-labelledby="feed-title">
-          <div className="section-heading feed-heading"><div><span className="section-eyebrow">LE DIRECT</span><h2 id="feed-title">Le fil de l’IA<span className="heading-period">.</span></h2><p>Votre regard sur un monde qui évolue.</p></div><span className="section-index">{String(filtered.length).padStart(2, '0')} ARTICLES</span></div>
+          <div className="section-heading feed-heading"><div><span className="section-eyebrow">LE DIRECT</span><h2 id="feed-title">Le fil de <span className="heading-accent">l’IA</span></h2><p>Votre regard sur un monde qui évolue.</p></div><span className="section-index">{String(filtered.length).padStart(2, '0')} ARTICLES</span></div>
           <div className="toolbar" aria-label="Filtres des actualités">
             <div className="chips" role="group" aria-label="Filtrer par catégorie">{categories.map((item) => <button className={`chip ${category === item ? 'active' : ''}`} type="button" aria-pressed={category === item} key={item} onClick={() => setCategory(item)}>{item}</button>)}</div>
             <label className="sr-only" htmlFor="source-filter">Filtrer par source</label><select id="source-filter" value={source} onChange={(event) => setSource(event.target.value)}><option value="all">Toutes les sources</option>{sources.map((item) => <option key={item} value={item}>{item}</option>)}</select>

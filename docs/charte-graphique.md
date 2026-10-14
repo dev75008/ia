@@ -1,35 +1,34 @@
-# IA•News — Direction Monolit
+# IA•News — Direction Bauen
 
-Référence visuelle : [Monolit, template d’architecture de KWST](https://preview.themeforest.net/item/monolit-responsive-architecture-template/full_screen_preview/14957568). Adaptation originale en React : aucun code, photographie ou logo du template commercial n’est intégré.
-
-## Identité
-
-Une composition architecturale : grande entrée visuelle, navigation anthracite, rail vertical sur ordinateur, titres espacés, traits fins et sections numérotées. Le nom IA•News et le contenu éditorial restent au centre du site.
+Référence : [Bauen, Architecture & Interior Template de DuruThemes](https://preview.themeforest.net/item/bauen-architecture-interior-template/full_screen_preview/30110777), variante sombre. L’interface React est une adaptation originale : les fichiers commerciaux, logos et photographies du template ne sont pas intégrés.
 
 ## Palette
 
-| Usage | Clair | Sombre |
+| Usage | Sombre, par défaut | Clair |
 | --- | --- | --- |
-| Fond éditorial | `#ffffff` | `#171717` |
-| Surface secondaire | `#f6f6f6` | `#222222` |
-| Texte | `#242424` | `#f5f5f5` |
-| Texte secondaire | `#646464` | `#b3b3b3` |
-| Séparateurs | `#dddddd` | `#414141` |
-| Navigation et pied de page | `#1b1b1b` | Identique |
-| Accent du logo | `#b5a38c` | Identique |
+| Fond | `#272727` | `#f8f5f0` |
+| Cartes | `#303030` | `#eee9e2` |
+| Texte | `#ffffff` | `#35312d` |
+| Texte secondaire | `#b4b4b4` | `#68615a` |
+| Accent sable | `#b19777` | `#816443` |
+| Rail, logo et pied de page | `#202020` | Identique |
 
-## Typographie et mise en page
+## Typographie
 
-Arial, Helvetica et sans-serif système : aucune police distante requise. Grand titre de 40 à 120 px, capitales espacées. Sous-titres de 10 à 12 px avec un espacement de 2 à 5 px. Titres éditoriaux légers de 29 à 38 px ; titres d’articles de 21 à 22 px.
+Oswald pour les titres, le logo et les libellés ; Didact Gothic pour la lecture. Polices stockées localement dans `public/fonts` avec leurs licences SIL Open Font License. Titres légers en capitales espacées ; grand titre de 34 à 65 px, titres de section de 29 à 40 px. Texte courant de 15 à 17 px. Aucun appel à Google Fonts à l’exécution.
 
-Largeur maximale : 1200 px. Rail latéral : 72 px sur ordinateur. Navigation : 86 px, réduite à 74 px sur mobile. Éléments rectangulaires, bordures fines, cartes sans ombres ni arrondis. Articles en trois, deux ou une colonne suivant la largeur. Sélection horizontale sur mobile.
+## Composition
 
-## Visuel
+Grande photographie architecturale avec voile sombre, texte aligné à droite. Logo dans un bloc carré anthracite et rail vertical discret sur ordinateur. Sections de présentation et de sélection, cartes visuelles rectangulaires et fil en trois, deux ou une colonne. Accent sable réservé aux repères, catégories et liens. Menu repliable et sélection horizontale sur mobile.
 
-`public/images/architecture.svg` est une illustration architecturale originale, locale, utilisée comme décor. Le voile sombre assure la lisibilité des textes. Les photos d’articles passent d’une saturation discrète à leur couleur d’origine au survol.
+## Visuel et sources
+
+Photographie stockée localement dans `public/images/architecture.jpg` : [image Unsplash](https://images.unsplash.com/photo-1600585154340-be6161a56a0c), utilisée sous la [licence Unsplash](https://unsplash.com/license). Elle est décorative et ne représente pas un article. L’ancienne illustration Monolit est retirée.
+
+Oswald et Didact Gothic proviennent du dépôt officiel [Google Fonts](https://github.com/google/fonts), dossiers `ofl/oswald` et `ofl/didactgothic`. Licences conservées aux côtés des fichiers.
 
 ## UX et mouvement
 
-La recherche, les catégories, les sources, le tri et l’actualisation sont conservés. Menu mobile avec état ouvert/fermé annoncé aux technologies d’assistance. Focus clavier visible. Thèmes clair/sombre et préférence locale conservés.
+Recherche, catégories, sources, tri et actualisation conservés. Thème sombre par défaut ; une préférence de thème déjà choisie reste respectée. Menu mobile annoncé avec `aria-expanded`, focus clavier visible, titre principal unique et liens descriptifs.
 
-Entrées progressives GSAP et léger zoom des photos au survol. Les animations se désactivent avec `prefers-reduced-motion`. Aucun carrousel automatique ni vidéo décorative. Le lien GitHub reste absent du pied de page.
+Animations GSAP d’entrée et zoom léger des images au survol. Réduction des mouvements prise en charge en CSS et JavaScript. Pas de défilement automatique ni de vidéo décorative. Aucun lien GitHub dans le pied de page.
