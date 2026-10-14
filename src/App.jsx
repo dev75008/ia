@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { ArrowUpRight, Clock3, LoaderCircle, Moon, RefreshCw, Search, Sun, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Clock3, LoaderCircle, Moon, RefreshCw, Search, Sun, Sparkles, Menu, X, ArrowDown } from 'lucide-react'
 
 
 // Ajoutez, retirez ou modifiez les sources dans cette liste.
@@ -161,6 +161,7 @@ export default function App() {
   const [category, setCategory] = useState('Toutes')
   const [source, setSource] = useState('all')
   const [query, setQuery] = useState('')
+  const [menuOpen, setMenuOpen] = useState(false)
   const [sort, setSort] = useState('date')
   const [theme, setTheme] = useState(() => {
     try { return localStorage.getItem('ianews-theme') || 'light' } catch { return 'light' }
@@ -242,7 +243,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#101012' : '#f5f5f7')
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#171717' : '#ffffff')
     try { localStorage.setItem('ianews-theme', theme) } catch { /* Préférence limitée à la session. */ }
   }, [theme])
 
@@ -261,7 +262,7 @@ export default function App() {
         .from('.hero .eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.35')
         .from('.hero-title', { y: 32, opacity: 0, duration: 0.85 }, '-=0.25')
         .from('.hero-copy, .hero-stats', { y: 16, opacity: 0, duration: 0.55, stagger: 0.12 }, '-=0.4')
-      intro.from('.hero-actions, .hero-art', { y: 24, opacity: 0, duration: 0.9, stagger: 0.12 }, '-=0.4')
+      intro.from('.hero-actions, .hero-caption', { y: 24, opacity: 0, duration: 0.9, stagger: 0.12 }, '-=0.4')
       gsap.utils.toArray('.reveal-section').forEach((section, index) => gsap.from(section, {
         y: 28, opacity: 0, duration: 0.7, delay: 0.15 + index * 0.12, ease: 'power2.out',
       }))
@@ -288,31 +289,39 @@ export default function App() {
 
   return (
     <div className="app-shell" ref={rootRef}>
-      <header className="site-header glass">
+      <aside className="side-rail" aria-label="Repères de navigation"><span className="rail-name">VEILLE INDÉPENDANTE</span><a href="#feed-title" aria-label="Aller aux actualités"><ArrowDown size={17} /></a><span className="rail-index">FR / IA</span></aside>
+      <header className="site-header">
         <div className="wrap header-inner">
           <a className="brand" href="#top" aria-label="IA News, accueil"><span className="brand-mark">IA</span><span>IA<span className="brand-dot">•</span>News</span></a>
-          <nav className="header-nav" aria-label="Navigation principale"><a href="#trending-title">À la une</a><a href="#feed-title">Les actualités</a></nav>
+          <nav id="main-navigation" className={`header-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Navigation principale"><a href="#top" onClick={() => setMenuOpen(false)}>Accueil</a><a href="#trending-title" onClick={() => setMenuOpen(false)}>À la une</a><a href="#feed-title" onClick={() => setMenuOpen(false)}>Les actualités</a></nav>
           <label className="search-box"><Search size={16} aria-hidden="true" /><span className="sr-only">Rechercher dans les actualités</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher une actualité…" /></label>
           <button className="icon-button" type="button" aria-label={theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre'} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>{theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}</button>
+          <button className="menu-button" type="button" aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={21} /> : <Menu size={21} />}</button>
         </div>
       </header>
 
       <main id="top">
-        <section className="hero wrap">
-          <div className="eyebrow"><span className="live-dot" /> Le regard francophone sur l’intelligence artificielle</div>
-          <h1 className="hero-title">Comprendre l’IA.<br /><span className="gradient-text">Voir plus loin.</span></h1>
-          <p className="hero-copy">Les idées qui émergent. Les avancées qui comptent. Toute l’actualité de l’intelligence artificielle, dans une lecture simple et éclairée.</p>
-          <div className="hero-actions"><a className="primary-link" href="#feed-title">Explorer les actualités <ArrowUpRight size={16} aria-hidden="true" /></a><a className="text-link" href="#trending-title">Découvrir la sélection <span aria-hidden="true">›</span></a></div>
-          <div className="hero-art" aria-hidden="true"><div className="orb orb-one" /><div className="orb orb-two" /><div className="orb orb-three" /><span className="art-caption">Une nouvelle perspective.</span></div>
-          <div className="hero-stats"><span><strong>{articles.length.toLocaleString('fr-FR')}</strong> articles</span><i /><span>Mis à jour <strong>{lastFetch ? new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(lastFetch) : 'au démarrage'}</strong></span><i /><span>{new Set(articles.map((article) => article.source)).size || FEEDS.length} sources</span></div>
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-backdrop" aria-hidden="true" />
+          <div className="hero-frame" aria-hidden="true" />
+          <div className="hero-content">
+            <div className="eyebrow">Intelligence artificielle / Regards francophones</div>
+            <h1 id="hero-title" className="hero-title">IA<span className="hero-dot">•</span>NEWS</h1>
+            <p className="hero-subtitle">LE MONDE CHANGE. COMPRENEZ POURQUOI.</p>
+            <p className="hero-copy">Les idées, les talents et les avancées qui dessinent notre avenir. Une autre perspective sur l’intelligence artificielle.</p>
+            <div className="hero-actions"><a className="primary-link" href="#feed-title">Explorer les actualités <ArrowUpRight size={17} aria-hidden="true" /></a></div>
+          </div>
+          <div className="hero-caption"><span>01 / UNE NOUVELLE PERSPECTIVE</span><span>TECHNOLOGIE · RECHERCHE · SOCIÉTÉ</span></div>
+          <a className="hero-scroll" href="#trending-title" aria-label="Découvrir la sélection"><ArrowDown size={20} /></a>
         </section>
+        <div className="edition-bar wrap"><span className="edition-label">L’ÉDITION IA•NEWS</span><div className="hero-stats"><span><strong>{articles.length.toLocaleString('fr-FR')}</strong> articles</span><i /><span>Mis à jour <strong>{lastFetch ? new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(lastFetch) : 'au démarrage'}</strong></span><i /><span>{new Set(articles.map((article) => article.source)).size || FEEDS.length} sources</span></div></div>
 
-        <section className="trending wrap reveal-section" aria-labelledby="trending-title">
+        <section className="trending wrap reveal-section" data-section="01" aria-labelledby="trending-title">
           <div className="section-heading"><div><span className="section-eyebrow">L’ESSENTIEL</span><h2 id="trending-title">À la une<span className="heading-period">.</span></h2><p>Les dernières nouvelles à ne pas manquer.</p></div><span className="section-index">01 — 05</span></div>
-          <div className="trend-grid">{loading ? <Skeletons count={5} /> : trending.length ? trending.map((article, index) => <a className="trend-card glass" href={article.link} target="_blank" rel="noopener noreferrer" key={article.link}><span className="trend-number">0{index + 1}</span><h3>{article.title}</h3><span className="trend-source">{article.source} · {relativeDate(article.date)}</span><ArrowUpRight className="trend-arrow" size={15} aria-hidden="true" /></a>) : <div className="empty trend-empty">Les tendances apparaîtront dès réception des flux.</div>}</div>
+          <div className="trend-grid">{loading ? <Skeletons count={5} /> : trending.length ? trending.map((article, index) => <a className="trend-card" href={article.link} target="_blank" rel="noopener noreferrer" key={article.link}><span className="trend-number">0{index + 1}</span><h3>{article.title}</h3><span className="trend-source">{article.source} · {relativeDate(article.date)}</span><ArrowUpRight className="trend-arrow" size={15} aria-hidden="true" /></a>) : <div className="empty trend-empty">Les tendances apparaîtront dès réception des flux.</div>}</div>
         </section>
 
-        <section className="feed-section wrap reveal-section" aria-labelledby="feed-title">
+        <section className="feed-section wrap reveal-section" data-section="02" aria-labelledby="feed-title">
           <div className="section-heading feed-heading"><div><span className="section-eyebrow">LE DIRECT</span><h2 id="feed-title">Le fil de l’IA<span className="heading-period">.</span></h2><p>Votre regard sur un monde qui évolue.</p></div><span className="section-index">{String(filtered.length).padStart(2, '0')} ARTICLES</span></div>
           <div className="toolbar" aria-label="Filtres des actualités">
             <div className="chips" role="group" aria-label="Filtrer par catégorie">{categories.map((item) => <button className={`chip ${category === item ? 'active' : ''}`} type="button" aria-pressed={category === item} key={item} onClick={() => setCategory(item)}>{item}</button>)}</div>
