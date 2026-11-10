@@ -1,345 +1,618 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { ArrowUpRight, Clock3, LoaderCircle, Moon, RefreshCw, Search, Sun, Sparkles, Menu, X, ArrowDown } from 'lucide-react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {
+  ArrowDown, ArrowUpRight, Clock3, Globe2, Layers3, LoaderCircle, Menu,
+  Moon, Search, Sun, X,
+} from 'lucide-react'
 
+gsap.registerPlugin(ScrollTrigger)
 
-// Ajoutez, retirez ou modifiez les sources dans cette liste.
-const FEEDS = [
-  { name: 'Le Monde Informatique', url: 'https://www.lemondeinformatique.fr/flux-rss/thematique/intelligence-artificielle/rss.xml' },
-  { name: 'Journal du Net', url: 'https://www.journaldunet.com/intelligence-artificielle/rss/' },
-  { name: 'L’Usine Digitale', url: 'https://www.usine-digitale.fr/rss' },
-  { name: 'ActuIA', url: 'https://www.actuia.com/feed/' },
-  { name: 'Siècle Digital', url: 'https://siecledigital.fr/feed/' },
-  { name: 'Numerama', url: 'https://www.numerama.com/feed/' },
-  { name: 'LeBigData', url: 'https://www.lebigdata.fr/feed' },
-  { name: 'Numerama · IA', url: 'https://www.numerama.com/tag/intelligence-artificielle/feed/' },
-]
-const CACHE_KEY = 'ianews-react-feed-v2'
-const CACHE_TTL = 15 * 60 * 1000
-const REFRESH_MS = 15 * 60 * 1000
-const AI_RELEVANCE = /\bIA\b|intelligence artificielle|ia générative|ia agentique|chatgpt|openai|anthropic|mistral|gemini|llama|copilot|gpt-[\w.]+|modèle[s]? de langage|large language model|\bllm\b|machine learning|apprentissage automatique|deep learning|robotique|humanoïde|agent[s]? intelligent[s]?/i
+const SNAPSHOT_URL = `${import.meta.env.BASE_URL}feed-snapshot.json`
+const POLL_MS = 5 * 60 * 1000
+const PAGE_SIZE = 36
+const CATEGORY_ORDER = ['Modèles', 'Régulation', 'Recherche', 'Entreprise', 'Robotique', 'Société', 'Matériel', 'Sécurité', 'Actualité']
 
-function clean(value = '') {
-  const node = document.createElement('div')
-  node.innerHTML = value
-  return (node.textContent || node.innerText || '').replace(/\s+/g, ' ').trim()
+const LANGUAGE_NAMES = {
+  fr: 'Français', en: 'Anglais', es: 'Espagnol', de: 'Allemand', it: 'Italien',
+  pt: 'Portugais', nl: 'Néerlandais', ja: 'Japonais', zh: 'Chinois', ko: 'Coréen',
+  ru: 'Russe', ar: 'Arabe', tr: 'Turc', pl: 'Polonais', sv: 'Suédois',
 }
 
-function safeUrl(value = '') {
-  try {
-    const url = new URL(value)
-    return ['http:', 'https:'].includes(url.protocol) ? url.href : ''
-  } catch {
-    return ''
-  }
-}
-
-function categorize(text) {
-  const value = text.toLowerCase()
-  if (/réglement|régul|loi|ai act|législat|éthique|droit|commission européenne/.test(value)) return 'Régulation'
-  if (/robot|humanoïde|autonom|drone|robotique/.test(value)) return 'Robotique'
-  if (/recherche|chercheur|étude|scientifi|université|laboratoire|modèle de langage|llm/.test(value)) return 'Recherche'
-  if (/entreprise|invest|startup|levée|acquisition|partenariat|déploi|emploi|marché/.test(value)) return 'Entreprise'
-  if (/générat|chatgpt|openai|anthropic|mistral|gemini|llama|image|vidéo|copilot|gpt-/.test(value)) return 'Modèles génératifs'
-  return 'Actualité'
-}
-
-function parseItem(item, feed) {
-  const title = clean(item.title)
-  const link = safeUrl(item.link || item.guid)
-  if (!title || !link) return null
-  const description = clean(item.description || item.content || item['content:encoded'] || '').slice(0, 420)
-  if (!AI_RELEVANCE.test(`${title} ${description}`)) return null
-  const dateValue = item.pubDate || item.isoDate || item.date
-  const date = dateValue && Number.isFinite(new Date(dateValue).getTime()) ? new Date(dateValue) : new Date(0)
-  let image = safeUrl(item.thumbnail || item.enclosure?.link || '')
-  if (!image) {
-    const match = (item.description || item.content || '').match(/<img[^>]+src=["']([^"']+)/i)
-    if (match) image = safeUrl(match[1])
-  }
-  return { title, link, description, date: date.toISOString(), source: feed.name, feedUrl: feed.url, image, category: categorize(`${title} ${description}`) }
-}
-
-function parseXml(xml, feed) {
-  const doc = new DOMParser().parseFromString(xml, 'text/xml')
-  if (doc.querySelector('parsererror')) throw new Error('Flux RSS invalide')
-  return [...doc.querySelectorAll('item, entry')].map((el) => {
-    const get = (name) => el.querySelector(name)?.textContent || ''
-    const link = el.querySelector('link')?.getAttribute('href') || get('link')
-    const enclosure = el.querySelector('enclosure')?.getAttribute('url') || el.querySelector('media\\:content, content')?.getAttribute('url') || ''
-    return parseItem({
-      title: get('title'), link, description: get('description') || get('summary') || get('content:encoded') || get('content'),
-      pubDate: get('pubDate') || get('published') || get('updated'), thumbnail: enclosure,
-    }, feed)
-  }).filter(Boolean)
-}
-
-async function fetchFeed(feed) {
-  const target = encodeURIComponent(feed.url)
-  const proxies = [
-    `https://api.rss2json.com/v1/api.json?rss_url=${target}`,
-    `https://api.allorigins.win/raw?url=${target}`,
-  ]
-  for (const proxy of proxies) {
-    const controller = new AbortController()
-    const timeout = setTimeout(() => controller.abort(), 9500)
-    try {
-      const response = await fetch(proxy, { signal: controller.signal, cache: 'no-store' })
-      if (!response.ok) throw new Error(`HTTP ${response.status}`)
-      const contentType = response.headers.get('content-type') || ''
-      const body = await response.text()
-      if (proxy.includes('rss2json')) {
-        const data = JSON.parse(body)
-        if (data.status !== 'ok' || !Array.isArray(data.items)) throw new Error('RSS indisponible')
-        return data.items.map((item) => parseItem(item, feed)).filter(Boolean)
-      }
-      if (contentType.includes('json')) {
-        const data = JSON.parse(body)
-        if (data.contents) return parseXml(data.contents, feed)
-      }
-      return parseXml(body, feed)
-    } catch {
-      // Le proxy suivant est essayé ; un flux défaillant n’interrompt pas la veille.
-    } finally {
-      clearTimeout(timeout)
-    }
-  }
-  throw new Error('Tous les proxys sont indisponibles')
+function languageName(code) {
+  return LANGUAGE_NAMES[code] || (code ? code.toUpperCase() : '—')
 }
 
 function relativeDate(value) {
-  const minutes = Math.floor(Math.max(0, Date.now() - new Date(value).getTime()) / 60000)
+  const time = new Date(value).getTime()
+  if (!Number.isFinite(time) || time <= 0) return 'date inconnue'
+  const minutes = Math.floor(Math.max(0, Date.now() - time) / 60000)
   if (minutes < 1) return "à l'instant"
   if (minutes < 60) return `il y a ${minutes} min`
   const hours = Math.floor(minutes / 60)
   if (hours < 24) return `il y a ${hours} h`
   const days = Math.floor(hours / 24)
   if (days < 30) return `il y a ${days} j`
-  return new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short' }).format(new Date(value))
+  return new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short' }).format(time)
 }
 
-function faviconFor(feedUrl) {
-  try { return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(new URL(feedUrl).hostname)}&sz=64` } catch { return '' }
+function clockLabel(date) {
+  if (!date) return '—'
+  return new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(date)
 }
 
-async function getStaticSnapshot() {
-  const response = await fetch(`${import.meta.env.BASE_URL}feed-snapshot.json?v=${Date.now()}`, { cache: 'no-store' })
-  if (!response.ok) throw new Error(`Snapshot indisponible (${response.status})`)
-  const data = await response.json()
-  if (!Array.isArray(data.articles)) throw new Error('Snapshot RSS invalide')
-  return data
+function readMinutes(text = '') {
+  return Math.max(1, Math.ceil(text.split(/\s+/).length / 200))
 }
 
-function Skeletons({ count = 6 }) {
-  return Array.from({ length: count }, (_, index) => <div className="skeleton" key={index} aria-hidden="true" />)
-}
-
-function ArticleCard({ article }) {
-  const [imageFailed, setImageFailed] = useState(false)
-  const readMinutes = Math.max(1, Math.ceil(article.description.split(/\s+/).length / 200))
+function CardMedia({ image, title, translated }) {
+  const [broken, setBroken] = useState(false)
   return (
-    <a className="article-card" href={article.link} target="_blank" rel="noopener noreferrer" aria-label={`${article.title} — lire chez ${article.source}`}>
-      <div className="article-media">
-        {article.image && !imageFailed
-          ? <img src={article.image} alt="" loading="lazy" referrerPolicy="no-referrer" onError={() => setImageFailed(true)} />
-          : <div className="media-placeholder"><Sparkles size={30} strokeWidth={1.4} aria-hidden="true" /></div>}
-        <span className="source-badge"><img src={faviconFor(article.feedUrl)} alt="" loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none' }} />{article.source}</span>
-        <ArrowUpRight className="card-arrow" size={18} aria-hidden="true" />
-      </div>
-      <div className="article-body">
-        <div className="article-kicker"><span className="category">{article.category}</span><time dateTime={article.date}>{relativeDate(article.date)}</time></div>
-        <h3>{article.title}</h3>
-        <p className="excerpt">{article.description || 'Découvrez les détails de cette actualité sur le site de la source.'}</p>
-        <div className="article-bottom"><span>{article.source}</span><span className="read-time"><Clock3 size={13} /> {readMinutes} min</span></div>
+    <div className={`card-media${broken || !image ? ' is-fallback' : ''}`}>
+      {!broken && image ? (
+        <img src={image} alt="" loading="lazy" referrerPolicy="no-referrer" onError={() => setBroken(true)} />
+      ) : (
+        <span className="media-glyph" aria-hidden="true">{title.slice(0, 1)}</span>
+      )}
+      {translated ? <span className="lang-flag">traduit</span> : null}
+    </div>
+  )
+}
+
+function ArticleCard({ article, index }) {
+  return (
+    <a className="article-card" href={article.link} target="_blank" rel="noopener noreferrer" style={{ '--i': index }}>
+      <CardMedia image={article.image} title={article.title} translated={article.translated} />
+      <div className="card-body">
+        <div className="card-meta">
+          <span className="card-category">{article.category}</span>
+          <span className="card-time"><Clock3 size={12} aria-hidden="true" />{relativeDate(article.date)}</span>
+        </div>
+        <h3 className="card-title">{article.title}</h3>
+        {article.description ? <p className="card-excerpt">{article.description}</p> : null}
+        <div className="card-foot">
+          <span className="card-source">
+            {article.translated ? `${languageName(article.sourceLang)} → FR` : article.source}
+          </span>
+          <span className="card-read">{readMinutes(article.description || article.title)} min</span>
+          <ArrowUpRight className="card-arrow" size={15} aria-hidden="true" />
+        </div>
       </div>
     </a>
   )
 }
 
-export default function App() {
-  const [articles, setArticles] = useState([])
-  const [category, setCategory] = useState('Toutes')
-  const [source, setSource] = useState('all')
-  const [query, setQuery] = useState('')
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [sort, setSort] = useState('date')
-  const [theme, setTheme] = useState(() => {
-    try { return localStorage.getItem('ianews-theme') || 'dark' } catch { return 'dark' }
-  })
-  const [lastFetch, setLastFetch] = useState(null)
-  const [failedFeeds, setFailedFeeds] = useState(0)
-  const [loading, setLoading] = useState(true)
-  const [fetching, setFetching] = useState(false)
-  const [status, setStatus] = useState('Chargement des flux d’actualité…')
-  const rootRef = useRef(null)
-  const refreshRef = useRef(null)
-  const fetchingRef = useRef(false)
+function SkeletonGrid({ count = 6 }) {
+  return Array.from({ length: count }, (_, index) => <div className="skeleton" key={index} aria-hidden="true" />)
+}
 
-  const loadFeeds = useCallback(async (force = false) => {
-    if (fetchingRef.current) return
-    fetchingRef.current = true
-    setFetching(true)
-    setStatus('Récupération des dernières actualités…')
-    if (!force) {
-      try {
-        const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null')
-        if (cached && Date.now() - cached.saved < CACHE_TTL && Array.isArray(cached.articles) && cached.articles.length) {
-          setArticles(cached.articles)
-          setLastFetch(cached.saved)
-          setFailedFeeds(cached.failed || 0)
-          setLoading(false)
-          setStatus(cached.failed ? `Cache local · ${cached.failed} flux indisponible${cached.failed > 1 ? 's' : ''}.` : '')
-          setFetching(false)
-          fetchingRef.current = false
-          return
-        }
-      } catch { /* Cache absent ou invalide : on recharge les sources. */ }
-      try {
-        const snapshot = await getStaticSnapshot()
-        if (snapshot.articles.length) {
-          setArticles(snapshot.articles)
-          setLastFetch(snapshot.updatedAt ? new Date(snapshot.updatedAt).getTime() : Date.now())
-          setLoading(false)
-          setStatus('Édition récente · synchronisation des flux en direct…')
-        }
-      } catch { /* Les proxys directs peuvent encore fournir les actualités. */ }
+function useSnapshot() {
+  const [snapshot, setSnapshot] = useState(null)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
+
+  const load = useCallback(async (foreground = false) => {
+    if (foreground) setRefreshing(true)
+    try {
+      const response = await fetch(`${SNAPSHOT_URL}?v=${Date.now()}`, { cache: 'no-store' })
+      if (!response.ok) throw new Error(`HTTP ${response.status}`)
+      const data = await response.json()
+      if (!Array.isArray(data.articles)) throw new Error('snapshot invalide')
+      setSnapshot(data)
+      setError('')
+    } catch (cause) {
+      setError(cause.message || 'snapshot indisponible')
+    } finally {
+      setLoading(false)
+      if (foreground) setRefreshing(false)
     }
-    const results = await Promise.allSettled(FEEDS.map(fetchFeed))
-    let failures = 0
-    const collected = []
-    results.forEach((result) => {
-      if (result.status === 'fulfilled') collected.push(...result.value)
-      else failures += 1
-    })
-    const seen = new Set()
-    let merged = collected.filter((article) => {
-      const key = (article.link || article.title).toLowerCase().replace(/[?#].*$/, '').replace(/\/$/, '')
-      if (seen.has(key)) return false
-      seen.add(key)
-      return true
-    }).sort((a, b) => new Date(b.date) - new Date(a.date))
-    let usedSnapshot = false
-    if (!merged.length) {
-      try {
-        const snapshot = await getStaticSnapshot()
-        if (snapshot.articles.length) {
-          merged = snapshot.articles
-          usedSnapshot = true
-        }
-      } catch { /* Le site reste utilisable même si le snapshot statique n’est pas disponible. */ }
-    }
-    const saved = Date.now()
-    setArticles(merged)
-    setLastFetch(saved)
-    setFailedFeeds(failures)
-    setLoading(false)
-    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ saved, articles: merged, failed: failures })) } catch { /* Le site continue sans cache si le stockage est plein. */ }
-    setStatus(merged.length
-      ? usedSnapshot ? 'Flux en direct momentanément indisponibles · affichage de la dernière édition.' : ''
-      : `Impossible de charger les flux d’actualité (${failures || FEEDS.length} sources). Réessayez ou revenez dans quelques minutes.`)
-    setFetching(false)
-    fetchingRef.current = false
   }, [])
 
   useEffect(() => {
+    load()
+    const timer = window.setInterval(() => load(), POLL_MS)
+    return () => window.clearInterval(timer)
+  }, [load])
+
+  return { snapshot, error, loading, refreshing, reload: () => load(true) }
+}
+
+function CountUp({ value, suffix = '' }) {
+  const ref = useRef(null)
+  useEffect(() => {
+    const node = ref.current
+    if (!node) return undefined
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const target = Number(value) || 0
+    if (reduce) {
+      node.textContent = target.toLocaleString('fr-FR')
+      return undefined
+    }
+    const state = { value: 0 }
+    const tween = gsap.to(state, {
+      value: target,
+      duration: 1.1,
+      ease: 'power2.out',
+      onUpdate: () => { node.textContent = Math.round(state.value).toLocaleString('fr-FR') },
+    })
+    return () => tween.kill()
+  }, [value])
+  return <span ref={ref}>0</span>
+}
+
+export default function App() {
+  const { snapshot, error, loading, refreshing, reload } = useSnapshot()
+  const [category, setCategory] = useState('Toutes')
+  const [source, setSource] = useState('all')
+  const [scope, setScope] = useState('all')
+  const [query, setQuery] = useState('')
+  const [sort, setSort] = useState('date')
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [visible, setVisible] = useState(PAGE_SIZE)
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('ianews-theme') || 'dark' } catch { return 'dark' }
+  })
+  const [now, setNow] = useState(() => Date.now())
+
+  const rootRef = useRef(null)
+  const searchRef = useRef(null)
+
+  const articles = useMemo(() => (Array.isArray(snapshot?.articles) ? snapshot.articles : []), [snapshot])
+  const sources = useMemo(() => (Array.isArray(snapshot?.sources) ? snapshot.sources : []), [snapshot])
+  const updatedAt = snapshot?.updatedAt ? new Date(snapshot.updatedAt) : null
+
+  useEffect(() => {
     document.documentElement.dataset.theme = theme
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#272727' : '#f8f5f0')
-    try { localStorage.setItem('ianews-theme', theme) } catch { /* Préférence limitée à la session. */ }
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0b0b0c' : '#f3efe7')
+    try { localStorage.setItem('ianews-theme', theme) } catch { /* session only */ }
   }, [theme])
 
   useEffect(() => {
-    loadFeeds()
-    const timer = window.setInterval(() => loadFeeds(true), REFRESH_MS)
-    const clock = window.setInterval(() => setLastFetch((value) => value), 60000)
-    return () => { window.clearInterval(timer); window.clearInterval(clock) }
-  }, []) // Chargement initial et actualisation périodique.
+    const timer = window.setInterval(() => setNow(Date.now()), 30000)
+    return () => window.clearInterval(timer)
+  }, [])
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const onKey = (event) => {
+      if (event.key === '/' && document.activeElement?.tagName !== 'INPUT') {
+        event.preventDefault()
+        searchRef.current?.focus()
+      }
+      if (event.key === 'Escape') {
+        setQuery('')
+        searchRef.current?.blur()
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  const categories = useMemo(() => {
+    const counts = new Map()
+    articles.forEach((article) => counts.set(article.category, (counts.get(article.category) || 0) + 1))
+    return [...counts.entries()]
+      .sort((a, b) => CATEGORY_ORDER.indexOf(a[0]) - CATEGORY_ORDER.indexOf(b[0]) || b[1] - a[1])
+      .map(([name, count]) => ({ name, count }))
+  }, [articles])
+
+  const availableSources = useMemo(
+    () => [...new Set(articles.map((article) => article.source))].sort((a, b) => a.localeCompare(b, 'fr')),
+    [articles],
+  )
+
+  const filtered = useMemo(() => {
+    const needle = query.trim().toLowerCase()
+    return articles
+      .filter((article) => (category === 'Toutes' || article.category === category)
+        && (source === 'all' || article.source === source)
+        && (scope === 'all' || (scope === 'translated' ? article.translated : !article.translated))
+        && (!needle || `${article.title} ${article.description || ''}`.toLowerCase().includes(needle)))
+      .sort((a, b) => (sort === 'source'
+        ? a.source.localeCompare(b.source, 'fr') || new Date(b.date) - new Date(a.date)
+        : new Date(b.date) - new Date(a.date)))
+  }, [articles, category, source, scope, query, sort])
+
+  // « À la une » est la tête d'édition, indépendante des filtres. Le reste de la
+  // page déroule l'édition sans répétition : une, sélection de six, puis le fil.
+  const headline = articles[0] || null
+  const edition = useMemo(
+    () => (headline ? filtered.filter((article) => article.link !== headline.link) : filtered),
+    [filtered, headline],
+  )
+  const lead = edition[0] || null
+  const selection = edition.slice(1, 7)
+  const feed = edition.slice(7)
+
+  useEffect(() => {
+    setVisible(PAGE_SIZE)
+  }, [category, source, scope, query, sort])
+
+  const stats = useMemo(() => {
+    const langs = new Set(articles.map((article) => article.sourceLang).filter(Boolean))
+    const countries = new Set(sources.map((entry) => entry.country).filter(Boolean))
+    return {
+      articles: articles.length,
+      sources: sources.filter((entry) => entry.status !== 'error').length || sources.length,
+      languages: langs.size,
+      countries: countries.size,
+      translated: articles.filter((article) => article.translated).length,
+    }
+  }, [articles, sources])
+
+  // Entrée de page : révélation masquée ligne par ligne, puis sections au défilement.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
     const ctx = gsap.context(() => {
       const intro = gsap.timeline({ defaults: { ease: 'power3.out' } })
-      intro.from('.header-inner', { opacity: 0, duration: 0.75 })
-        .from('.hero .eyebrow', { y: 15, opacity: 0, duration: 0.5 }, '-=0.35')
-        .from('.hero-title', { y: 32, opacity: 0, duration: 0.85 }, '-=0.25')
-        .from('.hero-copy, .hero-stats', { y: 16, opacity: 0, duration: 0.55, stagger: 0.12 }, '-=0.4')
-      intro.from('.hero-actions, .hero-caption', { y: 24, opacity: 0, duration: 0.9, stagger: 0.12 }, '-=0.4')
-      gsap.utils.toArray('.reveal-section').forEach((section, index) => gsap.from(section, {
-        y: 28, opacity: 0, duration: 0.7, delay: 0.15 + index * 0.12, ease: 'power2.out',
-      }))
+      intro.from('.topbar-inner', { yPercent: -100, opacity: 0, duration: 0.5 })
+        .from('.masthead', { y: -18, opacity: 0, duration: 0.5 }, '-=0.25')
+        .from('.hero-line > span', { yPercent: 115, duration: 0.9, stagger: 0.09 }, '-=0.2')
+        .from('.hero-lede, .hero-actions', { y: 18, opacity: 0, duration: 0.6, stagger: 0.1 }, '-=0.45')
+        .from('.hero-feature', { opacity: 0, y: 26, scale: 0.985, duration: 0.8 }, '-=0.6')
+        .from('.ticker-band', { opacity: 0, duration: 0.5 }, '-=0.3')
+
+      gsap.utils.toArray('.reveal').forEach((section) => {
+        gsap.from(section, {
+          y: 34,
+          opacity: 0,
+          duration: 0.75,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: section, start: 'top 88%', once: true },
+        })
+      })
     }, rootRef)
     return () => ctx.revert()
   }, [])
 
+  // Changement de filtre : les cartes entrent en cascade, sans rejouer au défilement.
   useEffect(() => {
-    if (!articles.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
     const cards = gsap.utils.toArray('.article-card')
-    if (cards.length) gsap.fromTo(cards, { y: 24, opacity: 0, scale: 0.985 }, { y: 0, opacity: 1, scale: 1, duration: 0.72, stagger: { each: 0.035, amount: 0.65 }, ease: 'power3.out', overwrite: 'auto' })
-    const trendCards = gsap.utils.toArray('.trend-card')
-    if (trendCards.length) gsap.fromTo(trendCards, { y: 20, opacity: 0, scale: 0.98 }, { y: 0, opacity: 1, scale: 1, duration: 0.65, stagger: 0.11, ease: 'power3.out', overwrite: 'auto' })
-  }, [articles, category, source, query, sort])
+    if (!cards.length) return undefined
+    const tween = gsap.fromTo(cards,
+      { opacity: 0, y: 18 },
+      { opacity: 1, y: 0, duration: 0.5, stagger: { each: 0.028, amount: 0.45 }, ease: 'power2.out', overwrite: true })
+    return () => tween.kill()
+  }, [category, source, scope, sort, query])
 
-  const categories = useMemo(() => ['Toutes', ...new Set(articles.map((article) => article.category))], [articles])
-  const sources = useMemo(() => [...new Set(articles.map((article) => article.source))].sort((a, b) => a.localeCompare(b, 'fr')), [articles])
-  const filtered = useMemo(() => articles.filter((article) =>
-    (category === 'Toutes' || article.category === category)
-    && (source === 'all' || article.source === source)
-    && (!query || `${article.title} ${article.description}`.toLowerCase().includes(query.toLowerCase().trim())),
-  ).sort((a, b) => sort === 'source' ? a.source.localeCompare(b.source, 'fr') || new Date(b.date) - new Date(a.date) : new Date(b.date) - new Date(a.date)), [articles, category, source, query, sort])
-  const trending = articles.slice(0, 5)
+  const today = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }).format(now)
+  const online = !error && articles.length > 0
 
   return (
-    <div className="app-shell" ref={rootRef}>
-      <aside className="side-rail" aria-label="Repères de navigation"><span className="rail-name">L’IA SOUS UN NOUVEL ANGLE</span><a href="#feed-title" aria-label="Aller aux actualités"><ArrowDown size={17} /></a><span className="rail-index">FR / IA</span></aside>
-      <header className="site-header">
-        <div className="wrap header-inner">
-          <a className="brand" href="#top" aria-label="IA News, accueil"><svg className="brand-symbol" width="45" height="34" viewBox="0 0 45 34" fill="none" aria-hidden="true"><path d="M5 28V13L22 4L39 13V28H5ZM22 4V28M5 13L22 21L39 13M12 9V24M32 9V24" stroke="currentColor" strokeWidth="1.1" /><circle cx="22" cy="4" r="2" fill="currentColor" /></svg><span className="brand-word">IA<span className="brand-dot">•</span>NEWS</span><span className="brand-tagline">REGARDS SUR DEMAIN</span></a>
-          <nav id="main-navigation" className={`header-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Navigation principale"><a href="#top" onClick={() => setMenuOpen(false)}>Accueil</a><a href="#trending-title" onClick={() => setMenuOpen(false)}>À la une</a><a href="#feed-title" onClick={() => setMenuOpen(false)}>Les actualités</a></nav>
-          <label className="search-box"><Search size={16} aria-hidden="true" /><span className="sr-only">Rechercher dans les actualités</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher une actualité…" /></label>
-          <button className="icon-button" type="button" aria-label={theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre'} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>{theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}</button>
-          <button className="menu-button" type="button" aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={21} /> : <Menu size={21} />}</button>
+    <div className="shell" ref={rootRef}>
+      <a className="skip-link" href="#fil">Aller au fil d’actualité</a>
+
+      <div className="topbar">
+        <div className="wrap topbar-inner">
+          <span className={`live-dot${online ? ' is-on' : ''}`} aria-hidden="true" />
+          <span className="topbar-item">{online ? 'direct' : 'hors ligne'}</span>
+          <span className="topbar-sep" />
+          <span className="topbar-item topbar-date">{today}</span>
+          <span className="topbar-sep topbar-date-sep" />
+          <span className="topbar-item">{clockLabel(updatedAt)} · dernière édition</span>
+          <span className="topbar-push" />
+          <span className="topbar-item topbar-hint">Recherche <kbd>/</kbd></span>
+        </div>
+      </div>
+
+      <header className="masthead">
+        <div className="wrap masthead-inner">
+          <a className="brand" href="#top" aria-label="IA News, accueil">
+            <span className="brand-mark" aria-hidden="true">
+              <svg width="26" height="20" viewBox="0 0 26 20" fill="none">
+                <path d="M1 19V7L13 1L25 7V19H1Z" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M13 1V19M1 7L13 13L25 7" stroke="currentColor" strokeWidth="1.1" opacity=".7" />
+              </svg>
+            </span>
+            <span className="brand-word">IA<span>•</span>NEWS</span>
+          </a>
+
+          <nav id="navigation" className={`nav${menuOpen ? ' is-open' : ''}`} aria-label="Navigation principale">
+            <a href="#une" onClick={() => setMenuOpen(false)}>À la une</a>
+            <a href="#radar" onClick={() => setMenuOpen(false)}>Le radar</a>
+            <a href="#fil" onClick={() => setMenuOpen(false)}>Le fil</a>
+            <a href="#sources" onClick={() => setMenuOpen(false)}>Les sources</a>
+          </nav>
+
+          <label className="search">
+            <Search size={15} aria-hidden="true" />
+            <span className="sr-only">Rechercher dans les actualités</span>
+            <input
+              ref={searchRef}
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Rechercher…"
+            />
+            {query ? (
+              <button type="button" className="search-clear" onClick={() => setQuery('')} aria-label="Effacer la recherche">
+                <X size={13} />
+              </button>
+            ) : null}
+          </label>
+
+          <button
+            className="ghost-button"
+            type="button"
+            aria-label={theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre'}
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          >
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+
+          <button
+            className="ghost-button menu-toggle"
+            type="button"
+            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={menuOpen}
+            aria-controls="navigation"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
         </div>
       </header>
 
       <main id="top">
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-backdrop" aria-hidden="true" />
-          <div className="hero-frame" aria-hidden="true" />
-          <div className="hero-content">
-            <div className="eyebrow">L’INTELLIGENCE ARTIFICIELLE, AUTREMENT</div>
-            <h1 id="hero-title" className="hero-title">L’intelligence<br />qui façonne<br /><span>demain.</span></h1>
-            <p className="hero-subtitle">LES IDÉES D’AUJOURD’HUI. LE MONDE DE DEMAIN.</p>
-            <p className="hero-copy">Découvrez les avancées, les talents et les idées qui transforment notre monde. Toute l’actualité de l’IA, en français.</p>
-            <div className="hero-actions"><a className="primary-link" href="#feed-title">Explorer les actualités <ArrowUpRight size={17} aria-hidden="true" /></a></div>
+        <section className="hero">
+          <div className="wrap hero-grid">
+            <div className="hero-copy">
+              <p className="kicker">Veille mondiale · édition francophone</p>
+              <h1 className="hero-title">
+                <span className="hero-line"><span>L’IA,</span></span>
+                <span className="hero-line"><span>en continu</span></span>
+                <span className="hero-line"><span className="accent">et en français.</span></span>
+              </h1>
+              <p className="hero-lede">
+                Toute la planète IA — labos, presse, recherche, régulation — filtrée, vérifiée et
+                traduite en français avant publication.
+              </p>
+              <div className="hero-actions">
+                <a className="button button-solid" href="#fil">Explorer le fil <ArrowDown size={15} aria-hidden="true" /></a>
+                <a className="button button-ghost" href="#sources">Voir les sources <Globe2 size={15} aria-hidden="true" /></a>
+              </div>
+              <dl className="hero-stats">
+                <div><dt>articles</dt><dd><CountUp value={stats.articles} /></dd></div>
+                <div><dt>sources</dt><dd><CountUp value={stats.sources} /></dd></div>
+                <div><dt>langues</dt><dd><CountUp value={stats.languages} /></dd></div>
+                <div><dt>traduits</dt><dd><CountUp value={stats.translated} /></dd></div>
+              </dl>
+            </div>
+
+            {headline ? (
+              <a className="hero-feature" href={headline.link} target="_blank" rel="noopener noreferrer">
+                <CardMedia image={headline.image} title={headline.title} translated={headline.translated} />
+                <div className="hero-feature-body">
+                  <span className="hero-feature-label">à la une · {headline.category}</span>
+                  <h2>{headline.title}</h2>
+                  <div className="hero-feature-foot">
+                    <span>{headline.source}</span>
+                    <span>{relativeDate(headline.date)}</span>
+                  </div>
+                </div>
+              </a>
+            ) : loading ? (
+              <div className="hero-feature is-loading"><div className="skeleton skeleton-hero" /></div>
+            ) : (
+              <div className="hero-feature is-empty">
+                <p>L’édition n’a pas pu être chargée.</p>
+                <button type="button" className="button button-ghost" onClick={reload}>Réessayer</button>
+              </div>
+            )}
           </div>
-          <div className="hero-caption"><span>IA•NEWS / VEILLE FRANCOPHONE</span><span>TECHNOLOGIE · RECHERCHE · SOCIÉTÉ</span></div>
-          <a className="hero-scroll" href="#trending-title" aria-label="Découvrir la sélection"><ArrowDown size={20} /></a>
-        </section>
-        <div className="edition-bar wrap"><span className="edition-label">L’ÉDITION IA•NEWS</span><div className="hero-stats"><span><strong>{articles.length.toLocaleString('fr-FR')}</strong> articles</span><i /><span>Mis à jour <strong>{lastFetch ? new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit' }).format(lastFetch) : 'au démarrage'}</strong></span><i /><span>{new Set(articles.map((article) => article.source)).size || FEEDS.length} sources</span></div></div>
-
-        <section className="intro-section wrap reveal-section" aria-labelledby="intro-title">
-          <div><span className="section-eyebrow">LE REGARD IA•NEWS</span><h2 id="intro-title">Comprendre.<br /><span>Voir plus loin.</span></h2></div>
-          <div className="intro-copy"><p>L’intelligence artificielle redessine nos façons de créer, de travailler et de penser. Nous réunissons les regards francophones pour vous aider à suivre ce mouvement.</p><p>Recherche, modèles génératifs, entreprises et société : explorez les sujets qui comptent, à votre rythme.</p><a className="intro-link" href="#feed-title">Découvrir le fil <ArrowUpRight size={16} aria-hidden="true" /></a></div>
         </section>
 
-        <section className="trending wrap reveal-section" data-section="01" aria-labelledby="trending-title">
-          <div className="section-heading"><div><span className="section-eyebrow">L’ESSENTIEL</span><h2 id="trending-title">À la <span className="heading-accent">une</span></h2><p>Les dernières nouvelles à ne pas manquer.</p></div><span className="section-index">01 — 05</span></div>
-          <div className="trend-grid">{loading ? <Skeletons count={5} /> : trending.length ? trending.map((article, index) => <a className="trend-card" href={article.link} target="_blank" rel="noopener noreferrer" key={article.link}><div className="trend-media" aria-hidden="true">{article.image ? <img src={article.image} alt="" loading="lazy" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = 'none' }} /> : <Sparkles size={38} strokeWidth={1} />}</div><span className="trend-number">0{index + 1}</span><h3>{article.title}</h3><span className="trend-source">{article.source} · {relativeDate(article.date)}</span><ArrowUpRight className="trend-arrow" size={15} aria-hidden="true" /></a>) : <div className="empty trend-empty">Les tendances apparaîtront dès réception des flux.</div>}</div>
-        </section>
-
-        <section className="feed-section wrap reveal-section" data-section="02" aria-labelledby="feed-title">
-          <div className="section-heading feed-heading"><div><span className="section-eyebrow">LE DIRECT</span><h2 id="feed-title">Le fil de <span className="heading-accent">l’IA</span></h2><p>Votre regard sur un monde qui évolue.</p></div><span className="section-index">{String(filtered.length).padStart(2, '0')} ARTICLES</span></div>
-          <div className="toolbar" aria-label="Filtres des actualités">
-            <div className="chips" role="group" aria-label="Filtrer par catégorie">{categories.map((item) => <button className={`chip ${category === item ? 'active' : ''}`} type="button" aria-pressed={category === item} key={item} onClick={() => setCategory(item)}>{item}</button>)}</div>
-            <label className="sr-only" htmlFor="source-filter">Filtrer par source</label><select id="source-filter" value={source} onChange={(event) => setSource(event.target.value)}><option value="all">Toutes les sources</option>{sources.map((item) => <option key={item} value={item}>{item}</option>)}</select>
-            <label className="sr-only" htmlFor="sort-filter">Trier les articles</label><select id="sort-filter" value={sort} onChange={(event) => setSort(event.target.value)}><option value="date">Plus récents</option><option value="source">Par source</option></select>
-            <button className="refresh-button" ref={refreshRef} type="button" disabled={fetching} onClick={() => loadFeeds(true)}>{fetching ? <LoaderCircle className="spin" size={15} /> : <RefreshCw size={15} />}<span>Actualiser</span></button>
+        <div className="ticker-band" aria-hidden="true">
+          <div className="ticker-track">
+            {[0, 1].map((copy) => (
+              <div className="ticker-group" key={copy}>
+                {sources.slice(0, 14).map((entry) => (
+                  <span className="ticker-item" key={`${copy}-${entry.name}`}>
+                    <span className={`ticker-dot${entry.status === 'error' ? ' is-off' : ''}`} />
+                    {entry.name}
+                  </span>
+                ))}
+              </div>
+            ))}
           </div>
-          <p className="feed-status" role="status" aria-live="polite">{loading ? status : status || <>{filtered.length} articles · {failedFeeds ? <>{failedFeeds} flux indisponible{failedFeeds > 1 ? 's' : ''} · </> : null}actualisation automatique toutes les 15 min</>}</p>
-          <div className="article-grid">{loading ? <Skeletons /> : filtered.length ? filtered.map((article) => <ArticleCard key={article.link} article={article} />) : <div className="empty"><strong>Aucun article ne correspond à votre recherche.</strong>Essayez une autre catégorie ou un autre terme.</div>}</div>
+        </div>
+
+        <section className="radar reveal" id="radar" aria-labelledby="radar-title">
+          <div className="wrap">
+            <div className="section-head">
+              <div>
+                <p className="kicker">Le radar</p>
+                <h2 id="radar-title">Six façons de lire l’IA</h2>
+              </div>
+              <p className="section-note">{stats.sources} sources suivies · {stats.countries || '—'} pays · mise à jour toutes les 15 minutes</p>
+            </div>
+            <div className="radar-grid">
+              {categories.slice(0, 6).map((item, index) => (
+                <button
+                  type="button"
+                  className={`radar-card${category === item.name ? ' is-active' : ''}`}
+                  key={item.name}
+                  onClick={() => { setCategory(item.name); document.getElementById('fil')?.scrollIntoView({ behavior: 'smooth' }) }}
+                >
+                  <span className="radar-index">0{index + 1}</span>
+                  <span className="radar-name">{item.name}</span>
+                  <span className="radar-count">{item.count}</span>
+                  <ArrowUpRight className="radar-arrow" size={15} aria-hidden="true" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="feed reveal" id="une" aria-labelledby="une-title">
+          <div className="wrap">
+            <div className="section-head section-head-split">
+              <div>
+                <p className="kicker">À la une</p>
+                <h2 id="une-title">La sélection du jour</h2>
+              </div>
+              <p className="section-note">
+                {filtered.length.toLocaleString('fr-FR')} article{filtered.length > 1 ? 's' : ''} dans cette vue
+              </p>
+            </div>
+
+            {lead ? (
+              <a className={`lead-story${lead.image ? '' : ' is-text'}`} href={lead.link} target="_blank" rel="noopener noreferrer">
+                {lead.image ? <CardMedia image={lead.image} title={lead.title} translated={lead.translated} /> : null}
+                <div className="lead-body">
+                  <span className="lead-category">{lead.category}</span>
+                  <h3>{lead.title}</h3>
+                  <p>{lead.description}</p>
+                  <div className="lead-foot">
+                    <span>{lead.source}</span>
+                    <span>{relativeDate(lead.date)}</span>
+                    <span className="lead-read">{readMinutes(lead.description)} min de lecture</span>
+                  </div>
+                </div>
+              </a>
+            ) : null}
+
+            <div className="story-grid">
+              {loading ? <SkeletonGrid count={6} /> : selection.map((article, index) => (
+                <ArticleCard article={article} index={index} key={article.link} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="feed reveal" id="fil" aria-labelledby="fil-title">
+          <div className="wrap">
+            <div className="section-head section-head-split">
+              <div>
+                <p className="kicker">Le fil</p>
+                <h2 id="fil-title">Toute l’actualité</h2>
+              </div>
+              <button className="button button-ghost refresh" type="button" onClick={reload} disabled={refreshing}>
+                {refreshing ? <LoaderCircle className="spin" size={14} /> : <Layers3 size={14} />}
+                Actualiser
+              </button>
+            </div>
+
+            <div className="toolbar">
+              <div className="chips" role="group" aria-label="Filtrer par catégorie">
+                <button type="button" className={`chip${category === 'Toutes' ? ' is-active' : ''}`} aria-pressed={category === 'Toutes'} onClick={() => setCategory('Toutes')}>
+                  Toutes <span>{articles.length}</span>
+                </button>
+                {categories.map((item) => (
+                  <button
+                    type="button"
+                    key={item.name}
+                    className={`chip${category === item.name ? ' is-active' : ''}`}
+                    aria-pressed={category === item.name}
+                    onClick={() => setCategory(item.name)}
+                  >
+                    {item.name} <span>{item.count}</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="filters">
+                <label className="select">
+                  <span className="sr-only">Filtrer par source</span>
+                  <select value={source} onChange={(event) => setSource(event.target.value)}>
+                    <option value="all">Toutes les sources</option>
+                    {availableSources.map((name) => <option key={name} value={name}>{name}</option>)}
+                  </select>
+                </label>
+
+                <label className="select">
+                  <span className="sr-only">Filtrer par langue d’origine</span>
+                  <select value={scope} onChange={(event) => setScope(event.target.value)}>
+                    <option value="all">Toutes les langues</option>
+                    <option value="translated">Traduits en français</option>
+                    <option value="original">Publiés en français</option>
+                  </select>
+                </label>
+
+                <label className="select">
+                  <span className="sr-only">Trier les articles</span>
+                  <select value={sort} onChange={(event) => setSort(event.target.value)}>
+                    <option value="date">Plus récents</option>
+                    <option value="source">Par source</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <p className="status" role="status" aria-live="polite">
+              {error && !articles.length
+                ? <>Édition indisponible ({error}). Réessayez dans quelques minutes.</>
+                : <>{filtered.length} article{filtered.length > 1 ? 's' : ''}{stats.translated ? ` · ${stats.translated} traduits vers le français` : ''} · actualisation automatique toutes les 15 min</>}
+            </p>
+
+            <div className="story-grid">
+              {loading ? <SkeletonGrid count={9} /> : feed.length ? (
+                feed.slice(0, visible).map((article, index) => <ArticleCard article={article} index={index} key={article.link} />)
+              ) : (
+                <div className="empty">
+                  <strong>{filtered.length ? 'Cette vue tient dans la sélection ci-dessus.' : 'Aucun article ne correspond à cette vue.'}</strong>
+                  <p>
+                    {filtered.length
+                      ? 'Élargissez les filtres pour dérouler davantage d’articles.'
+                      : 'Changez de catégorie, de source ou effacez la recherche.'}
+                  </p>
+                  <button type="button" className="button button-ghost" onClick={() => { setCategory('Toutes'); setSource('all'); setScope('all'); setQuery('') }}>
+                    Réinitialiser les filtres
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {feed.length > visible ? (
+              <div className="load-more">
+                <button type="button" className="button button-ghost" onClick={() => setVisible((count) => count + PAGE_SIZE)}>
+                  Afficher {Math.min(PAGE_SIZE, feed.length - visible)} articles de plus
+                  <ArrowDown size={14} aria-hidden="true" />
+                </button>
+              </div>
+            ) : null}
+          </div>
+        </section>
+
+        <section className="sources reveal" id="sources" aria-labelledby="sources-title">
+          <div className="wrap">
+            <div className="section-head section-head-split">
+              <div>
+                <p className="kicker">Transparence</p>
+                <h2 id="sources-title">Les sources de cette édition</h2>
+              </div>
+              <p className="section-note">
+                Chaque flux est interrogé à la source. Les contenus non francophones sont traduits
+                automatiquement et signalés.
+              </p>
+            </div>
+            <ul className="source-grid">
+              {sources.map((entry) => (
+                <li className={`source-card${entry.status === 'error' ? ' is-error' : ''}`} key={entry.name}>
+                  <span className="source-status" aria-hidden="true" />
+                  <span className="source-name">{entry.name}</span>
+                  <span className="source-lang">{languageName(entry.lang)}</span>
+                  <span className="source-count">{entry.status === 'error' ? 'indisponible' : `${entry.count} art.`}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
       </main>
 
-      <footer className="site-footer"><div className="wrap footer-inner"><a className="footer-brand" href="#top"><span className="brand-mark">IA</span> IA•News</a><span>© {new Date().getFullYear()} · Une veille indépendante sur l’intelligence artificielle.</span></div><div className="wrap footer-note">Articles issus de flux RSS publics · Les contenus appartiennent à leurs éditeurs.</div></footer>
+      <footer className="footer">
+        <div className="wrap footer-inner">
+          <div className="footer-brand">
+            <span className="brand-word">IA<span>•</span>NEWS</span>
+            <p>Veille indépendante sur l’intelligence artificielle. Sources publiques, traduction automatique signalée, aucun contenu hébergé.</p>
+          </div>
+          <div className="footer-meta">
+            <p>{stats.sources} sources · {stats.articles} articles · dernière édition {clockLabel(updatedAt)}</p>
+            <p>© {new Date().getFullYear()} IA•News · Les contenus appartiennent à leurs éditeurs.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

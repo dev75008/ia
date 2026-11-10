@@ -1,15 +1,41 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#272727" />
-    <meta name="description" content="IA•News : l'essentiel de l'actualité de l'intelligence artificielle, en français et en temps réel." />
+    <meta name="theme-color" content="#0b0b0c" />
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="description"
+      content="IA•News : la veille mondiale de l'intelligence artificielle, filtrée et traduite en français. Presse, laboratoires, recherche et régulation, mis à jour toutes les quinze minutes."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:title" content="IA•News — L'IA en français, en temps réel" />
-    <meta property="og:description" content="Toute l'actualité francophone de l'intelligence artificielle, réunie au même endroit." />
-    <title>IA•News — L'IA en français, en temps réel</title>
+    <meta property="og:site_name" content="IA•News" />
+    <meta property="og:title" content="IA•News — l'actualité mondiale de l'IA, en français" />
+    <meta
+      property="og:description"
+      content="Presse, laboratoires, recherche et régulation : les sources du monde entier, traduites en français et signalées comme telles."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>IA•News — l'actualité mondiale de l'IA, en français</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 20'%3E%3Cpath d='M1 19V7L13 1L25 7V19H1Z' fill='none' stroke='%23c8f751' stroke-width='1.6'/%3E%3Cpath d='M13 1V19M1 7L13 13L25 7' fill='none' stroke='%23c8f751' stroke-width='1.2' opacity='.7'/%3E%3C/svg%3E"
+    />
+    <link rel="preload" href="/fonts/oswald.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/didact-gothic.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/InstrumentSerif-Italic.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="alternate" type="application/json" href="/feed-snapshot.json" title="Dernière édition IA•News" />
+    <script>
+      try {
+        var theme = localStorage.getItem('ianews-theme')
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.dataset.theme = theme
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'light' ? '#f3efe7' : '#0b0b0c')
+        }
+      } catch (error) { /* thème par défaut */ }
+    </script>
   </head>
   <body>
     <div id="root"></div>

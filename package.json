@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "build:local": "node scripts/build.mjs",
+    "preview": "vite preview",
+    "feeds": "node scripts/fetch-feeds.mjs",
+    "feeds:check": "node scripts/fetch-feeds.mjs --no-translate --limit=5"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
