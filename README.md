@@ -94,11 +94,26 @@ npm run build:local # même build, sans rechargement du fichier de config (envir
 | `scripts/translate.mjs` | Traduction FR avec cache et repli |
 | `scripts/build.mjs` | Build local (contourne le chargement de config du CLI) |
 | `scripts/parse-smoke.mjs` | Vérification manuelle du parseur sur quatre flux |
-| `src/App.jsx` | Interface (React, GSAP) |
+| `src/App.jsx` | Composition de l'interface (React 19) |
+| `src/components/` | En-tête, hero, radar, une, fil, sources, lecteur |
+| `src/hooks/` | Snapshot, thème, filtres, révélation au défilement |
+| `src/lib/format.js` | Dates relatives, langues, durées de lecture |
 | `src/reader.js` | Lecture immersive : extraction et traduction à la demande |
 | `src/styles.css` | Système de design (jetons, composants, mouvement) |
 | `public/images/` | Logo, favicon et image de partage |
 | `docs/charte-graphique.md` | Charte graphique v2 |
+
+## Performance
+
+Interface React 19 sans bibliothèque d'animation : entrées, révélations au défilement et
+compteurs reposent sur CSS, `IntersectionObserver` et `requestAnimationFrame`. Le lecteur
+de traduction est chargé à la demande (chunk séparé), la recherche est différée
+(`useDeferredValue`) et les filtres passent par `startTransition`.
+
+- Bundle initial : ~250 Ko (78 Ko gzip) + 6 Ko pour le lecteur, contre 366 Ko (123 Ko gzip)
+  avec GSAP.
+- Plus de re-rendu global périodique : l'horloge n'est plus un état rafraîchi toutes les 30 s.
+- Image du hero en `fetchpriority="high"`, cartes en `loading="lazy"` et `decoding="async"`.
 
 ## Limites connues
 

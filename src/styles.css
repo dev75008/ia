@@ -63,7 +63,84 @@
   color-scheme: light;
 }
 
-/* ------------------------------------------------------------------- base */
+/* -------------------------------------------------------------- mouvement */
+/* Animations déclaratives en CSS : le premier rendu ne dépend plus de GSAP,
+   et les cartes animent à l'apparition grâce à l'index passé en --i. */
+@keyframes intro-down {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes header-drop {
+  from { transform: translateY(-18px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes hero-rise {
+  from { transform: translateY(115%); }
+  to { transform: none; }
+}
+
+@keyframes fade-up {
+  from { transform: translateY(18px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes feature-in {
+  from { transform: translateY(26px) scale(0.985); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes card-in {
+  from { transform: translateY(14px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.topbar-inner {
+  animation: intro-down 0.5s var(--ease) both;
+}
+
+.masthead {
+  animation: header-drop 0.5s var(--ease) 0.15s both;
+}
+
+.hero-line > span {
+  animation: hero-rise 0.9s var(--ease) both;
+}
+
+.hero-line:nth-child(1) > span { animation-delay: 0.2s; }
+.hero-line:nth-child(2) > span { animation-delay: 0.29s; }
+.hero-line:nth-child(3) > span { animation-delay: 0.38s; }
+
+.hero-lede { animation: fade-up 0.6s var(--ease) 0.5s both; }
+.hero-actions { animation: fade-up 0.6s var(--ease) 0.6s both; }
+.hero-stats { animation: fade-up 0.6s var(--ease) 0.7s both; }
+.hero-feature { animation: feature-in 0.8s var(--ease) 0.4s both; }
+.ticker-band { animation: intro-fade 0.5s var(--ease) 0.8s both; }
+
+@keyframes intro-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Révélation au défilement, posée par IntersectionObserver. */
+.reveal.is-pending {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+.article-card {
+  animation: card-in 0.5s var(--ease) both;
+  animation-delay: calc(min(var(--i, 0), 12) * 28ms);
+}
+
+/* ------------------------------------------------------------------ base */
 *,
 *::before,
 *::after {

@@ -13,11 +13,9 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
-    "gsap": "latest",
     "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",
     "vite": "latest"
-  },
-  "devDependencies": {}
+  }
 }

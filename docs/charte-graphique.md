@@ -82,6 +82,9 @@ micro-étiquettes en capitales ; jamais sur les grands titres.
 `prefers-reduced-motion: reduce` neutralise animations, transitions et défilement doux ;
 les compteurs affichent leur valeur finale et le ticker se fige.
 
+Les animations sont en CSS, `IntersectionObserver` et `requestAnimationFrame` : aucun
+moteur d'animation externe n'est chargé.
+
 ## Accessibilité
 
 - Contraste minimum : 7:1 pour le texte courant, 4.5:1 pour les étiquettes.
