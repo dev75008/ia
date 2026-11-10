@@ -45,7 +45,7 @@
   --wrap: 1320px;
   --gutter: 32px;
   --topbar-h: 34px;
-  --nav-h: 72px;
+  --nav-h: 88px;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   color-scheme: dark;
 }
@@ -336,21 +336,21 @@ figure {
 .masthead-inner {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   height: var(--nav-h);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex: none;
   text-decoration: none;
 }
 
 .brand-mark {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   flex: none;
   border-radius: 50%;
   object-fit: cover;
@@ -358,7 +358,7 @@ figure {
 
 .brand-word {
   font-family: Oswald, sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   letter-spacing: 0.13em;
   line-height: 1;
@@ -1445,8 +1445,8 @@ figure {
 }
 
 .footer-logo {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -1720,7 +1720,15 @@ html.reader-open {
   }
 
   .search {
-    width: 190px;
+    width: 180px;
+  }
+
+  .masthead-inner {
+    gap: 20px;
+  }
+
+  .brand-word {
+    font-size: 22px;
   }
 
   .topbar-hint {
@@ -1790,11 +1798,11 @@ html.reader-open {
 
 @media (max-width: 860px) {
   :root {
-    --nav-h: 64px;
+    --nav-h: 72px;
   }
 
   .masthead-inner {
-    gap: 14px;
+    gap: 10px;
   }
 
   .brand-word {
@@ -1802,13 +1810,13 @@ html.reader-open {
   }
 
   .brand-mark {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
   }
 
   .footer-logo {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
   }
 
   .menu-toggle {

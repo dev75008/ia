@@ -35,8 +35,8 @@ export default function Masthead({
               className="brand-mark"
               src={`${import.meta.env.BASE_URL}images/logo.webp`}
               alt=""
-              width="56"
-              height="56"
+              width="72"
+              height="72"
             />
             <span className="brand-word">IA<span>•</span>NEWS</span>
           </a>
