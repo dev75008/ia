@@ -9,12 +9,13 @@ import { createHash } from 'node:crypto'
 import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { feedLanguage, parseFeed } from './feed-parse.mjs'
+import { feedLanguage, decodeEntities, parseFeed } from './feed-parse.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(here, '..')
 const SNAPSHOT = path.join(root, 'public', 'feed-snapshot.json')
 const CACHE = path.join(root, 'data', 'translations.json')
+const IMAGES_CACHE = path.join(root, 'data', 'images.json')
 const SOURCES_FILE = path.join(root, 'data', 'sources.json')
 
 const args = process.argv.slice(2)
@@ -52,6 +53,73 @@ function canonical(link) {
     }
     return url.href.replace(/\/$/, '')
   } catch { return link }
+}
+
+/* --------------------------------------------------------------- vignettes */
+// Beaucoup de flux ne publient pas d'image. On complète en lisant l'og:image de
+// la page d'article, avec un cache persistant et un budget par exécution pour
+// ne pas transformer l'édition en crawl.
+
+const IMAGE_BUDGET = 200
+
+function readImageCache() {
+  try { return JSON.parse(readFileSync(IMAGES_CACHE, 'utf8')) } catch { return {} }
+}
+
+async function pageImage(link) {
+  try {
+    const response = await fetch(link, {
+      headers: { 'user-agent': UA, accept: 'text/html,application/xhtml+xml' },
+      redirect: 'follow',
+      signal: AbortSignal.timeout(12_000),
+    })
+    if (!response.ok) return ''
+    const html = (await response.text()).slice(0, 500_000)
+    const patterns = [
+      /<meta[^>]+property=["']og:image(?::url)?["'][^>]*content=["']([^"']+)["']/i,
+      /<meta[^>]+content=["']([^"']+)["'][^>]*property=["']og:image(?::url)?["']/i,
+      /<meta[^>]+name=["']twitter:image(?::src)?["'][^>]*content=["']([^"']+)["']/i,
+      /<meta[^>]+content=["']([^"']+)["'][^>]*name=["']twitter:image(?::src)?["']/i,
+      /<link[^>]+rel=["']image_src["'][^>]*href=["']([^"']+)["']/i,
+    ]
+    for (const pattern of patterns) {
+      const match = html.match(pattern)
+      if (!match) continue
+      try {
+        const image = new URL(decodeEntities(match[1]), link)
+        if (image.protocol === 'http:' || image.protocol === 'https:') return image.href
+      } catch { /* URL invalide */ }
+    }
+  } catch { /* page inaccessible : la carte gardera son visuel de secours */ }
+  return ''
+}
+
+async function enrichImages(items) {
+  const cache = readImageCache()
+  const now = Date.now()
+  const missing = items.filter((item) => !item.image)
+  let analysed = 0
+  let completed = 0
+
+  await pool(missing.slice(0, IMAGE_BUDGET), 6, async (item) => {
+    const hit = cache[item.link]
+    const ttl = hit?.image ? 14 : 3
+    if (hit?.at && now - Date.parse(hit.at) < ttl * 864e5) {
+      if (hit.image) { item.image = hit.image; completed += 1 }
+      return
+    }
+    const image = await pageImage(item.link)
+    cache[item.link] = { image, at: new Date().toISOString() }
+    analysed += 1
+    if (image) { item.image = image; completed += 1 }
+  })
+
+  for (const [key, value] of Object.entries(cache)) {
+    if (!value?.at || now - Date.parse(value.at) > 30 * 864e5) delete cache[key]
+  }
+  await mkdir(path.dirname(IMAGES_CACHE), { recursive: true })
+  await writeFile(IMAGES_CACHE, JSON.stringify(cache), 'utf8')
+  console.log(`→ vignettes : ${completed} complétées, ${analysed} pages analysées (budget ${IMAGE_BUDGET})`)
 }
 
 async function fetchFeed(entry) {
@@ -142,6 +210,8 @@ async function main() {
     .slice()
     .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
     .slice(0, EDITION_SIZE)
+
+  await enrichImages(selected)
 
   const toTranslate = selected.filter((item) => item.sourceLang !== 'fr' && !/^fr/i.test(item.sourceLang))
   let translated = 0

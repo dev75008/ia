@@ -5,6 +5,9 @@ import {
   ArrowDown, ArrowUpRight, Clock3, Globe2, Layers3, LoaderCircle, Menu,
   Moon, Search, Sun, X,
 } from 'lucide-react'
+import {
+  cleanBlocks, fetchArticleText, readCached, translateBlocks, translateProxy, writeCached,
+} from './reader.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -45,6 +48,21 @@ function readMinutes(text = '') {
   return Math.max(1, Math.ceil(text.split(/\s+/).length / 200))
 }
 
+// Le résumé du flux est coupé à 420 caractères : on préfère une phrase entière,
+// ou rien, plutôt qu'un chapô interrompu en plein mot dans le lecteur.
+function readerLede(text = '') {
+  if (!text) return ''
+  if (text.length < 300) return text
+  const cut = text.slice(0, 420)
+  const end = Math.max(
+    cut.lastIndexOf('. '),
+    cut.lastIndexOf('! '),
+    cut.lastIndexOf('? '),
+    cut.lastIndexOf('。'),
+  )
+  return end >= 200 ? cut.slice(0, end + 1) : ''
+}
+
 function CardMedia({ image, title, translated }) {
   const [broken, setBroken] = useState(false)
   return (
@@ -59,9 +77,17 @@ function CardMedia({ image, title, translated }) {
   )
 }
 
-function ArticleCard({ article, index }) {
+function ArticleCard({ article, index, onOpen }) {
   return (
-    <a className="article-card" href={article.link} target="_blank" rel="noopener noreferrer" style={{ '--i': index }}>
+    <a
+      className="article-card"
+      href={article.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ '--i': index }}
+      onClick={(event) => onOpen(event, article)}
+      title={article.translated ? 'Lire la traduction en français' : undefined}
+    >
       <CardMedia image={article.image} title={article.title} translated={article.translated} />
       <div className="card-body">
         <div className="card-meta">
@@ -155,9 +181,12 @@ export default function App() {
     try { return localStorage.getItem('ianews-theme') || 'dark' } catch { return 'dark' }
   })
   const [now, setNow] = useState(() => Date.now())
+  const [reader, setReader] = useState(null)
 
   const rootRef = useRef(null)
   const searchRef = useRef(null)
+  const readerRef = useRef(null)
+  const readerAbort = useRef(null)
 
   const articles = useMemo(() => (Array.isArray(snapshot?.articles) ? snapshot.articles : []), [snapshot])
   const sources = useMemo(() => (Array.isArray(snapshot?.sources) ? snapshot.sources : []), [snapshot])
@@ -280,6 +309,67 @@ export default function App() {
   const today = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }).format(now)
   const online = !error && articles.length > 0
 
+  // Lecture immersive : un clic simple sur un article traduit ouvre le lecteur,
+  // les clics modifiés (nouvel onglet) continuent d'ouvrir l'éditeur d'origine.
+  const openReader = useCallback((event, article) => {
+    if (!article.translated) return
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+    event.preventDefault()
+    const cached = readCached(article.id)
+    setReader({
+      article,
+      status: cached ? 'ready' : 'loading',
+      blocks: cached?.blocks || [],
+      progress: 0,
+      error: '',
+    })
+  }, [])
+
+  const closeReader = useCallback(() => {
+    readerAbort.current?.abort()
+    setReader(null)
+  }, [])
+
+  useEffect(() => {
+    if (!reader || reader.status !== 'loading') return undefined
+    const article = reader.article
+    const controller = new AbortController()
+    readerAbort.current = controller
+    ;(async () => {
+      try {
+        const raw = await fetchArticleText(article.link, controller.signal)
+        const blocks = cleanBlocks(raw, article)
+        if (blocks.length < 3) throw new Error('article non extractible')
+        const translated = await translateBlocks(blocks, {
+          signal: controller.signal,
+          onProgress: (done, total) => setReader((state) => (
+            state && state.article.id === article.id ? { ...state, progress: done / total } : state
+          )),
+        })
+        if (controller.signal.aborted) return
+        writeCached(article.id, translated)
+        setReader((state) => (
+          state && state.article.id === article.id ? { ...state, status: 'ready', blocks: translated } : state
+        ))
+      } catch (cause) {
+        if (controller.signal.aborted) return
+        setReader((state) => (
+          state && state.article.id === article.id ? { ...state, status: 'error', error: cause.message } : state
+        ))
+      }
+    })()
+    return () => controller.abort()
+  }, [reader?.article.id])
+
+  useEffect(() => {
+    const node = readerRef.current
+    if (!node) return undefined
+    if (reader && !node.open) node.showModal()
+    if (!reader && node.open) node.close()
+    document.documentElement.classList.toggle('reader-open', Boolean(reader))
+    return () => document.documentElement.classList.remove('reader-open')
+  }, [reader])
+
   return (
     <div className="shell" ref={rootRef}>
       <a className="skip-link" href="#fil">Aller au fil d’actualité</a>
@@ -300,12 +390,13 @@ export default function App() {
       <header className="masthead">
         <div className="wrap masthead-inner">
           <a className="brand" href="#top" aria-label="IA News, accueil">
-            <span className="brand-mark" aria-hidden="true">
-              <svg width="26" height="20" viewBox="0 0 26 20" fill="none">
-                <path d="M1 19V7L13 1L25 7V19H1Z" stroke="currentColor" strokeWidth="1.2" />
-                <path d="M13 1V19M1 7L13 13L25 7" stroke="currentColor" strokeWidth="1.1" opacity=".7" />
-              </svg>
-            </span>
+            <img
+              className="brand-mark"
+              src={`${import.meta.env.BASE_URL}images/logo.webp`}
+              alt=""
+              width="40"
+              height="40"
+            />
             <span className="brand-word">IA<span>•</span>NEWS</span>
           </a>
 
@@ -382,7 +473,14 @@ export default function App() {
             </div>
 
             {headline ? (
-              <a className="hero-feature" href={headline.link} target="_blank" rel="noopener noreferrer">
+              <a
+                className="hero-feature"
+                href={headline.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(event) => openReader(event, headline)}
+                title={headline.translated ? 'Lire la traduction en français' : undefined}
+              >
                 <CardMedia image={headline.image} title={headline.title} translated={headline.translated} />
                 <div className="hero-feature-body">
                   <span className="hero-feature-label">à la une · {headline.category}</span>
@@ -459,7 +557,14 @@ export default function App() {
             </div>
 
             {lead ? (
-              <a className={`lead-story${lead.image ? '' : ' is-text'}`} href={lead.link} target="_blank" rel="noopener noreferrer">
+              <a
+                className={`lead-story${lead.image ? '' : ' is-text'}`}
+                href={lead.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(event) => openReader(event, lead)}
+                title={lead.translated ? 'Lire la traduction en français' : undefined}
+              >
                 {lead.image ? <CardMedia image={lead.image} title={lead.title} translated={lead.translated} /> : null}
                 <div className="lead-body">
                   <span className="lead-category">{lead.category}</span>
@@ -476,7 +581,7 @@ export default function App() {
 
             <div className="story-grid">
               {loading ? <SkeletonGrid count={6} /> : selection.map((article, index) => (
-                <ArticleCard article={article} index={index} key={article.link} />
+                <ArticleCard article={article} index={index} key={article.link} onOpen={openReader} />
               ))}
             </div>
           </div>
@@ -549,7 +654,7 @@ export default function App() {
 
             <div className="story-grid">
               {loading ? <SkeletonGrid count={9} /> : feed.length ? (
-                feed.slice(0, visible).map((article, index) => <ArticleCard article={article} index={index} key={article.link} />)
+                feed.slice(0, visible).map((article, index) => <ArticleCard article={article} index={index} key={article.link} onOpen={openReader} />)
               ) : (
                 <div className="empty">
                   <strong>{filtered.length ? 'Cette vue tient dans la sélection ci-dessus.' : 'Aucun article ne correspond à cette vue.'}</strong>
@@ -605,7 +710,16 @@ export default function App() {
       <footer className="footer">
         <div className="wrap footer-inner">
           <div className="footer-brand">
-            <span className="brand-word">IA<span>•</span>NEWS</span>
+            <span className="footer-brand-line">
+              <img
+                className="footer-logo"
+                src={`${import.meta.env.BASE_URL}images/logo.webp`}
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span className="brand-word">IA<span>•</span>NEWS</span>
+            </span>
             <p>Veille indépendante sur l’intelligence artificielle. Sources publiques, traduction automatique signalée, aucun contenu hébergé.</p>
           </div>
           <div className="footer-meta">
@@ -614,6 +728,67 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      <dialog className="reader" ref={readerRef} onClose={closeReader} aria-labelledby="reader-title">
+        {reader ? (
+          <div className="reader-panel">
+            <header className="reader-head">
+              <div className="reader-title-block">
+                <p className="reader-kicker">Traduction automatique · {reader.article.source}</p>
+                <h2 id="reader-title">{reader.article.title}</h2>
+              </div>
+              <div className="reader-tools">
+                <a className="button button-ghost" href={reader.article.link} target="_blank" rel="noopener noreferrer">
+                  Original <ArrowUpRight size={14} aria-hidden="true" />
+                </a>
+                <button className="ghost-button" type="button" onClick={closeReader} aria-label="Fermer la lecture">
+                  <X size={18} />
+                </button>
+              </div>
+            </header>
+
+            <div className="reader-body">
+              {reader.status === 'loading' ? (
+                <div className="reader-loading" role="status" aria-live="polite">
+                  {readerLede(reader.article.description) ? <p className="reader-lede">{readerLede(reader.article.description)}</p> : null}
+                  <p className="reader-progress">
+                    <LoaderCircle className="spin" size={16} aria-hidden="true" />
+                    Extraction et traduction de l’article…{reader.progress ? ` ${Math.round(reader.progress * 100)} %` : ''}
+                  </p>
+                  <div className="reader-skeleton" aria-hidden="true">
+                    {Array.from({ length: 6 }, (_, index) => <span key={index} />)}
+                  </div>
+                </div>
+              ) : reader.status === 'error' ? (
+                <div className="reader-error">
+                  <strong>La traduction immersive n’a pas abouti.</strong>
+                  <p>{reader.error}. L’article reste lisible via Google Traduction ou chez l’éditeur.</p>
+                  <div className="reader-actions">
+                    <a className="button button-solid" href={translateProxy(reader.article.link)} target="_blank" rel="noopener noreferrer">
+                      Lire via Google Traduction <ArrowUpRight size={14} aria-hidden="true" />
+                    </a>
+                    <a className="button button-ghost" href={reader.article.link} target="_blank" rel="noopener noreferrer">
+                      Ouvrir l’original
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                <article className="reader-content">
+                  {readerLede(reader.article.description) ? <p className="reader-lede">{readerLede(reader.article.description)}</p> : null}
+                  {reader.blocks.map((block, index) => <p key={index}>{block}</p>)}
+                </article>
+              )}
+            </div>
+
+            <footer className="reader-foot">
+              <span>Traduction automatique à la demande. L’original fait foi.</span>
+              <a href={reader.article.link} target="_blank" rel="noopener noreferrer">
+                {reader.article.source} <ArrowUpRight size={12} aria-hidden="true" />
+              </a>
+            </footer>
+          </div>
+        ) : null}
+      </dialog>
     </div>
   )
 }

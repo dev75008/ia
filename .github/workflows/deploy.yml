@@ -32,11 +32,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Le cache de traduction évite de retraduire les mêmes titres à chaque édition.
-      - name: Restore translation cache
+      # Les caches de traduction et de vignettes évitent de refaire le même travail
+      # à chaque édition.
+      - name: Restore translation and image caches
         uses: actions/cache@v4
         with:
-          path: data/translations.json
+          path: |
+            data/translations.json
+            data/images.json
           key: translations-${{ github.run_id }}
           restore-keys: |
             translations-

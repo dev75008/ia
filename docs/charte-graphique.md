@@ -66,6 +66,8 @@ micro-étiquettes en capitales ; jamais sur les grands titres.
    paginée par paliers de 36.
 8. **Sources** — liste compacte avec pastille d'état, langue et nombre d'articles.
 9. **Pied de page** — marque, mention de traduction, compteurs d'édition.
+10. **Lecteur FR** — voile modal, titre traduit, chapô et corps traduit à la demande,
+    outils « original » et fermeture ; repli vers la page Google Traduction.
 
 ## Mouvement
 
@@ -96,4 +98,5 @@ les compteurs affichent leur valeur finale et le ticker se fige.
   original reste stocké (`originalTitle`) et la carte porte le marqueur « traduit ».
 - Une source en erreur reste visible dans la section Sources avec son état — jamais masquée.
 - Les images sont chargées à la demande, sans référent, et remplacées par un glyphe typographique
-  lorsqu'elles manquent ou échouent.
+  lorsqu'elles manquent ou échouent. Les vignettes absentes des flux sont complétées par
+  l'`og:image` de la page d'article.

@@ -32,6 +32,10 @@ La page répartit l'édition sans répéter deux fois le même article : une tê
 (« à la une »), un récit principal, six cartes de sélection, puis le fil — paginé par
 paliers de 36.
 
+Les vignettes manquantes sont complétées à l'édition en lisant l'`og:image` de la page
+d'article, avec un cache (`data/images.json`, non versionné) et un budget de 200 pages par
+exécution. Les rares articles sans image gardent un visuel typographique de secours.
+
 ## Sources
 
 `data/sources.json` est la source de vérité unique (45 flux : nom, flux, langue, pays,
@@ -56,6 +60,18 @@ sur les traductions.
 - Budget de 900 requêtes par exécution (titre et résumé), délai de 12 s par requête,
   dégradation silencieuse : un article non traduit est publié tel quel, `translated: false`.
 
+## Lecture immersive
+
+Un clic simple sur un article traduit ouvre un **lecteur intégré** : le corps de l'article
+est extrait à la demande (Jina Reader), traduit vers le français (Google Traduction), puis
+affiché dans le site. Le titre et le résumé viennent du snapshot ; le texte est mémorisé
+pour la session, jamais stocké ni republié.
+
+- `Ctrl`/`Cmd`-clic et clic milieu continuent d'ouvrir directement l'éditeur.
+- En cas d'échec d'extraction, le lecteur propose la page traduite par Google ou
+  l'original.
+- Rien n'est hébergé : seul le texte transite au moment du clic, l'original fait foi.
+
 ## Développement
 
 ```powershell
@@ -72,22 +88,27 @@ npm run build:local # même build, sans rechargement du fichier de config (envir
 | --- | --- |
 | `data/sources.json` | Liste des 45 sources validées |
 | `data/translations.json` | Cache de traduction (non versionné) |
-| `scripts/fetch-feeds.mjs` | Édition : collecte, filtre, traduction, snapshot |
+| `data/images.json` | Cache des vignettes `og:image` (non versionné) |
+| `scripts/fetch-feeds.mjs` | Édition : collecte, filtre, vignettes, traduction, snapshot |
 | `scripts/feed-parse.mjs` | Analyse RSS/Atom tolérante, sans dépendance |
 | `scripts/translate.mjs` | Traduction FR avec cache et repli |
 | `scripts/build.mjs` | Build local (contourne le chargement de config du CLI) |
 | `scripts/parse-smoke.mjs` | Vérification manuelle du parseur sur quatre flux |
 | `src/App.jsx` | Interface (React, GSAP) |
+| `src/reader.js` | Lecture immersive : extraction et traduction à la demande |
 | `src/styles.css` | Système de design (jetons, composants, mouvement) |
+| `public/images/` | Logo, favicon et image de partage |
 | `docs/charte-graphique.md` | Charte graphique v2 |
 
 ## Limites connues
 
 - La traduction passe par un endpoint public non contractuel : en cas de blocage, les
   articles restent en version originale et signalés.
+- La lecture immersive dépend de Jina Reader et de Google Traduction au moment du clic :
+  si l'un des deux est indisponible, le lecteur propose la page traduite ou l'original.
 - Le snapshot est mis à jour toutes les quinze minutes ; ce n'est pas du temps réel
   seconde par seconde.
-- Les images proviennent des flux ; certaines sources n'en publient pas, la carte affiche
-  alors un glyphe typographique.
+- Les images proviennent des flux ou de l'`og:image` de l'article ; les rares articles sans
+  image affichent un glyphe typographique.
 - Plusieurs rédactions couvrent souvent le même sujet : les articles ne sont pas regroupés
   en un récit unique, la déduplication se fait sur l'URL exacte.

@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-10T00:25:44.151Z",
+ "updatedAt": "2026-11-10T00:50:19.231Z",
  "articleCount": 240,
  "sourceCount": 44,
  "translatedCount": 187,
@@ -331,7 +331,7 @@
    "country": "JP",
    "scope": "ai",
    "status": "ok",
-   "count": 18,
+   "count": 19,
    "error": null
   },
   {
@@ -430,7 +430,7 @@
    "country": "HK",
    "scope": "tech",
    "status": "ok",
-   "count": 7,
+   "count": 6,
    "error": null
   },
   {
@@ -502,6 +502,20 @@
  ],
  "articles": [
   {
+   "id": "ea1ae81d170544b4",
+   "title": "Trump dit que le FBI enquête sur la liaison du patron de Nvidia avec un espion chinois présumé",
+   "description": "Le président américain a déclaré avoir parlé lundi avec Jensen Huang et l'avoir interrogé sur la liaison avec l'espion présumé.",
+   "originalTitle": "Trump says FBI investigating Nvidia boss's affair with alleged Chinese spy",
+   "link": "https://www.bbc.co.uk/news/articles/cqg7x7dpvym8o",
+   "source": "BBC Technology",
+   "sourceLang": "en",
+   "country": "GB",
+   "translated": true,
+   "date": "2026-11-10T00:34:53.000Z",
+   "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/f773/live/9c28e680-dc95-11f1-a701-fddedf244c16.jpg",
+   "category": "Matériel"
+  },
+  {
    "id": "1fbf8d9b2c4041a0",
    "title": "Les problèmes de Jensen Huang laissent l’industrie de l’IA sous le choc",
    "description": "Muni d’un gros chéquier et de puces recherchées, le PDG de Nvidia avait le pouce sur le monde de l’IA. Une liaison extraconjugale avec un espion chinois présumé pourrait mettre tout cela en danger.",
@@ -516,18 +530,18 @@
    "category": "Matériel"
   },
   {
-   "id": "ea1ae81d170544b4",
-   "title": "Trump dit que le FBI enquête sur la liaison du patron de Nvidia avec un espion chinois présumé",
-   "description": "Le président américain a déclaré avoir parlé lundi avec Jensen Huang et l'avoir interrogé sur la liaison avec l'espion présumé.",
-   "originalTitle": "Trump says FBI investigating Nvidia boss's affair with alleged Chinese spy",
-   "link": "https://www.bbc.co.uk/news/articles/cqg7x7dpvym8o",
-   "source": "BBC Technology",
-   "sourceLang": "en",
-   "country": "GB",
+   "id": "29dba0edd36fd9ff",
+   "title": "Meta annonce le modèle d'IA le plus petit et le moins cher, « Muse Ember », avec des performances proches de celles de « Muse Spark 1.3 », à environ 1/17ème du coût.",
+   "description": "Meta a annoncé le plus petit modèle de la famille de modèles d'IA \"Muse\", \"Muse Ember\". Il est spécialisé dans les tâches répétitives des agents IA et atteint des performances proches de celles du modèle haut de gamme « Muse Spark 1.3 » pour environ 1/17ème du coût. Dès le même jour, nous avons commencé à la proposer comme API pour les développeurs, et elle gère les traitements répétitifs à grande échelle à faible co",
+   "originalTitle": "Meta、最小・低コストのAIモデル「Muse Ember」発表 「Muse Spark 1.3」に迫る性能を約17分の1のコストで",
+   "link": "https://www.itmedia.co.jp/news/article/2611/10/2000003044",
+   "source": "ITmedia AI+",
+   "sourceLang": "ja",
+   "country": "JP",
    "translated": true,
-   "date": "2026-11-09T23:59:50.000Z",
-   "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/f773/live/9c28e680-dc95-11f1-a701-fddedf244c16.jpg",
-   "category": "Matériel"
+   "date": "2026-11-10T00:06:40.000Z",
+   "image": "https://www.itmedia.co.jp/news/article/ogp/2611/10/2000003044/10011689/2048",
+   "category": "Modèles"
   },
   {
    "id": "fffe55b70a139ba1",
@@ -540,7 +554,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T23:54:21.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108546366-17942337332026-11-09t135831z_19412827_rc2h6oaxcoox_rtrmadp_0_nvidia-probe-ceo.jpeg?v=1794233751&w=1920&h=1080",
    "category": "Matériel"
   },
   {
@@ -555,6 +569,34 @@
    "translated": true,
    "date": "2026-11-09T23:52:00.000Z",
    "image": "https://i.blogs.es/8ce1ca/jensen-huang-trump/1024_2000.jpeg",
+   "category": "Matériel"
+  },
+  {
+   "id": "285987eab7312733",
+   "title": "Que pourrait obtenir la Chine de Jensen Huang ?",
+   "description": "Il est difficile d’exagérer la puissance de Nvidia dans le paysage actuel de l’IA. Les puces de l'entreprise constituent le fondement sur lequel se construit la technologie avancée de l'IA aux États-Unis, et la demande dépasse constamment l'offre depuis des années. Nvidia a également été un investisseur influent dans un large éventail d’entreprises d’IA émergentes ces dernières années, avec environ […]",
+   "originalTitle": "What could China get from Jensen Huang?",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1030328/what-could-china-get-from-jensen-huang",
+   "source": "The Verge AI",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-09T23:51:58.000Z",
+   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STKP210_JENSEN_HUANG_A.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "category": "Entreprise"
+  },
+  {
+   "id": "fd48ce2874be788e",
+   "title": "Voici ce que Trump a dit savoir à propos de Jensen Huang",
+   "description": "Le président Trump a tenu une conférence de presse à la Maison Blanche plus tôt dans la journée et a répondu à plusieurs questions sur sa connaissance de la liaison du PDG de Nvidia, Jensen Huang, avec un espion chinois présumé. Huang a déclaré ce week-end qu'il avait été \"​​infidèle\" à sa femme, et la société a ouvert une enquête sur Huang. Articles récents de The New […]",
+   "originalTitle": "Here’s what Trump said he knew about Jensen Huang",
+   "link": "https://www.theverge.com/tech/1030446/trump-jensen-huang-press-conference",
+   "source": "The Verge AI",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-09T23:47:46.000Z",
+   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2297774940.jpg?quality=90&strip=all&crop=0,0,100,100",
    "category": "Matériel"
   },
   {
@@ -582,7 +624,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T23:30:15.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108465626-17930469612026-10-26t203523z_1584282207_rc28boagerd4_rtrmadp_0_anthropic-ipo.jpeg?v=1793046988&w=1920&h=1080",
    "category": "Entreprise"
   },
   {
@@ -596,7 +638,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T23:28:37.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang.jpg?w=1024",
    "category": "Société"
   },
   {
@@ -624,7 +666,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T22:56:39.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108314510-1794257799765-108314510-1780318208233-gettyimages-2278510316-TAIWAN_COMPUTEX.jpeg?v=1794257861&w=1920&h=1080",
    "category": "Entreprise"
   },
   {
@@ -638,7 +680,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T22:46:09.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2025/08/GettyImages-2227140868.jpg?w=1024",
    "category": "Matériel"
   },
   {
@@ -652,7 +694,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T22:26:48.000Z",
-   "image": null,
+   "image": "https://www.itmedia.co.jp/news/article/ogp/2611/10/2000003043/10011685/2048",
    "category": "Sécurité"
   },
   {
@@ -666,7 +708,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T22:23:42.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024",
    "category": "Régulation"
   },
   {
@@ -680,7 +722,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T22:03:56.000Z",
-   "image": null,
+   "image": "https://www.itmedia.co.jp/news/article/ogp/2611/10/2000003042/10011681/2048",
    "category": "Modèles"
   },
   {
@@ -708,7 +750,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T21:54:40.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108546671-1794248962955-gettyimages-2303898371-boivin-illustra261109_nprSQ.jpeg?v=1794249041&w=1920&h=1080",
    "category": "Entreprise"
   },
   {
@@ -722,7 +764,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T21:04:19.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108447194-1792682505441-108447194-1792682412759-gettyimages-2301328017-2s4a6117_3tcndrih.jpg?v=1792682514&w=1920&h=1080",
    "category": "Matériel"
   },
   {
@@ -764,7 +806,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T20:29:36.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108416313-1792099132044-gettyimages-2299644955-AFP_D3B329K.jpeg?v=1793222589&w=1920&h=1080",
    "category": "Matériel"
   },
   {
@@ -806,7 +848,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T20:09:06.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang.jpg?w=1024",
    "category": "Modèles"
   },
   {
@@ -834,7 +876,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T20:00:00.000Z",
-   "image": null,
+   "image": "https://image.itmedia.co.jp/ait/articles/2611/10/cover_news003.jpg",
    "category": "Entreprise"
   },
   {
@@ -876,7 +918,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T19:35:33.000Z",
-   "image": null,
+   "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/AP23200525499640.jpg?resize=1200,600",
    "category": "Matériel"
   },
   {
@@ -890,7 +932,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T19:24:51.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2279025960.jpg?w=1024",
    "category": "Modèles"
   },
   {
@@ -932,7 +974,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T19:00:01.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108342843-1785448090042-gettyimages-2280291466-ANTHROPIC_CIRCUIT.jpeg?v=1785448353&w=1920&h=1080",
    "category": "Entreprise"
   },
   {
@@ -946,7 +988,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T19:00:00.000Z",
-   "image": null,
+   "image": "https://images.ctfassets.net/kftzwdyauwt9/5DGBSgbf6fNNvNwn1uSuuS/b1cb4070d26ff221cd7f08bbc171b268/chatgpt-enterprise-now-available-in-aws-marketplace-social.png?w=1600&h=900&fit=fill",
    "category": "Modèles"
   },
   {
@@ -1044,7 +1086,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T18:09:52.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2192223928.jpg?resize=1200,801",
    "category": "Entreprise"
   },
   {
@@ -1086,7 +1128,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T18:00:00.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/11/Blog-Header-Visual.png?resize=1200,675",
    "category": "Modèles"
   },
   {
@@ -1170,7 +1212,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T17:05:43.000Z",
-   "image": null,
+   "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/GettyImages-2303769670.jpg?resize=1200,600",
    "category": "Régulation"
   },
   {
@@ -1184,7 +1226,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T16:56:54.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2024/12/GettyImages-155376474.jpeg?resize=1200,800",
    "category": "Entreprise"
   },
   {
@@ -1254,7 +1296,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T16:12:28.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/11/tk-logo.webp?resize=1200,675",
    "category": "Actualité"
   },
   {
@@ -1268,7 +1310,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T15:57:38.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108546282-1794232599187-2026-11-09T115214Z_950371170_RC2AKOA0JNIJ_RTRMADP_3_NVIDIA-PROBE-CEO.JPG?v=1794232610&w=1920&h=1080",
    "category": "Matériel"
   },
   {
@@ -1282,7 +1324,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T15:51:40.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108364527-1789665953765-gettyimages-2294936867-2026_sep_14_dreamforce_2974.jpeg?v=1794168955&w=1920&h=1080",
    "category": "Matériel"
   },
   {
@@ -1422,7 +1464,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T15:05:57.000Z",
-   "image": null,
+   "image": "https://cdn-uploads.huggingface.co/production/uploads/604ad59e2fad27aca4515dab/-hyd03JaQoRhMbmlw9-uJ.jpeg",
    "category": "Régulation"
   },
   {
@@ -1594,20 +1636,6 @@
    "category": "Régulation"
   },
   {
-   "id": "cc49c1ae6860a64f",
-   "title": "Jonathan Kanter utilise l'IA pour affronter les Big Tech",
-   "description": "Lorsque Jonathan Kanter a quitté ses fonctions de chef de la division antitrust du ministère de la Justice en 2024, il a décidé de continuer à lutter pour démanteler les monopoles illégaux. Mais cette fois, il poursuit le combat dans le secteur privé, et avec un outil peut-être inattendu : l'IA. Aux côtés de l'ancien chef par intérim de la division antitrust Doha Mekki, Kanter a récemment lancé un […]",
-   "originalTitle": "Jonathan Kanter is using AI to take on Big Tech",
-   "link": "https://www.theverge.com/policy/1029652/kanter-doj-biden-legal-tech",
-   "source": "The Verge AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-09T14:30:00.000Z",
-   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STKS487_ANTITRUST_A.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "category": "Actualité"
-  },
-  {
    "id": "4baf88d75f19087c",
    "title": "600 000 puces Nvidia avancées attendent dans un port de Hong Kong après que la Chine a fermé la porte aux exportations américaines",
    "description": "Ce ne sont pas les meilleurs jours pour une Nvidia qui grimpe depuis des mois grâce à son rôle dans l'industrie de l'IA. La société dirigée par Jensen Huang a été le protagoniste de l'un des krachs de la clôture boursière du 5 novembre. Jensen lui-même fait l'objet d'une enquête du conseil d'administration de Nvidia en raison du prétendu complot d'espionnage chinois et, pour ajouter plus de piquant, une exclusivité d",
@@ -1660,7 +1688,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T14:00:00.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/11/Spacefast-feat.jpg?resize=1200,675",
    "category": "Actualité"
   },
   {
@@ -1688,7 +1716,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T13:00:00.000Z",
-   "image": null,
+   "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/MITTRInfoysLubrizol-open-card-v3.png?resize=1200,600",
    "category": "Recherche"
   },
   {
@@ -1702,7 +1730,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T13:00:00.000Z",
-   "image": null,
+   "image": "https://images.ctfassets.net/kftzwdyauwt9/7CRGR1hiay1UfPVqjUSdAk/da9d8e1e61347fdae6d40e0a72962731/introducing-control-room-social.png?w=1600&h=900&fit=fill",
    "category": "Sécurité"
   },
   {
@@ -1730,7 +1758,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T12:34:29.000Z",
-   "image": null,
+   "image": "https://cdn-uploads.huggingface.co/production/uploads/6ab2f79bd8000a811c648a32/xZT8tg4be3bgZIx2EQS_m.png",
    "category": "Société"
   },
   {
@@ -1898,7 +1926,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T11:04:49.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108317413-1780669968312-gettyimages-2279169438-jung-nvidiace260605_npyXP.jpeg?v=1780670112&w=1920&h=1080",
    "category": "Matériel"
   },
   {
@@ -2136,7 +2164,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T08:57:20.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Modèles"
   },
   {
@@ -2150,7 +2178,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T08:44:00.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Modèles"
   },
   {
@@ -2178,7 +2206,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T08:34:03.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Actualité"
   },
   {
@@ -2206,7 +2234,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T08:26:45.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Entreprise"
   },
   {
@@ -2262,7 +2290,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T08:00:00.000Z",
-   "image": null,
+   "image": "https://images.ctfassets.net/kftzwdyauwt9/5TAanXWCpBQ0R0n2AFa89t/34f319750f5ffc9ebc78901cb054b866/coderabbit-seo-1920x1080.png?w=1600&h=900&fit=fill",
    "category": "Modèles"
   },
   {
@@ -2276,7 +2304,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T08:00:00.000Z",
-   "image": null,
+   "image": "https://images.ctfassets.net/kftzwdyauwt9/R7jAHAGqWOWrYCWsKdqvh/ae1842d55734f243d187c8c3e3a93c19/kuken-social.png?w=1600&h=900&fit=fill",
    "category": "Recherche"
   },
   {
@@ -2332,7 +2360,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T07:02:36.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Actualité"
   },
   {
@@ -2374,7 +2402,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T05:47:58.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Entreprise"
   },
   {
@@ -2388,7 +2416,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:26:29.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/09/Jensen-Huang.jpg?resize=1200,800",
    "category": "Matériel"
   },
   {
@@ -2416,7 +2444,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T05:09:23.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Modèles"
   },
   {
@@ -2472,7 +2500,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2486,7 +2514,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2500,7 +2528,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2514,7 +2542,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2528,7 +2556,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Régulation"
   },
   {
@@ -2542,7 +2570,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2556,7 +2584,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2570,7 +2598,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2584,7 +2612,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2598,7 +2626,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2612,7 +2640,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2626,7 +2654,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2640,7 +2668,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Sécurité"
   },
   {
@@ -2654,7 +2682,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2668,7 +2696,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2682,7 +2710,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2696,7 +2724,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2710,7 +2738,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Régulation"
   },
   {
@@ -2724,7 +2752,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2738,7 +2766,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2752,7 +2780,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Régulation"
   },
   {
@@ -2766,7 +2794,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2780,7 +2808,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Recherche"
   },
   {
@@ -2794,7 +2822,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-09T05:00:00.000Z",
-   "image": null,
+   "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
    "category": "Régulation"
   },
   {
@@ -2892,7 +2920,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T03:47:12.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Actualité"
   },
   {
@@ -2906,7 +2934,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T03:35:58.000Z",
-   "image": null,
+   "image": "https://www.itmedia.co.jp/aiplus/article/ogp/2611/09/2000003008/10011594/2048",
    "category": "Recherche"
   },
   {
@@ -2920,7 +2948,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T03:00:00.000Z",
-   "image": null,
+   "image": "https://www.itmedia.co.jp/news/article/ogp/2611/09/2000002982/10011548/2048",
    "category": "Sécurité"
   },
   {
@@ -2948,7 +2976,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T02:30:10.000Z",
-   "image": null,
+   "image": "https://www.itmedia.co.jp/news/article/ogp/2611/09/2000002926/10011427/2048",
    "category": "Recherche"
   },
   {
@@ -2962,7 +2990,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T02:19:08.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Recherche"
   },
   {
@@ -2976,7 +3004,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T02:00:00.000Z",
-   "image": null,
+   "image": "https://www.itmedia.co.jp/news/article/ogp/2611/09/2000003001/10011579/2048",
    "category": "Recherche"
   },
   {
@@ -2990,7 +3018,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T01:55:45.000Z",
-   "image": null,
+   "image": "https://www.itmedia.co.jp/aiplus/article/ogp/2611/09/2000003002/10011585/2048",
    "category": "Entreprise"
   },
   {
@@ -3004,7 +3032,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-09T01:18:41.000Z",
-   "image": null,
+   "image": "https://www.itmedia.co.jp/aiplus/article/ogp/2611/09/2000002916/10011414/2048",
    "category": "Modèles"
   },
   {
@@ -3046,7 +3074,7 @@
    "country": "CN",
    "translated": true,
    "date": "2026-11-09T00:40:50.000Z",
-   "image": null,
+   "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Entreprise"
   },
   {
@@ -3088,22 +3116,8 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-08T23:00:00.000Z",
-   "image": null,
+   "image": "https://image.itmedia.co.jp/enterprise/articles/2611/06/cover_news023.jpg",
    "category": "Entreprise"
-  },
-  {
-   "id": "67abd93f196f854c",
-   "title": "Voici le texte intégral de la note de Jensen Huang à Nvidia",
-   "description": "Dimanche, Nvidia a annoncé qu'elle ouvrait une enquête sur la relation du PDG Jensen Huang avec Alice Huang, cadre d'IA et agent du gouvernement chinois. En plus de l'annonce de l'enquête par le conseil d'administration, Huang a envoyé une note aux employés de Nvidia reconnaissant l'affaire. Vous pouvez lire le texte intégral ci-dessous. À mon […]",
-   "originalTitle": "Here’s the full text of Jensen Huang’s memo to Nvidia",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1029595/full-text-jensen-huang-affair-memo-nvidia",
-   "source": "The Verge AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-08T22:54:50.000Z",
-   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2285784039.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "category": "Régulation"
   },
   {
    "id": "7ee970694488e9dd",
@@ -3116,7 +3130,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-08T22:49:46.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108374284-1791395692942-Screenshot_2026-10-07_at_15124_PM.png?v=1794157596&w=1920&h=1080",
    "category": "Régulation"
   },
   {
@@ -3130,7 +3144,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-08T22:19:00.000Z",
-   "image": null,
+   "image": "https://image.cnbcfm.com/api/v1/image/108353994-1787675884337-gettyimages-2266718050-NVIDIA_GTC.jpeg?v=1787832040&w=1920&h=1080",
    "category": "Régulation"
   },
   {
@@ -3144,7 +3158,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-08T22:00:00.000Z",
-   "image": null,
+   "image": "https://image.itmedia.co.jp/business/articles/2611/09/cover_news039.jpg",
    "category": "Société"
   },
   {
@@ -3158,7 +3172,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-08T22:00:00.000Z",
-   "image": null,
+   "image": "https://image.itmedia.co.jp/business/articles/2611/09/cover_news038.jpg",
    "category": "Entreprise"
   },
   {
@@ -3172,7 +3186,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-08T22:00:00.000Z",
-   "image": null,
+   "image": "https://image.itmedia.co.jp/business/articles/2611/09/cover_news040.jpg",
    "category": "Recherche"
   },
   {
@@ -3186,7 +3200,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-08T21:00:11.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang-nvidia.jpg?w=1024",
    "category": "Entreprise"
   },
   {
@@ -3200,7 +3214,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-08T21:00:00.000Z",
-   "image": null,
+   "image": "https://kn.itmedia.co.jp/kn/article/ogp/2611/09/2000002973/10011528/2048",
    "category": "Entreprise"
   },
   {
@@ -3396,7 +3410,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-07T23:00:00.000Z",
-   "image": null,
+   "image": "https://image.itmedia.co.jp/ait/articles/2611/08/cover_news001.jpg",
    "category": "Modèles"
   },
   {
@@ -3410,7 +3424,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-07T22:07:22.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2025/05/GettyImages-2207245107-1.jpg?resize=1200,765",
    "category": "Actualité"
   },
   {
@@ -3424,7 +3438,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-07T21:17:08.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2294936867.jpg?resize=1200,800",
    "category": "Sécurité"
   },
   {
@@ -3522,7 +3536,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-07T04:16:43.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/11/SHAWN-THEW-Contributor-Getty.jpg?w=1024",
    "category": "Entreprise"
   },
   {
@@ -3536,7 +3550,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-07T01:40:28.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/09/crusoe-ceo-getty.jpg?resize=1200,800",
    "category": "Actualité"
   },
   {
@@ -3550,7 +3564,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-06T22:53:46.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024",
    "category": "Entreprise"
   },
   {
@@ -3564,7 +3578,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-06T22:00:00.000Z",
-   "image": null,
+   "image": "https://kn.itmedia.co.jp/kn/article/ogp/2611/07/2000002951/10011496/2048",
    "category": "Société"
   },
   {
@@ -3578,7 +3592,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-06T22:00:00.000Z",
-   "image": null,
+   "image": "https://kn.itmedia.co.jp/kn/article/ogp/2611/07/2000002948/10011491/2048",
    "category": "Modèles"
   },
   {
@@ -3592,7 +3606,7 @@
    "country": "JP",
    "translated": true,
    "date": "2026-11-06T22:00:00.000Z",
-   "image": null,
+   "image": "https://kn.itmedia.co.jp/kn/article/ogp/2611/07/2000002945/10011487/2048",
    "category": "Société"
   },
   {
@@ -3648,7 +3662,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-06T18:44:38.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1424498694.jpg?resize=1200,800",
    "category": "Sécurité"
   },
   {
@@ -3662,7 +3676,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-06T18:44:20.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2026/09/muse-ai-meta.jpg?w=1200",
    "category": "Actualité"
   },
   {
@@ -3690,7 +3704,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-06T18:00:00.000Z",
-   "image": null,
+   "image": "https://techcrunch.com/wp-content/uploads/2022/11/GettyImages-1368458052.jpg?resize=1200,750",
    "category": "Société"
   },
   {
@@ -3788,7 +3802,7 @@
    "country": "US",
    "translated": true,
    "date": "2026-11-06T14:00:48.000Z",
-   "image": null,
+   "image": "https://cdn-uploads.huggingface.co/production/uploads/638e39b249de7ae552d977b5/OAJMu2jr7i5jVAbmsKdZW.jpeg",
    "category": "Robotique"
   },
   {
@@ -3844,22 +3858,8 @@
    "country": "FR",
    "translated": false,
    "date": "2026-11-06T11:56:27.000Z",
-   "image": null,
+   "image": "https://www.maddyness.com/app/uploads/2021/07/bourse-bitcoin-.jpg",
    "category": "Société"
-  },
-  {
-   "id": "263f78072bdb0bbb",
-   "title": "Les fabricants chinois de puces d’IA déclarent leurs premiers bénéfices, mais la tendance va-t-elle se poursuivre ?",
-   "description": "Les fabricants chinois de puces d’intelligence artificielle ont franchi une étape importante au troisième trimestre alors que plusieurs entreprises ont réalisé des bénéfices, mais de graves obstacles dans la chaîne d’approvisionnement et la flambée des coûts de la mémoire obscurcissent leurs perspectives de croissance à long terme. Les développeurs nationaux d'unités de traitement graphique (GPU), notamment Moore Thr",
-   "originalTitle": "China’s AI chipmakers report first profits, but will the trend continue?",
-   "link": "https://www.scmp.com/tech/big-tech/article/3373532/chinas-ai-chipmakers-report-first-profits-will-trend-continue",
-   "source": "SCMP Tech",
-   "sourceLang": "en",
-   "country": "HK",
-   "translated": true,
-   "date": "2026-11-06T10:30:06.000Z",
-   "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/11/06/db6e0525-126a-4855-b978-79913acd7c45_f9decc7b.jpg?itok=4bvRHLeX&v=1793951798",
-   "category": "Entreprise"
   }
  ]
 }

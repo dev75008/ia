@@ -272,9 +272,11 @@ figure {
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
-  color: var(--accent);
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .brand-word {
@@ -1359,6 +1361,19 @@ figure {
   font-size: 20px;
 }
 
+.footer-brand-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .footer-brand p {
   max-width: 48ch;
   margin-top: 14px;
@@ -1374,6 +1389,200 @@ figure {
   color: var(--muted);
   font-size: 11px;
   text-align: right;
+}
+
+/* -------------------------------------------------------------- lecteur FR */
+html.reader-open {
+  overflow: hidden;
+}
+
+.reader {
+  width: min(860px, calc(100% - 32px));
+  max-height: min(88vh, 960px);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.reader::backdrop {
+  background: #050506d9;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.reader-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: min(88vh, 960px);
+}
+
+.reader-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 26px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.reader-title-block {
+  min-width: 0;
+}
+
+.reader-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-family: Oswald, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.reader-kicker::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  flex: none;
+  background: var(--accent);
+}
+
+.reader-head h2 {
+  margin: 0;
+  font-family: Oswald, sans-serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 400;
+  line-height: 1.28;
+  overflow-wrap: anywhere;
+}
+
+.reader-tools {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 8px;
+}
+
+.reader-tools .button {
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: 10px;
+}
+
+.reader-body {
+  overflow-y: auto;
+  padding: 30px 26px;
+}
+
+.reader-content {
+  max-width: 68ch;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.reader-content p {
+  margin: 0 0 18px;
+}
+
+.reader-content p:last-child {
+  margin-bottom: 0;
+}
+
+.reader-lede {
+  margin-bottom: 24px;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.reader-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.reader-skeleton {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.reader-skeleton span {
+  height: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.reader-skeleton span:nth-child(3n) {
+  width: 88%;
+}
+
+.reader-skeleton span:nth-child(4n) {
+  width: 72%;
+}
+
+.reader-error {
+  max-width: 60ch;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.reader-error strong {
+  display: block;
+  margin-bottom: 10px;
+  font-family: Oswald, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.reader-error p {
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+.reader-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.reader-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 26px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.reader-foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.reader-foot a:hover {
+  color: var(--accent);
 }
 
 /* --------------------------------------------------------------- squelettes */
@@ -1617,6 +1826,45 @@ figure {
   .ticker-item {
     height: 38px;
     padding: 0 16px;
+  }
+
+  .reader {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100dvh;
+    border: 0;
+  }
+
+  .reader-panel {
+    height: 100%;
+    max-height: 100dvh;
+  }
+
+  .reader-head {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .reader-tools {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .reader-body {
+    padding: 20px 16px;
+  }
+
+  .reader-content {
+    font-size: 16px;
+  }
+
+  .reader-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px 16px;
   }
 }
 
