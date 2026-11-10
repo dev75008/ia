@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-10T00:12:40.273Z",
+ "updatedAt": "2026-11-10T00:25:44.151Z",
  "articleCount": 240,
  "sourceCount": 44,
  "translatedCount": 187,
@@ -12,7 +12,7 @@
    "country": "FR",
    "scope": "ai",
    "status": "ok",
-   "count": 15,
+   "count": 0,
    "error": null
   },
   {
@@ -67,7 +67,7 @@
    "country": "ES",
    "scope": "tech",
    "status": "ok",
-   "count": 3,
+   "count": 0,
    "error": null
   },
   {
@@ -78,7 +78,7 @@
    "country": "GB",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 0,
    "error": null
   },
   {
@@ -100,7 +100,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 3,
    "error": null
   },
   {
@@ -133,7 +133,7 @@
    "country": "FR",
    "scope": "tech",
    "status": "ok",
-   "count": 4,
+   "count": 3,
    "error": null
   },
   {
@@ -144,7 +144,7 @@
    "country": "FR",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 0,
    "error": null
   },
   {
@@ -155,7 +155,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 10,
+   "count": 3,
    "error": null
   },
   {
@@ -166,7 +166,7 @@
    "country": "FR",
    "scope": "ai",
    "status": "ok",
-   "count": 15,
+   "count": 6,
    "error": null
   },
   {
@@ -177,7 +177,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 18,
+   "count": 7,
    "error": null
   },
   {
@@ -188,7 +188,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 4,
    "error": null
   },
   {
@@ -221,7 +221,7 @@
    "country": "GB",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 0,
    "error": null
   },
   {
@@ -243,7 +243,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 10,
+   "count": 9,
    "error": null
   },
   {
@@ -276,7 +276,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 0,
    "error": null
   },
   {
@@ -287,7 +287,7 @@
    "country": "IN",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 12,
    "error": null
   },
   {
@@ -320,7 +320,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 1,
    "error": null
   },
   {
@@ -331,7 +331,7 @@
    "country": "JP",
    "scope": "ai",
    "status": "ok",
-   "count": 20,
+   "count": 18,
    "error": null
   },
   {
@@ -353,7 +353,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 10,
+   "count": 0,
    "error": null
   },
   {
@@ -364,7 +364,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 24,
+   "count": 3,
    "error": null
   },
   {
@@ -408,7 +408,7 @@
    "country": "IT",
    "scope": "tech",
    "status": "ok",
-   "count": 11,
+   "count": 3,
    "error": null
   },
   {
@@ -430,7 +430,7 @@
    "country": "HK",
    "scope": "tech",
    "status": "ok",
-   "count": 8,
+   "count": 7,
    "error": null
   },
   {
@@ -441,7 +441,7 @@
    "country": "FR",
    "scope": "tech",
    "status": "ok",
-   "count": 10,
+   "count": 5,
    "error": null
   },
   {
@@ -452,7 +452,7 @@
    "country": "DE",
    "scope": "tech",
    "status": "ok",
-   "count": 1,
+   "count": 0,
    "error": null
   },
   {
@@ -463,7 +463,7 @@
    "country": "CN",
    "scope": "tech",
    "status": "ok",
-   "count": 2,
+   "count": 1,
    "error": null
   },
   {
@@ -485,7 +485,7 @@
    "country": "FR",
    "scope": "tech",
    "status": "ok",
-   "count": 2,
+   "count": 1,
    "error": null
   },
   {
@@ -496,11 +496,25 @@
    "country": "GB",
    "scope": "ai",
    "status": "ok",
-   "count": 8,
+   "count": 1,
    "error": null
   }
  ],
  "articles": [
+  {
+   "id": "1fbf8d9b2c4041a0",
+   "title": "Les problèmes de Jensen Huang laissent l’industrie de l’IA sous le choc",
+   "description": "Muni d’un gros chéquier et de puces recherchées, le PDG de Nvidia avait le pouce sur le monde de l’IA. Une liaison extraconjugale avec un espion chinois présumé pourrait mettre tout cela en danger.",
+   "originalTitle": "Jensen Huang’s Troubles Leave the AI Industry Reeling",
+   "link": "https://www.wired.com/story/jensen-huangs-troubles-leaves-the-ai-industry-reeling",
+   "source": "Wired AI",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-10T00:18:19.000Z",
+   "image": "https://media.wired.com/photos/6af20d5c5d3e4adc0dc34622/master/pass/What-Jensen-Huangs-Spy-Scandal-Means-For-AI-Industry-Business-2219673294.jpg",
+   "category": "Matériel"
+  },
   {
    "id": "ea1ae81d170544b4",
    "title": "Trump dit que le FBI enquête sur la liaison du patron de Nvidia avec un espion chinois présumé",
@@ -541,34 +555,6 @@
    "translated": true,
    "date": "2026-11-09T23:52:00.000Z",
    "image": "https://i.blogs.es/8ce1ca/jensen-huang-trump/1024_2000.jpeg",
-   "category": "Matériel"
-  },
-  {
-   "id": "285987eab7312733",
-   "title": "Que pourrait obtenir la Chine de Jensen Huang ?",
-   "description": "Il est difficile d’exagérer la puissance de Nvidia dans le paysage actuel de l’IA. Les puces de l'entreprise constituent le fondement sur lequel se construit la technologie avancée de l'IA aux États-Unis, et la demande dépasse constamment l'offre depuis des années. Nvidia a également été un investisseur influent dans un large éventail d’entreprises d’IA émergentes ces dernières années, avec environ […]",
-   "originalTitle": "What could China get from Jensen Huang?",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1030328/what-could-china-get-from-jensen-huang",
-   "source": "The Verge AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-09T23:51:58.000Z",
-   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STKP210_JENSEN_HUANG_A.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "category": "Entreprise"
-  },
-  {
-   "id": "fd48ce2874be788e",
-   "title": "Voici ce que Trump a dit savoir à propos de Jensen Huang",
-   "description": "Le président Trump a tenu une conférence de presse à la Maison Blanche plus tôt dans la journée et a répondu à plusieurs questions sur sa connaissance de la liaison du PDG de Nvidia, Jensen Huang, avec un espion chinois présumé. Huang a déclaré ce week-end qu'il avait été \"​​infidèle\" à sa femme, et la société a ouvert une enquête sur Huang. Articles récents de The New […]",
-   "originalTitle": "Here’s what Trump said he knew about Jensen Huang",
-   "link": "https://www.theverge.com/tech/1030446/trump-jensen-huang-press-conference",
-   "source": "The Verge AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-09T23:47:46.000Z",
-   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2297774940.jpg?quality=90&strip=all&crop=0,0,100,100",
    "category": "Matériel"
   },
   {
@@ -1608,6 +1594,20 @@
    "category": "Régulation"
   },
   {
+   "id": "cc49c1ae6860a64f",
+   "title": "Jonathan Kanter utilise l'IA pour affronter les Big Tech",
+   "description": "Lorsque Jonathan Kanter a quitté ses fonctions de chef de la division antitrust du ministère de la Justice en 2024, il a décidé de continuer à lutter pour démanteler les monopoles illégaux. Mais cette fois, il poursuit le combat dans le secteur privé, et avec un outil peut-être inattendu : l'IA. Aux côtés de l'ancien chef par intérim de la division antitrust Doha Mekki, Kanter a récemment lancé un […]",
+   "originalTitle": "Jonathan Kanter is using AI to take on Big Tech",
+   "link": "https://www.theverge.com/policy/1029652/kanter-doj-biden-legal-tech",
+   "source": "The Verge AI",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-09T14:30:00.000Z",
+   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/STKS487_ANTITRUST_A.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "category": "Actualité"
+  },
+  {
    "id": "4baf88d75f19087c",
    "title": "600 000 puces Nvidia avancées attendent dans un port de Hong Kong après que la Chine a fermé la porte aux exportations américaines",
    "description": "Ce ne sont pas les meilleurs jours pour une Nvidia qui grimpe depuis des mois grâce à son rôle dans l'industrie de l'IA. La société dirigée par Jensen Huang a été le protagoniste de l'un des krachs de la clôture boursière du 5 novembre. Jensen lui-même fait l'objet d'une enquête du conseil d'administration de Nvidia en raison du prétendu complot d'espionnage chinois et, pour ajouter plus de piquant, une exclusivité d",
@@ -2240,7 +2240,7 @@
   {
    "id": "6d49d73492813e52",
    "title": "NVIDIA annonce de nouveaux investissements prévus dans des startups coréennes lors du forum de partenariat MSIT-NVIDIA AI Startup Partnership",
-   "description": "Le ministère coréen des Sciences et des TIC et NVIDIA ont organisé le forum de partenariat MSIT-NVIDIA AI Startup au COEX. Ryu Je-myung, vice-ministre des Sciences et des TIC, a rejoint les dirigeants de NVIDIA pour rencontrer plus de 20 startups coréennes dans les domaines des modèles de base, de l'IA physique, de l'infrastructure d'IA et des semi-conducteurs d'IA. NVIDIA a également annoncé un investissement dans l",
+   "description": "Le ministère coréen des Sciences et des TIC et NVIDIA ont organisé le forum de partenariat MSIT-NVIDIA AI Startup au COEX. Des représentants du ministère des Sciences et des TIC et de NVIDIA ont rencontré plus de 20 startups coréennes dans les domaines des modèles de base, de l'IA physique, de l'infrastructure d'IA et des semi-conducteurs d'IA. NVIDIA a également annoncé un investissement dans la startup coréenne Poi",
    "originalTitle": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum",
    "link": "https://blogs.nvidia.com/blog/korean-startup-investments-msit",
    "source": "NVIDIA Blog",
@@ -3092,6 +3092,20 @@
    "category": "Entreprise"
   },
   {
+   "id": "67abd93f196f854c",
+   "title": "Voici le texte intégral de la note de Jensen Huang à Nvidia",
+   "description": "Dimanche, Nvidia a annoncé qu'elle ouvrait une enquête sur la relation du PDG Jensen Huang avec Alice Huang, cadre d'IA et agent du gouvernement chinois. En plus de l'annonce de l'enquête par le conseil d'administration, Huang a envoyé une note aux employés de Nvidia reconnaissant l'affaire. Vous pouvez lire le texte intégral ci-dessous. À mon […]",
+   "originalTitle": "Here’s the full text of Jensen Huang’s memo to Nvidia",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1029595/full-text-jensen-huang-affair-memo-nvidia",
+   "source": "The Verge AI",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-08T22:54:50.000Z",
+   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2285784039.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "category": "Régulation"
+  },
+  {
    "id": "7ee970694488e9dd",
    "title": "Le PDG de Nvidia, Jensen Huang, fait face à un examen bipartisan du Congrès sur un lien d'espionnage avec la Chine",
    "description": "Les législateurs souhaitent interroger le PDG de Nvidia, Jensen Huang, à la suite d'informations faisant état de sa relation avec un prétendu agent des services de renseignement chinois.",
@@ -3846,20 +3860,6 @@
    "date": "2026-11-06T10:30:06.000Z",
    "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/11/06/db6e0525-126a-4855-b978-79913acd7c45_f9decc7b.jpg?itok=4bvRHLeX&v=1793951798",
    "category": "Entreprise"
-  },
-  {
-   "id": "93fc4c1ba090e949",
-   "title": "J'ai regardé un robot humanoïde nettoyer mon appartement. C’était comme un avant-goût du futur.",
-   "description": "Je ne suis pas le genre de personne qui paie généralement pour un nettoyeur de maison. Je suis trop économe et j'aime bien monter un podcast et aller en ville dans ma baignoire avec une gomme magique. Mais quand j’ai vu un post X sur un nouveau service de nettoyage de robots humanoïdes à San Francisco, j’ai immédiatement signé…",
-   "originalTitle": "I watched a humanoid robot clean my apartment. It felt like a taste of the future.",
-   "link": "https://www.technologyreview.com/2026/11/06/1148090/i-watched-a-humanoid-robot-clean-my-apartment-it-felt-like-a-taste-of-the-future",
-   "source": "MIT Technology Review AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T10:00:00.000Z",
-   "image": null,
-   "category": "Robotique"
   }
  ]
 }

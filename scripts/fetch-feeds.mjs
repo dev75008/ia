@@ -182,19 +182,24 @@ async function main() {
   }
 
   const articles = selected.map((item) => ({
-      id: createHash('sha1').update(item.link).digest('hex').slice(0, 16),
-      title: item.title,
-      description: item.description,
-      originalTitle: item.originalTitle || null,
-      link: item.link,
-      source: item.source,
-      sourceLang: item.sourceLang,
-      country: item.country,
-      translated: Boolean(item.translated),
-      date: item.date,
-      image: item.image || null,
-      category: categorize(`${item.title} ${item.description}`),
-    }))
+    id: createHash('sha1').update(item.link).digest('hex').slice(0, 16),
+    title: item.title,
+    description: item.description,
+    originalTitle: item.originalTitle || null,
+    link: item.link,
+    source: item.source,
+    sourceLang: item.sourceLang,
+    country: item.country,
+    translated: Boolean(item.translated),
+    date: item.date,
+    image: item.image || null,
+    category: categorize(`${item.title} ${item.description}`),
+  }))
+
+  // Le compte affiché par source doit correspondre aux articles réellement
+  // publiés dans l'édition, pas au nombre d'articles collectés avant la coupe.
+  const perSource = new Map()
+  for (const article of articles) perSource.set(article.source, (perSource.get(article.source) || 0) + 1)
 
   const snapshot = {
     updatedAt: new Date().toISOString(),
@@ -209,7 +214,7 @@ async function main() {
       country: feed.country || null,
       scope: feed.scope || 'ai',
       status: feed.status,
-      count: feed.kept || 0,
+      count: perSource.get(feed.name) || 0,
       error: feed.error || null,
     })),
     articles,

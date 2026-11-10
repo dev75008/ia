@@ -72,7 +72,8 @@ function ArticleCard({ article, index }) {
         {article.description ? <p className="card-excerpt">{article.description}</p> : null}
         <div className="card-foot">
           <span className="card-source">
-            {article.translated ? `${languageName(article.sourceLang)} → FR` : article.source}
+            {article.source}
+            {article.translated ? ` · ${languageName(article.sourceLang)} → FR` : ''}
           </span>
           <span className="card-read">{readMinutes(article.description || article.title)} min</span>
           <ArrowUpRight className="card-arrow" size={15} aria-hidden="true" />
@@ -584,7 +585,7 @@ export default function App() {
               </div>
               <p className="section-note">
                 Chaque flux est interrogé à la source. Les contenus non francophones sont traduits
-                automatiquement et signalés.
+                automatiquement et signalés ; une source sans article retenu reste listée.
               </p>
             </div>
             <ul className="source-grid">
@@ -593,7 +594,7 @@ export default function App() {
                   <span className="source-status" aria-hidden="true" />
                   <span className="source-name">{entry.name}</span>
                   <span className="source-lang">{languageName(entry.lang)}</span>
-                  <span className="source-count">{entry.status === 'error' ? 'indisponible' : `${entry.count} art.`}</span>
+                  <span className="source-count">{entry.status === 'error' ? 'indisponible' : entry.count ? `${entry.count} art.` : 'aucun retenu'}</span>
                 </li>
               ))}
             </ul>
