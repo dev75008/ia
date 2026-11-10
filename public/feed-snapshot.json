@@ -1,9 +1,64 @@
 {
- "updatedAt": "2026-11-10T00:50:19.231Z",
- "articleCount": 240,
- "sourceCount": 44,
- "translatedCount": 187,
+ "updatedAt": "2026-11-10T01:25:27.048Z",
+ "articleCount": 280,
+ "sourceCount": 49,
+ "translatedCount": 232,
  "sources": [
+  {
+   "name": "01net",
+   "url": "https://www.01net.com/feed/",
+   "homepage": "https://www.01net.com",
+   "lang": "fr",
+   "country": "FR",
+   "scope": "tech",
+   "status": "ok",
+   "count": 4,
+   "error": null
+  },
+  {
+   "name": "爱范儿",
+   "url": "https://www.ifanr.com/feed",
+   "homepage": "https://www.ifanr.com",
+   "lang": "zh",
+   "country": "CN",
+   "scope": "tech",
+   "status": "ok",
+   "count": 10,
+   "error": null
+  },
+  {
+   "name": "极客公园",
+   "url": "https://www.geekpark.net/rss",
+   "homepage": "https://www.geekpark.net",
+   "lang": "zh",
+   "country": "CN",
+   "scope": "tech",
+   "status": "ok",
+   "count": 8,
+   "error": null
+  },
+  {
+   "name": "雷锋网",
+   "url": "https://www.leiphone.com/feed",
+   "homepage": "https://www.leiphone.com",
+   "lang": "zh",
+   "country": "CN",
+   "scope": "tech",
+   "status": "ok",
+   "count": 17,
+   "error": null
+  },
+  {
+   "name": "钛媒体",
+   "url": "https://www.tmtpost.com/feed",
+   "homepage": "https://www.tmtpost.com",
+   "lang": "zh",
+   "country": "CN",
+   "scope": "tech",
+   "status": "ok",
+   "count": 7,
+   "error": null
+  },
   {
    "name": "ActuIA",
    "url": "https://www.actuia.com/feed/",
@@ -16,6 +71,28 @@
    "error": null
   },
   {
+   "name": "AI2 Allen Institute",
+   "url": "https://allenai.org/rss.xml",
+   "homepage": "https://allenai.org/blog",
+   "lang": "en",
+   "country": "US",
+   "scope": "ai",
+   "status": "ok",
+   "count": 0,
+   "error": null
+  },
+  {
+   "name": "Analytics India Magazine",
+   "url": "https://analyticsindiamag.com/feed",
+   "homepage": "https://analyticsindiamag.com",
+   "lang": "en",
+   "country": "IN",
+   "scope": "ai",
+   "status": "ok",
+   "count": 12,
+   "error": null
+  },
+  {
    "name": "Ars Technica",
    "url": "https://feeds.arstechnica.com/arstechnica/index",
    "homepage": "https://arstechnica.com",
@@ -23,7 +100,7 @@
    "country": "US",
    "scope": "tech",
    "status": "ok",
-   "count": 4,
+   "count": 3,
    "error": null
   },
   {
@@ -49,6 +126,17 @@
    "error": null
   },
   {
+   "name": "Clubic",
+   "url": "https://www.clubic.com/feed/rss",
+   "homepage": "https://www.clubic.com",
+   "lang": "fr",
+   "country": "FR",
+   "scope": "tech",
+   "status": "ok",
+   "count": 5,
+   "error": null
+  },
+  {
    "name": "CNBC Tech",
    "url": "https://www.cnbc.com/id/19854910/device/rss/rss.html",
    "homepage": "https://www.cnbc.com/technology/",
@@ -56,7 +144,7 @@
    "country": "US",
    "scope": "tech",
    "status": "ok",
-   "count": 12,
+   "count": 17,
    "error": null
   },
   {
@@ -68,6 +156,17 @@
    "scope": "tech",
    "status": "ok",
    "count": 0,
+   "error": null
+  },
+  {
+   "name": "Golem.de",
+   "url": "https://rss.golem.de/rss.php?feed=RSS2.0",
+   "homepage": "https://www.golem.de",
+   "lang": "de",
+   "country": "DE",
+   "scope": "tech",
+   "status": "ok",
+   "count": 1,
    "error": null
   },
   {
@@ -89,7 +188,7 @@
    "country": "DE",
    "scope": "tech",
    "status": "ok",
-   "count": 1,
+   "count": 2,
    "error": null
   },
   {
@@ -100,7 +199,40 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 3,
+   "count": 2,
+   "error": null
+  },
+  {
+   "name": "IEEE Spectrum AI",
+   "url": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
+   "homepage": "https://spectrum.ieee.org/artificial-intelligence",
+   "lang": "en",
+   "country": "US",
+   "scope": "ai",
+   "status": "ok",
+   "count": 1,
+   "error": null
+  },
+  {
+   "name": "InfoQ 中文",
+   "url": "https://www.infoq.cn/feed",
+   "homepage": "https://www.infoq.cn",
+   "lang": "zh",
+   "country": "CN",
+   "scope": "tech",
+   "status": "ok",
+   "count": 13,
+   "error": null
+  },
+  {
+   "name": "ITmedia AI+",
+   "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
+   "homepage": "https://www.itmedia.co.jp/aiplus/",
+   "lang": "ja",
+   "country": "JP",
+   "scope": "ai",
+   "status": "ok",
+   "count": 16,
    "error": null
   },
   {
@@ -137,6 +269,39 @@
    "error": null
   },
   {
+   "name": "Le Temps",
+   "url": "https://www.letemps.ch/articles.rss",
+   "homepage": "https://www.letemps.ch",
+   "lang": "fr",
+   "country": "CH",
+   "scope": "tech",
+   "status": "ok",
+   "count": 3,
+   "error": null
+  },
+  {
+   "name": "Maddyness",
+   "url": "https://www.maddyness.com/feed/",
+   "homepage": "https://www.maddyness.com",
+   "lang": "fr",
+   "country": "FR",
+   "scope": "tech",
+   "status": "ok",
+   "count": 0,
+   "error": null
+  },
+  {
+   "name": "Microsoft Research",
+   "url": "https://www.microsoft.com/en-us/research/feed/",
+   "homepage": "https://www.microsoft.com/en-us/research/blog/",
+   "lang": "en",
+   "country": "US",
+   "scope": "ai",
+   "status": "ok",
+   "count": 0,
+   "error": null
+  },
+  {
    "name": "Mistral AI",
    "url": "https://mistral.ai/news/rss",
    "homepage": "https://mistral.ai/news",
@@ -145,6 +310,17 @@
    "scope": "ai",
    "status": "ok",
    "count": 0,
+   "error": null
+  },
+  {
+   "name": "MIT News AI",
+   "url": "https://news.mit.edu/rss/topic/artificial-intelligence2",
+   "homepage": "https://news.mit.edu/topic/artificial-intelligence2",
+   "lang": "en",
+   "country": "US",
+   "scope": "ai",
+   "status": "ok",
+   "count": 2,
    "error": null
   },
   {
@@ -159,6 +335,39 @@
    "error": null
   },
   {
+   "name": "Nature Machine Intelligence",
+   "url": "https://www.nature.com/natmachintell.rss",
+   "homepage": "https://www.nature.com/natmachintell/",
+   "lang": "en",
+   "country": "GB",
+   "scope": "ai",
+   "status": "ok",
+   "count": 1,
+   "error": null
+  },
+  {
+   "name": "Next INpact",
+   "url": "https://next.ink/feed/",
+   "homepage": "https://next.ink",
+   "lang": "fr",
+   "country": "FR",
+   "scope": "tech",
+   "status": "ok",
+   "count": 3,
+   "error": null
+  },
+  {
+   "name": "Numerama",
+   "url": "https://www.numerama.com/feed/",
+   "homepage": "https://www.numerama.com",
+   "lang": "fr",
+   "country": "FR",
+   "scope": "tech",
+   "status": "ok",
+   "count": 1,
+   "error": null
+  },
+  {
    "name": "Numerama IA",
    "url": "https://www.numerama.com/tech/intelligence-artificielle/feed/",
    "homepage": "https://www.numerama.com/tech/intelligence-artificielle/",
@@ -166,7 +375,7 @@
    "country": "FR",
    "scope": "ai",
    "status": "ok",
-   "count": 6,
+   "count": 4,
    "error": null
   },
   {
@@ -177,7 +386,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 7,
+   "count": 6,
    "error": null
   },
   {
@@ -192,6 +401,72 @@
    "error": null
   },
   {
+   "name": "QbitAI",
+   "url": "https://www.qbitai.com/feed",
+   "homepage": "https://www.qbitai.com",
+   "lang": "zh",
+   "country": "CN",
+   "scope": "ai",
+   "status": "ok",
+   "count": 10,
+   "error": null
+  },
+  {
+   "name": "Repubblica Tecnologia",
+   "url": "https://www.repubblica.it/rss/tecnologia/rss2.0.xml",
+   "homepage": "https://www.repubblica.it/tecnologia/",
+   "lang": "it",
+   "country": "IT",
+   "scope": "tech",
+   "status": "ok",
+   "count": 1,
+   "error": null
+  },
+  {
+   "name": "Rest of World",
+   "url": "https://restofworld.org/feed/latest/",
+   "homepage": "https://restofworld.org",
+   "lang": "en",
+   "country": "US",
+   "scope": "tech",
+   "status": "ok",
+   "count": 1,
+   "error": null
+  },
+  {
+   "name": "SCMP Tech",
+   "url": "https://www.scmp.com/rss/36/feed/",
+   "homepage": "https://www.scmp.com/tech",
+   "lang": "en",
+   "country": "HK",
+   "scope": "tech",
+   "status": "ok",
+   "count": 9,
+   "error": null
+  },
+  {
+   "name": "Siecle Digital",
+   "url": "https://siecledigital.fr/feed/",
+   "homepage": "https://siecledigital.fr",
+   "lang": "fr",
+   "country": "FR",
+   "scope": "tech",
+   "status": "ok",
+   "count": 4,
+   "error": null
+  },
+  {
+   "name": "Silicon.de",
+   "url": "https://www.silicon.de/feed",
+   "homepage": "https://www.silicon.de",
+   "lang": "de",
+   "country": "DE",
+   "scope": "tech",
+   "status": "ok",
+   "count": 1,
+   "error": null
+  },
+  {
    "name": "TechCrunch AI",
    "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
    "homepage": "https://techcrunch.com/category/artificial-intelligence/",
@@ -199,7 +474,18 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 20,
+   "count": 14,
+   "error": null
+  },
+  {
+   "name": "TechNode",
+   "url": "https://technode.com/feed/",
+   "homepage": "https://technode.com",
+   "lang": "en",
+   "country": "CN",
+   "scope": "tech",
+   "status": "ok",
+   "count": 2,
    "error": null
   },
   {
@@ -210,7 +496,7 @@
    "country": "GB",
    "scope": "ai",
    "status": "ok",
-   "count": 20,
+   "count": 17,
    "error": null
   },
   {
@@ -243,7 +529,7 @@
    "country": "US",
    "scope": "ai",
    "status": "ok",
-   "count": 9,
+   "count": 6,
    "error": null
   },
   {
@@ -258,215 +544,6 @@
    "error": null
   },
   {
-   "name": "01net",
-   "url": "https://www.01net.com/feed/",
-   "homepage": "https://www.01net.com",
-   "lang": "fr",
-   "country": "FR",
-   "scope": "tech",
-   "status": "ok",
-   "count": 4,
-   "error": null
-  },
-  {
-   "name": "AI2 Allen Institute",
-   "url": "https://allenai.org/rss.xml",
-   "homepage": "https://allenai.org/blog",
-   "lang": "en",
-   "country": "US",
-   "scope": "ai",
-   "status": "ok",
-   "count": 0,
-   "error": null
-  },
-  {
-   "name": "Analytics India Magazine",
-   "url": "https://analyticsindiamag.com/feed",
-   "homepage": "https://analyticsindiamag.com",
-   "lang": "en",
-   "country": "IN",
-   "scope": "ai",
-   "status": "ok",
-   "count": 12,
-   "error": null
-  },
-  {
-   "name": "Clubic",
-   "url": "https://www.clubic.com/feed/rss",
-   "homepage": "https://www.clubic.com",
-   "lang": "fr",
-   "country": "FR",
-   "scope": "tech",
-   "status": "ok",
-   "count": 5,
-   "error": null
-  },
-  {
-   "name": "Golem.de",
-   "url": "https://rss.golem.de/rss.php?feed=RSS2.0",
-   "homepage": "https://www.golem.de",
-   "lang": "de",
-   "country": "DE",
-   "scope": "tech",
-   "status": "ok",
-   "count": 1,
-   "error": null
-  },
-  {
-   "name": "IEEE Spectrum AI",
-   "url": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
-   "homepage": "https://spectrum.ieee.org/artificial-intelligence",
-   "lang": "en",
-   "country": "US",
-   "scope": "ai",
-   "status": "ok",
-   "count": 1,
-   "error": null
-  },
-  {
-   "name": "ITmedia AI+",
-   "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
-   "homepage": "https://www.itmedia.co.jp/aiplus/",
-   "lang": "ja",
-   "country": "JP",
-   "scope": "ai",
-   "status": "ok",
-   "count": 19,
-   "error": null
-  },
-  {
-   "name": "Le Temps",
-   "url": "https://www.letemps.ch/articles.rss",
-   "homepage": "https://www.letemps.ch",
-   "lang": "fr",
-   "country": "CH",
-   "scope": "tech",
-   "status": "ok",
-   "count": 2,
-   "error": null
-  },
-  {
-   "name": "Microsoft Research",
-   "url": "https://www.microsoft.com/en-us/research/feed/",
-   "homepage": "https://www.microsoft.com/en-us/research/blog/",
-   "lang": "en",
-   "country": "US",
-   "scope": "ai",
-   "status": "ok",
-   "count": 0,
-   "error": null
-  },
-  {
-   "name": "MIT News AI",
-   "url": "https://news.mit.edu/rss/topic/artificial-intelligence2",
-   "homepage": "https://news.mit.edu/topic/artificial-intelligence2",
-   "lang": "en",
-   "country": "US",
-   "scope": "ai",
-   "status": "ok",
-   "count": 3,
-   "error": null
-  },
-  {
-   "name": "Next INpact",
-   "url": "https://next.ink/feed/",
-   "homepage": "https://next.ink",
-   "lang": "fr",
-   "country": "FR",
-   "scope": "tech",
-   "status": "ok",
-   "count": 8,
-   "error": null
-  },
-  {
-   "name": "Numerama",
-   "url": "https://www.numerama.com/feed/",
-   "homepage": "https://www.numerama.com",
-   "lang": "fr",
-   "country": "FR",
-   "scope": "tech",
-   "status": "ok",
-   "count": 0,
-   "error": null
-  },
-  {
-   "name": "QbitAI",
-   "url": "https://www.qbitai.com/feed",
-   "homepage": "https://www.qbitai.com",
-   "lang": "zh",
-   "country": "CN",
-   "scope": "ai",
-   "status": "ok",
-   "count": 10,
-   "error": null
-  },
-  {
-   "name": "Repubblica Tecnologia",
-   "url": "https://www.repubblica.it/rss/tecnologia/rss2.0.xml",
-   "homepage": "https://www.repubblica.it/tecnologia/",
-   "lang": "it",
-   "country": "IT",
-   "scope": "tech",
-   "status": "ok",
-   "count": 3,
-   "error": null
-  },
-  {
-   "name": "Rest of World",
-   "url": "https://restofworld.org/feed/latest/",
-   "homepage": "https://restofworld.org",
-   "lang": "en",
-   "country": "US",
-   "scope": "tech",
-   "status": "ok",
-   "count": 1,
-   "error": null
-  },
-  {
-   "name": "SCMP Tech",
-   "url": "https://www.scmp.com/rss/36/feed/",
-   "homepage": "https://www.scmp.com/tech",
-   "lang": "en",
-   "country": "HK",
-   "scope": "tech",
-   "status": "ok",
-   "count": 6,
-   "error": null
-  },
-  {
-   "name": "Siecle Digital",
-   "url": "https://siecledigital.fr/feed/",
-   "homepage": "https://siecledigital.fr",
-   "lang": "fr",
-   "country": "FR",
-   "scope": "tech",
-   "status": "ok",
-   "count": 5,
-   "error": null
-  },
-  {
-   "name": "Silicon.de",
-   "url": "https://www.silicon.de/feed",
-   "homepage": "https://www.silicon.de",
-   "lang": "de",
-   "country": "DE",
-   "scope": "tech",
-   "status": "ok",
-   "count": 0,
-   "error": null
-  },
-  {
-   "name": "TechNode",
-   "url": "https://technode.com/feed/",
-   "homepage": "https://technode.com",
-   "lang": "en",
-   "country": "CN",
-   "scope": "tech",
-   "status": "ok",
-   "count": 1,
-   "error": null
-  },
-  {
    "name": "ZDNet.fr",
    "url": "https://www.zdnet.fr/feeds/rss/actualites/",
    "homepage": "https://www.zdnet.fr",
@@ -474,29 +551,7 @@
    "country": "FR",
    "scope": "tech",
    "status": "ok",
-   "count": 10,
-   "error": null
-  },
-  {
-   "name": "Maddyness",
-   "url": "https://www.maddyness.com/feed/",
-   "homepage": "https://www.maddyness.com",
-   "lang": "fr",
-   "country": "FR",
-   "scope": "tech",
-   "status": "ok",
-   "count": 1,
-   "error": null
-  },
-  {
-   "name": "Nature Machine Intelligence",
-   "url": "https://www.nature.com/natmachintell.rss",
-   "homepage": "https://www.nature.com/natmachintell/",
-   "lang": "en",
-   "country": "GB",
-   "scope": "ai",
-   "status": "ok",
-   "count": 1,
+   "count": 12,
    "error": null
   }
  ],
@@ -511,9 +566,121 @@
    "sourceLang": "en",
    "country": "GB",
    "translated": true,
-   "date": "2026-11-10T00:34:53.000Z",
+   "date": "2026-11-10T01:22:10.000Z",
    "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/f773/live/9c28e680-dc95-11f1-a701-fddedf244c16.jpg",
    "category": "Matériel"
+  },
+  {
+   "id": "2fe3da380d620049",
+   "title": "La console de jeu Codex est soudainement mise en vente, mais les internautes réclament une mise à jour vers GPT-6.2",
+   "description": "Le bonheur humain est toujours aussi simple. # Bienvenue pour suivre le compte public officiel WeChat d'aifaner : aifaner (WeChat ID : ifanr). Un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "Codex 游戏掌机突然开卖，网友却在催更 GPT-6.2",
+   "link": "https://www.ifanr.com/1688678",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-10T01:19:39.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/111111111-scaled.jpg",
+   "category": "Modèles"
+  },
+  {
+   "id": "58d8580169e27066",
+   "title": "Le code de vérification ne peut pas arrêter l'agent personnel.",
+   "description": "Au moins l'étape de remplissage du code de vérification de l'e-mail peut désormais être effectuée par l'IA.",
+   "originalTitle": "验证码拦不住个人Agent了",
+   "link": "https://www.tmtpost.com/8198652.html",
+   "source": "钛媒体",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-10T01:10:37.000Z",
+   "image": "https://images.tmtpost.com/uploads/images/2026/11/9c8f7d1cb605b92b678c4c4ae3bdb164_1794273039.jpg",
+   "category": "Actualité"
+  },
+  {
+   "id": "daaeaa9f86a3498c",
+   "title": "Un adolescent qui a planifié une attaque terroriste à Sydney déclare au tribunal qu'il s'est radicalisé en ligne et qu'il a utilisé l'IA pour élaborer sa stratégie",
+   "description": "<p>Boy dit qu'il a d'abord été exposé à du matériel extrémiste sur TikTok, qu'il s'est tourné vers Telegram et YouTube pour obtenir des instructions sur la fabrication de bombes et qu'il a utilisé ChatGPT pour élaborer ses plans.</p><ul><li><p>Recevez notre <a href=\"https://www.theguardian.com/email-newsletters?CMP=cvau_sfl\">e-mail de dernière minute</a>, <a href=\"https://app.adjust.com/w4u7jx3\">application gratuite<",
+   "originalTitle": "Teenager who planned terror attack in Sydney tells court he was radicalised online and used AI to strategise",
+   "link": "https://www.theguardian.com/australia-news/2026/nov/10/teen-planned-sydney-terror-attack-using-chatgpt-radicalised-tiktok-ntwnfb",
+   "source": "The Guardian AI",
+   "sourceLang": "en",
+   "country": "GB",
+   "translated": true,
+   "date": "2026-11-10T01:09:19.000Z",
+   "image": "https://i.guim.co.uk/img/media/560f38c53c59131a19338207e679804b1d3aa8c0/956_0_4778_3823/master/4778.jpg?width=140&quality=85&auto=format&fit=max&s=6bb733238b659a7a62996dc188ee38ae",
+   "category": "Régulation"
+  },
+  {
+   "id": "4b4135b55bb4d588",
+   "title": "Les puces analogiques reprennent le dessus et l’industrie est la première à agir",
+   "description": "Les centres de données sont en plein essor, les industries se rajeunissent et les voitures sont stables.",
+   "originalTitle": "模拟芯片回暖，工业最先动了",
+   "link": "https://www.tmtpost.com/8198657.html",
+   "source": "钛媒体",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-10T01:08:16.000Z",
+   "image": "https://images.tmtpost.com/uploads/images/2026/11/d7ab6ea223cd3ba816c696c76197130f_1794272900.png",
+   "category": "Matériel"
+  },
+  {
+   "id": "e1d244ed5cacff7e",
+   "title": "Morning Post｜L'enregistrement AI de la Banque Nationale d'Apple ajoute de nouveaux iPad et ordinateurs portables/Claude Fable 5.2 est sorti, le prix baisse de 20 %/Il est révélé que Maserati envisage de coopérer avec Zunjie et que la nouvelle voiture sera produite par JAC",
+   "description": "· Il est révélé qu'Apple ajuste le rythme de développement d'iOS 28, laissant six semaines pour l'exploration dans la première phase · Google publie deux ensembles de systèmes TPU de huitième génération, respectivement pour un contexte long et un raisonnement confidentiel · Disney et Adobe ont conclu une coopération pluriannuelle et généreront des modèles pour leur personnalisation IP # Bienvenue pour suivre le compt",
+   "originalTitle": "早报｜苹果国行AI备案新增iPad和笔记本/Claude Fable 5.2发布，价格降20%/曝玛莎拉蒂拟与尊界合作，新车将由江淮生产",
+   "link": "https://www.ifanr.com/1688654",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-10T00:47:46.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/apple.jpg",
+   "category": "Régulation"
+  },
+  {
+   "id": "cc3a06763ef7a355",
+   "title": "Moins de calcul des coupons, plus d’IA : quoi de neuf pour la 18e Journée des célibataires en Chine",
+   "description": "Pour Sunny He, un habitant de Shanghai âgé de 32 ans, la saison de shopping de la Journée des célibataires de cette année a culminé avec un seul achat de grande valeur : un iPhone 18 Pro Max de 12 000 yuans (1 797 dollars américains), doté d'un bon de 300 yuans sur le marché Tmall d'Alibaba Group Holding. \"Pour moi, Double 11 n'est définitivement pas aussi animé qu'avant car j'ai moins d'argent disponible que les ann",
+   "originalTitle": "Less coupon math, more AI: what’s new for China’s 18th Singles’ Day",
+   "link": "https://www.scmp.com/tech/tech-trends/article/3373780/less-coupon-math-more-ai-whats-new-chinas-18th-singles-day",
+   "source": "SCMP Tech",
+   "sourceLang": "en",
+   "country": "HK",
+   "translated": true,
+   "date": "2026-11-10T00:30:20.000Z",
+   "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/11/09/069cd728-f8bf-4322-8991-1e2f0604f926_1af1dc67.jpg?itok=zG2us4Q7&v=1794210703",
+   "category": "Entreprise"
+  },
+  {
+   "id": "8d28cfa5555a578e",
+   "title": "David Ellison affirme que l’IA pourrait être « la plus grande avancée créative de l’histoire moderne »",
+   "description": "Lors de la dernière conférence téléphonique sur les résultats de Paramount Skydance, le PDG David Ellison a déclaré \"qu'il est difficile d'imaginer\" que l'IA n'ait pas un impact plus important sur l'industrie cinématographique que CGI. En réponse à une question sur les perspectives de l'entreprise en matière d'IA, Ellison a déclaré : « Je pense que lorsque vous effectuez un zoom arrière et regardez la production, l'I",
+   "originalTitle": "David Ellison says AI could be the ‘biggest creative unlock in modern history’",
+   "link": "https://www.theverge.com/entertainment/1030510/paramount-skydance-david-ellison-ai",
+   "source": "The Verge AI",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-10T00:28:49.000Z",
+   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2274329497.jpg?quality=90&strip=all&crop=0,0,100,100",
+   "category": "Entreprise"
+  },
+  {
+   "id": "d8bc291c6be6a8fd",
+   "title": "ChatGPT représente plus de 81 % du trafic mondial de chat IA ; iOS 27.3 expose le « système de mémoire personnelle » de Siri ; la rumeur dit que la nouvelle collaboration automobile Maserati + Zunjie est dévoilée | Les geeks le savent déjà",
+   "description": "Un système d'exploitation a été construit de toutes pièces en 8 jours : le modèle d'IA Claude Fable/Mythos 5.2 le plus puissant d'Anthropic est lancé et les frais d'appel d'API sont réduits de 20 %. Selon l'actualité du 10 novembre, Anthropic a officiellement annoncé le lancement de Claude Fable 5.2 et Claude Mythos 5.2 hier (9 novembre). Les deux modèles reposent sur le même modèle sous-jacent. Le premier est ouvert",
+   "originalTitle": "ChatGPT 占全球 AI 聊天流量超 81%；iOS 27.3 曝光 Siri「个人记忆系统」；传玛莎拉蒂+尊界合作新车曝光｜极客早知道",
+   "link": "http://www.geekpark.net/news/373736",
+   "source": "极客公园",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-10T00:19:15.000Z",
+   "image": "https://imgslim.geekpark.net/uploads/image/file/7b/2c/7b2c010317e63dbbba73fc8f86462c90.png",
+   "category": "Modèles"
   },
   {
    "id": "1fbf8d9b2c4041a0",
@@ -642,6 +809,20 @@
    "category": "Société"
   },
   {
+   "id": "1b712a30988160ea",
+   "title": "[Titanium Morning News] Le « Projet Nebula Constellation » a été lancé et le réseau de puissance de calcul spatial chinois a accéléré son déploiement ; les hedge funds ont vendu les actions technologiques mondiales à l’une des vitesses les plus rapides de l’histoire ; Google a lancé deux nouvelles puces TPU pour accroître la concurrence avec Nvidia",
+   "description": "En octobre, l'IPC chinois a augmenté de 0,7 % sur un an et est resté stable d'un mois à l'autre ; Li Qiang a signé un arrêté du Conseil d'État annonçant le « Règlement sur la protection des connaissances traditionnelles de la médecine traditionnelle chinoise » ; ByteDance a publié le modèle d'image de pouf Seedream 5.5 ; NVIDIA a annoncé des plans d'investissement pour un certain nombre de start-ups coréennes d'IA ; ",
+   "originalTitle": "【钛晨报】“星云星座计划”发布，中国太空算力网加快部署；对冲基金以史上最快的速度之一抛售全球科技股；谷歌推出两款新TPU芯片，加码与英伟达竞争",
+   "link": "https://www.tmtpost.com/8198851.html",
+   "source": "钛媒体",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T23:20:00.000Z",
+   "image": "https://images.tmtpost.com/uploads/images/2026/11/a340e34ed6c3479715a1be2232ba47f2_1794243522.jpg",
+   "category": "Entreprise"
+  },
+  {
    "id": "15c28179b2dc3ec9",
    "title": "Tout ce que nous savons jusqu'à présent sur le scandale d'espionnage de Nvidia visant le PDG Jensen Huang",
    "description": "Le PDG en veste de cuir de Nvidia, Jensen Huang, a reconnu une liaison avec Alice Huang, directrice de Megaspeed, déclenchant une enquête de sa société et d'intenses discussions dans le monde entier. Des rapports récents ont noté que depuis l'année dernière, des rapports des services de renseignement américains avaient identifié Alice Huang (aucun lien de parenté) non seulement comme la directrice d'une société de ca",
@@ -668,6 +849,20 @@
    "date": "2026-11-09T22:56:39.000Z",
    "image": "https://image.cnbcfm.com/api/v1/image/108314510-1794257799765-108314510-1780318208233-gettyimages-2278510316-TAIWAN_COMPUTEX.jpeg?v=1794257861&w=1920&h=1080",
    "category": "Entreprise"
+  },
+  {
+   "id": "fef7b89473f0994c",
+   "title": "Tout à l'heure, Claude Fable 5.2 atteint le sommet du monde, tuant l'Opus 5.5 du jour au lendemain",
+   "description": "Le modèle le plus puissant du monde a de nouveau changé de mains # Bienvenue pour suivre le compte public officiel WeChat d'Aifan'er : Aifan'er (WeChat ID : ifanr), un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "刚刚，Claude Fable 5.2 登顶世界第一，一夜斩杀 Opus 5.5",
+   "link": "https://www.ifanr.com/1688605",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T22:54:06.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/9-2.jpg",
+   "category": "Modèles"
   },
   {
    "id": "432027aa0838b909",
@@ -724,6 +919,20 @@
    "date": "2026-11-09T22:03:56.000Z",
    "image": "https://www.itmedia.co.jp/news/article/ogp/2611/10/2000003042/10011681/2048",
    "category": "Modèles"
+  },
+  {
+   "id": "4586e987f853a3f2",
+   "title": "La fracture du financement technologique en Chine est mise à l’épreuve alors que les craintes d’une bulle de l’IA ébranlent les marchés",
+   "description": "Pour Jason Wang, un opérateur médiatique basé à Zhengzhou, dans la province centrale du Henan, changer sa stratégie d’investissement de longue date consistant à acheter de l’or vers des fonds à thème technologique a été une décision douce-amère. L’investisseur particulier de 28 ans, qui n’a aucune idée des fondamentaux des entreprises technologiques, a commencé à acheter des fonds technologiques – axés sur les semi-c",
+   "originalTitle": "China’s tech funding divide faces test as fears of an AI bubble rattle markets",
+   "link": "https://www.scmp.com/tech/tech-trends/article/3373746/chinas-tech-funding-divide-faces-test-fears-ai-bubble-rattle-markets",
+   "source": "SCMP Tech",
+   "sourceLang": "en",
+   "country": "HK",
+   "translated": true,
+   "date": "2026-11-09T22:00:13.000Z",
+   "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/11/09/d22d64d0-0d7b-4b1c-84f6-2ccc67ae7930_b2a7c020.jpg?itok=SGCXQneA&v=1794197997",
+   "category": "Entreprise"
   },
   {
    "id": "4d8c63acd8349308",
@@ -1062,6 +1271,34 @@
    "category": "Recherche"
   },
   {
+   "id": "d272b8b09311cf96",
+   "title": "Si vous ne souhaitez pas devenir manager, comment pouvez-vous utiliser Coding Agent ? L'ingénieur Anthropic parle de la pratique actuelle de la gestion des agents dans un long article",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/YPQyY6bqhzhtO8MN6XUb?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "不想当管理者，就用不好 Coding Agent？Anthropic 工程师长文谈 Agent 管理实战",
+   "link": "https://www.infoq.cn/article/YPQyY6bqhzhtO8MN6XUb",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T18:24:32.000Z",
+   "image": "https://static001.infoq.cn/resource/image/0a/f6/0aae3b40af1b6a32516ede45a6d12ef6.png",
+   "category": "Régulation"
+  },
+  {
+   "id": "2f74281a77064951",
+   "title": "Solomon, PDG de Goldman, affirme que le financement de l'IA reste solide malgré la nervosité du marché",
+   "description": "Le PDG de Goldman, David Solomon, affirme que l'appétit des investisseurs pour les infrastructures d'IA reste fort malgré une réinitialisation des actions d'IA et l'incertitude politique autour des centres de données.",
+   "originalTitle": "Goldman CEO Solomon says AI financing remains strong despite market jitters",
+   "link": "https://www.cnbc.com/2026/11/09/goldman-ceo-ai-financing-market.html",
+   "source": "CNBC Tech",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-09T18:14:47.000Z",
+   "image": "https://image.cnbcfm.com/api/v1/image/108546539-1794244522835-108546539-1794244383968-solomon1.jpg?v=1794244529&w=1920&h=1080",
+   "category": "Entreprise"
+  },
+  {
    "id": "8148cd2894a93a06",
    "title": "Infidélité, parfum d’espionnage et milliards en jeu: l’empire numérique Nvidia au cœur d’un scandale sans précédent",
    "description": "Nvidia, géant américain valorisé 4500 milliards de dollars et pilier de l’intelligence artificielle, se retrouve au cœur d’accusations d’espionnage industriel impliquant son patron et une Chinoise liée à un fournisseur singapourien Une affaire extraconjugale, une espionne supposée venant de Chine, des contrats de plusieurs milliards de dollars en jeu, l’une des entreprises les plus puissantes de la planète… Tous les ingrédients d’un James Bond sont réunis autour du scandale qui fait actuellement vaciller Nvidia. Tous les regards se portent vers un homme, Jensen Huang. Le cofondateur et directe",
@@ -1230,6 +1467,34 @@
    "category": "Entreprise"
   },
   {
+   "id": "355337b165082092",
+   "title": "L’IA devient plus intelligente, mais les entreprises ne peuvent plus la contrôler : les dix principales tendances de Gartner en 2027, la gouvernance intelligente des agents est devenue un nouveau champ de bataille",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/CUgMFMX7uRJNMec1pfYo?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "AI越来越聪明，企业却快管不住了：Gartner 2027年十大趋势，智能体治理成新战场",
+   "link": "https://www.infoq.cn/article/CUgMFMX7uRJNMec1pfYo",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T16:55:59.000Z",
+   "image": "https://static001.infoq.cn/resource/image/0e/0d/0ea7e3c7654c51ba107c17ba61e9640d.jpg",
+   "category": "Régulation"
+  },
+  {
+   "id": "7d1354b181d6ce44",
+   "title": "«J’ai constaté une certaine opacité»: la nouvelle directrice du fisc vaudois promet de rendre les pratiques de son administration transparentes",
+   "description": "Un audit de gouvernance révèle une concentration excessive du pouvoir et un manque de transparence. La Direction générale de la fiscalité entend désormais rendre prévisible l’application des règles pour les contribuables et ses équipes Les contribuables vaudois doivent pouvoir savoir à quoi s’attendre lorsqu’ils s’adressent au fisc. Cette exigence élémentaire est au cœur de la transformation de la Direction générale de la fiscalité présentée ce lundi par la grande argentière Christelle Luisier Brodard (PLR) et la directrice générale de la fiscalité, Metihe Mehmeti. Derrière la promesse de «cul",
+   "originalTitle": null,
+   "link": "https://www.letemps.ch/suisse/vaud/j-ai-constate-une-certaine-opacite-la-nouvelle-directrice-du-fisc-vaudois-promet-de-rendre-les-pratiques-de-son-administration-transparentes",
+   "source": "Le Temps",
+   "sourceLang": "fr",
+   "country": "CH",
+   "translated": false,
+   "date": "2026-11-09T16:38:18.000Z",
+   "image": "https://letemps-17455.kxcdn.com/photos/d8ff88b7-4165-4a33-af42-0402819ebd96/medium",
+   "category": "Société"
+  },
+  {
    "id": "4ef4421faa0b227d",
    "title": "Je voulais supprimer les applications qu'Android ne me permet pas de supprimer. J'ai donc demandé à l'IA mon propre programme de désinstallation : en une demi-heure je l'ai eu",
    "description": "Chaque fois que j'achète un téléphone portable ou que j'en teste un, il est livré avec un tas d'applications dont je n'ai pas besoin. La première configuration est généralement longue, car je me consacre au démarrage des sessions, à l'organisation des bureaux et je supprime toujours application par application celles dont je n'ai pas besoin. Le problème est qu’il y en a quelques-uns qui ne peuvent pas être supprimés ",
@@ -1298,6 +1563,20 @@
    "date": "2026-11-09T16:12:28.000Z",
    "image": "https://techcrunch.com/wp-content/uploads/2026/11/tk-logo.webp?resize=1200,675",
    "category": "Actualité"
+  },
+  {
+   "id": "b71f860a2f294fe6",
+   "title": "L'ensemble du système de sécurité ne peut pas être misé sur de grands modèles : l'IA trie les CVE, la révision manuelle reste indispensable",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/mBvmvcQ8a8ty2Ob1xN64?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "不能把整个安全体系押在大模型上：AI 分诊 CVE，人工审查仍不能少",
+   "link": "https://www.infoq.cn/article/mBvmvcQ8a8ty2Ob1xN64",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T16:00:00.000Z",
+   "image": "https://static001.infoq.cn/resource/image/60/a1/60b63b5c557a098a39567540e6053ea1.jpg",
+   "category": "Sécurité"
   },
   {
    "id": "acde48b006216590",
@@ -1370,18 +1649,18 @@
    "category": "Entreprise"
   },
   {
-   "id": "bce465cdb584c186",
-   "title": "Attendez, j'ai passé un bon moment à parler au gars de la RIAA",
-   "description": "Aujourd'hui, je parle avec Mitch Glazier, PDG et président de la RIAA. Cette conversation a été pour moi un véritable moment de boucle : j'étais à l'université lorsque Napster est sorti, et la RIAA est devenue la méchante de tout le monde pour avoir poursuivi en justice des enfants pour avoir téléchargé de la musique. C’est à ce moment-là que j’ai décidé de devenir avocat en droit d’auteur, ce qui a mis […]",
-   "originalTitle": "Hold up — I had a great time talking to the RIAA guy",
-   "link": "https://www.theverge.com/podcast/1029684/riaa-mitch-glazier-napster-ai-labels-music",
-   "source": "The Verge AI",
-   "sourceLang": "en",
-   "country": "US",
+   "id": "ae7e040058e056e9",
+   "title": "Yunshen a lancé un nouveau robot quadrupède pour réaliser des opérations de charge lourde de 50 kg et des opérations de terrain complexes",
+   "description": "Le 6 novembre, Yunshen Technology a officiellement lancé un nouveau produit robot quadrupède : le Jueying X50. Grâce à une nouvelle mise à niveau de la « fusion de contrôle sensoriel » et à un système articulaire à haute rigidité et à haute réponse, il réalise une percée complète d'une charge plus importante, d'un trafic plus fort et d'une posture plus stable. Yunshen repousse encore les limites des opérations intens",
+   "originalTitle": "云深处发布全新四足机器人 实现50Kg大负载、复杂地形作业",
+   "link": "https://www.leiphone.com/category/industrynews/EihvEi3hKb9icG62.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
    "translated": true,
-   "date": "2026-11-09T15:30:00.000Z",
-   "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/DCD_20261109_Glazier.jpg?quality=90&strip=all&crop=0,0,100,100",
-   "category": "Régulation"
+   "date": "2026-11-09T15:27:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af1e4446b90d.png?imageView2/2/w/740",
+   "category": "Robotique"
   },
   {
    "id": "9fa280b5fe3f8c63",
@@ -1389,7 +1668,7 @@
    "description": "Des chercheurs ont modifié les images reçues par des IA pour leur faire tenter des gestes dangereux avec un robot. Même les modèles qui refusaient jusque-là peuvent s’exécuter lorsqu’ils ne voient plus correctement la scène.",
    "originalTitle": null,
    "link": "https://www.numerama.com/tech/2370721-ce-robot-croit-viser-une-pomme-mais-cest-un-poupon-qui-se-trouve-sous-son-couteau.html",
-   "source": "Numerama IA",
+   "source": "Numerama",
    "sourceLang": "fr",
    "country": "FR",
    "translated": false,
@@ -1566,6 +1845,20 @@
    "category": "Sécurité"
   },
   {
+   "id": "01ebb04662f29807",
+   "title": "Les nouveaux propriétaires de petites entreprises américaines sans employés démarrent en trombe dans l'ère de l'IA",
+   "description": "La création de nouvelles petites entreprises est en augmentation pour les propriétaires qui peuvent se développer avec l'IA servant dans des rôles de finance, de marketing et de conception, éliminant ainsi le besoin d'embauche.",
+   "originalTitle": "America's newest small business owners with no employees are off to a hot start in AI era",
+   "link": "https://www.cnbc.com/2026/11/07/americas-new-no-employee-small-business-owners-start-hot-in-ai-era.html",
+   "source": "CNBC Tech",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-09T14:39:47.000Z",
+   "image": "https://image.cnbcfm.com/api/v1/image/108527810-1793910439774-kristin_ginn_desk_photo.png?v=1793910727&w=1920&h=1080",
+   "category": "Entreprise"
+  },
+  {
    "id": "a14d22d4b2d62a35",
    "title": "☕️ Anthropic récupère des générateurs d’électricité au gaz pour 3,4 milliards de dollars",
    "description": "Au lieu d’acheter l’énergie chez un sous-traitant, pourquoi ne pas acheter directement les générateurs ? C’est ce que s’est dit Anthropic, qui vient de conclure un accord pour acquérir, selon le Financial Times, deux générateurs au gaz pour faire tourner ses datacenters. Ils doivent lui fournir une puissance de 1,7 gigawatts. Ces générateurs proviennent de l’entreprise d’ingénierie […]",
@@ -1592,6 +1885,20 @@
    "date": "2026-11-09T14:39:00.000Z",
    "image": "https://pic.clubic.com/v1/images/2472283/raw",
    "category": "Entreprise"
+  },
+  {
+   "id": "56915b43aedd77aa",
+   "title": "OpenAI, Anthropic et Google ont chacun leur propre interface. Jusqu’où les standards ouverts sont-ils encore unifiés ?",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/5e8Qs11VHRHRyYsB2kFO?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "OpenAI、Anthropic、Google 各有接口，开放标准离统一还有多远？",
+   "link": "https://www.infoq.cn/article/5e8Qs11VHRHRyYsB2kFO",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T14:35:00.000Z",
+   "image": "https://static001.infoq.cn/resource/image/35/33/358f4f4e4a8f52ac51dc6416f0b05b33.jpg",
+   "category": "Régulation"
   },
   {
    "id": "bbcde30ef7ed324c",
@@ -1636,6 +1943,34 @@
    "category": "Régulation"
   },
   {
+   "id": "f885ef769180b46f",
+   "title": "Baidu a atteint trois chiffres d'affilée : CITIC Construction Investment, SPIC Digital et General Digital",
+   "description": "Du 5 au 6 novembre, CITIC Securities, State Power Investment Corporation Digital Technology Co., Ltd. et General Technology Digital Corporation ont successivement annoncé la liste des candidats à la transaction. Cinq, quatre et trois fabricants ont été présélectionnés respectivement pour les trois projets, Baidu étant classé premier. Les produits des trois offres étaient tous des produits de Baidu. Baidu Tazi est une",
+   "originalTitle": "百度搭子连中三元：中信建投、国家电投数科、通用数科",
+   "link": "https://www.leiphone.com/category/industrynews/tm7T5JBmm4u6YUQi.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T14:16:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af1d5807e462.png?imageView2/2/w/740",
+   "category": "Entreprise"
+  },
+  {
+   "id": "35d6a9f9f2192fff",
+   "title": "Qianwen Office 2.0 compense les « lacunes » les plus critiques des agents de bureau",
+   "description": "\"Au cours des derniers mois, tout le monde a travaillé dur pour prouver que l'IA peut faire de plus en plus de travail. Mais pour être honnête, ce n'est pas parce qu'une seule personne peut faire le travail qu'un groupe de personnes peut collaborer.\" Un initié de l'industrie qui s'intéresse depuis longtemps au bureau d'IA a découvert qu'après avoir essayé les produits de bureau d'IA grand public sur le marché, il res",
+   "originalTitle": "千问办公2.0，补上了办公Agent最关键的「短板」",
+   "link": "https://www.leiphone.com/category/industrynews/ljjfjnedPmwgYh6Q.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T14:16:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af1d55ca9603.png?imageMogr2/quality/90",
+   "category": "Entreprise"
+  },
+  {
    "id": "4baf88d75f19087c",
    "title": "600 000 puces Nvidia avancées attendent dans un port de Hong Kong après que la Chine a fermé la porte aux exportations américaines",
    "description": "Ce ne sont pas les meilleurs jours pour une Nvidia qui grimpe depuis des mois grâce à son rôle dans l'industrie de l'IA. La société dirigée par Jensen Huang a été le protagoniste de l'un des krachs de la clôture boursière du 5 novembre. Jensen lui-même fait l'objet d'une enquête du conseil d'administration de Nvidia en raison du prétendu complot d'espionnage chinois et, pour ajouter plus de piquant, une exclusivité d",
@@ -1678,6 +2013,34 @@
    "category": "Robotique"
   },
   {
+   "id": "c01430677aa3fd21",
+   "title": "Compact de mise à jour de l'IA : centres de données, propagande, Siri AI, Minecraft",
+   "description": "La « mise à jour de l’IA » propose trois fois par semaine un résumé des développements les plus importants en matière d’IA.",
+   "originalTitle": "KI-Update kompakt: Rechenzentren, Propaganda, Siri AI, Minecraft",
+   "link": "https://www.heise.de/news/KI-Update-kompakt-Rechenzentren-Propaganda-Siri-AI-Minecraft-11515563.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag",
+   "source": "Heise Online",
+   "sourceLang": "de",
+   "country": "DE",
+   "translated": true,
+   "date": "2026-11-09T14:00:00.000Z",
+   "image": "https://www.heise.de/scale/geometry/450/q80//imgs/18/5/1/9/6/7/6/1/heise_Podcasts_KIUpdate_ho_16_9-e43012251deae576.jpeg",
+   "category": "Actualité"
+  },
+  {
+   "id": "51cf8d6d13fe6ec7",
+   "title": "\"L'Inde est devenue le plus grand marché pour OpenAI\", Altman a répondu pour la première fois à la \"vague de départs\" : un groupe de personnes intelligentes ne se font pas confiance",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/7AXcQvPCSwfPhtL8iQpo?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "“印度成OpenAI最大市场”，Altman首次回应“离职潮”：一群聪明人互不信任",
+   "link": "https://www.infoq.cn/article/7AXcQvPCSwfPhtL8iQpo",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T14:00:00.000Z",
+   "image": "https://static001.infoq.cn/resource/image/17/2e/1703a70b52ceb7d024aeb38c5ab2fd2e.png",
+   "category": "Régulation"
+  },
+  {
    "id": "bd74b7cf0c1bc812",
    "title": "Automattic lance une plate-forme pour déployer des applications de codage d'ambiance dans un Internet en évolution",
    "description": "Automattic vise à rivaliser avec Lovable avec Spacefast.",
@@ -1690,6 +2053,48 @@
    "date": "2026-11-09T14:00:00.000Z",
    "image": "https://techcrunch.com/wp-content/uploads/2026/11/Spacefast-feat.jpg?resize=1200,675",
    "category": "Actualité"
+  },
+  {
+   "id": "4a5140194266da43",
+   "title": "Quand l’IA accélère, qu’est-ce qui devrait « ralentir » ?",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/Guys6YS7FsKUg8dLtMJx?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "当 AI 在加速狂奔，什么反而应该“慢”下来？",
+   "link": "https://www.infoq.cn/article/Guys6YS7FsKUg8dLtMJx",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T13:41:41.000Z",
+   "image": "https://static001.infoq.cn/resource/image/ce/09/ce968c5a4a68acd529949b11f7e96d09.jpg",
+   "category": "Régulation"
+  },
+  {
+   "id": "e11f1f26d03c682e",
+   "title": "Un grand fabricant de téléphones mobiles sur deux le choisit : comment le Volcano Engine peut-il devenir une base invisible pour les assistants mobiles IA ?",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/icMBWWjE3LTzEY1tHKr8?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "每两家头部手机厂商就有一家选它：火山引擎如何成为 AI 手机助手的隐形底座？",
+   "link": "https://www.infoq.cn/article/icMBWWjE3LTzEY1tHKr8",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T13:40:24.000Z",
+   "image": "https://static001.infoq.cn/resource/image/d5/24/d5201304c70d1768dd8b04a8b03e6f24.png",
+   "category": "Régulation"
+  },
+  {
+   "id": "87e1018bbd0b8c53",
+   "title": "La proportion de développeurs économisant des dizaines d'heures par semaine grâce à l'IA est passée de 68 % à 26 % en un an.",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/sdqHapplv45dQguTJ415?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "开发者每周借助 AI 节约数十小时的比例在一年内从 68% 降至 26%",
+   "link": "https://www.infoq.cn/article/sdqHapplv45dQguTJ415",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T13:14:31.000Z",
+   "image": "https://static001.infoq.cn/resource/image/62/29/62a871affd23e25570f14f50b40ea629.jpg",
+   "category": "Régulation"
   },
   {
    "id": "039dd358c6184d59",
@@ -1802,6 +2207,20 @@
    "date": "2026-11-09T12:11:37.000Z",
    "image": "https://www.zdnet.fr/wp-content/uploads/zdnet/2026/11/redonbluegettyimages-2270299267-scaled.jpg",
    "category": "Modèles"
+  },
+  {
+   "id": "a3aae07ca63f37f3",
+   "title": "Test actuel de Seedream5.5, Doubao souhaite intégrer la cartographie IA dans l'ensemble du workflow",
+   "description": "Il existe également 100 séries de changements d’image qui ne seront pas confondus. #Bienvenue pour suivre le compte public WeChat officiel d'Aifaner : Aifaner (ID WeChat : ifanr), un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "实测 Seedream5.5，豆包想把 AI 作图接进整条工作流",
+   "link": "https://www.ifanr.com/1688447",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T12:01:18.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/shabicover.jpg",
+   "category": "Société"
   },
   {
    "id": "899e023bd91db76d",
@@ -1930,6 +2349,34 @@
    "category": "Matériel"
   },
   {
+   "id": "aedf969f1f8fb19a",
+   "title": "Que dois-je faire si l’IA ne peut pas rejoindre une famille aimante ?",
+   "description": "Pourquoi ne pas apprendre WeChat ?",
+   "originalTitle": "AI进不了相亲相爱一家人，怎么办？",
+   "link": "https://www.tmtpost.com/8198165.html",
+   "source": "钛媒体",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T11:00:16.000Z",
+   "image": "https://images.tmtpost.com/uploads/images/2023/tkrss/435grtgf3.png",
+   "category": "Actualité"
+  },
+  {
+   "id": "58713c5c4d1b3261",
+   "title": "Derrière la liaison extraconjugale de Huang Renxun : le mystérieux curriculum vitae de Huang Le, son activité de puces à 4,8 milliards de dollars et le jeu politique américain",
+   "description": "Nvidia découvrira ensuite si cette relation a dépassé les frontières institutionnelles de l'entreprise ; Washington profitera de cette tourmente pour recalculer la distance entre Huang Renxun, Nvidia et la politique américaine en matière d'IA.",
+   "originalTitle": "黄仁勋婚外情背后：黄乐的神秘履历、48亿美元芯片生意与美国政策博弈",
+   "link": "https://www.tmtpost.com/8198370.html",
+   "source": "钛媒体",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T11:00:11.000Z",
+   "image": "https://images.tmtpost.com/uploads/images/2023/tkrss/4536ug3.png",
+   "category": "Recherche"
+  },
+  {
    "id": "0087f7f25a1705d5",
    "title": "Le populisme anti-IA est l’avenir de la politique américaine | Garnison Belle",
    "description": "<p>Les démocrates devraient traîner Sam Altman, Dario Amodei et Elon Musk devant le monde et leur faire expliquer exactement ce qu'ils essaient de faire et pourquoi</p><p>L'industrie de l'IA a eu une mauvaise nuit la semaine dernière.</p><p>Les démocrates <a href=\"https://www.theguardian.com/us-news/ng-interactive/2026/nov/04/midterm-elections-full-results-senate-house-governor-races\">victoire éclatante à mi-mandat</",
@@ -1941,6 +2388,20 @@
    "translated": true,
    "date": "2026-11-09T11:00:08.000Z",
    "image": "https://i.guim.co.uk/img/media/e34f8015774a40911b0d060d97ed337d4dd60e3e/452_0_4499_3601/master/4499.jpg?width=140&quality=85&auto=format&fit=max&s=09040978e8780e474255a9638dcc1a9e",
+   "category": "Actualité"
+  },
+  {
+   "id": "10a19bd03507b443",
+   "title": "L’IA peut-elle piloter ce Double Eleven ?",
+   "description": "L’efficacité économisée grâce à l’IA n’a pas encore été échangée contre la croissance correspondante du commerce électronique.",
+   "originalTitle": "AI带得动这届双十一吗？",
+   "link": "https://www.tmtpost.com/8198668.html",
+   "source": "钛媒体",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T11:00:07.000Z",
+   "image": "https://images.tmtpost.com/uploads/images/wx/2026/11/20261109184336420884.jpg",
    "category": "Actualité"
   },
   {
@@ -2000,6 +2461,20 @@
    "category": "Modèles"
   },
   {
+   "id": "40e39b69361b711c",
+   "title": "Aucun avertissement ! ChatGPT a soudainement bloqué des comptes à grande échelle, y compris des utilisateurs payants ; Le président de YTO s'est senti désolé pour son fils Tim : il a travaillé plus dur que la plupart des gens ne l'imaginaient ; NVIDIA a subi un vol majeur et des biens d'une valeur de plus de 70 millions de yuans ont disparu",
+   "description": "Conseils importants en matière d'actualités 1. Pas d'avertissement ! Il a été révélé que ChatGPT bloquait soudainement des comptes à grande échelle, y compris des utilisateurs payants. 2. Le président YTO a pitié de son fils Tim : il travaille vraiment plus dur que la plupart des gens ne le pensent. 3. Musk : Lorsqu'il est allé construire une usine en Chine, on lui a demandé de rejoindre une coentreprise, mais il a r",
+   "originalTitle": "无预警！ChatGPT突然大规模封号，包括付费用户；圆通总裁心疼儿子Tim：他比大多数人想象的辛苦；英伟达遭大劫案，价值超7千万元货物失踪",
+   "link": "https://www.leiphone.com/category/zaobao/Z2uc8AJRp0PQO7Kb.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T10:32:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af1a04ac45dc.png?imageMogr2/quality/90",
+   "category": "Entreprise"
+  },
+  {
    "id": "c0ec62cbb848d219",
    "title": "Au-delà de l'embauche pour réembauche : comment les données sur la main-d'œuvre peuvent transformer les technologies RH d'un centre de coûts",
    "description": "Découvrez comment l'IA et les données sur la main-d'œuvre génèrent de meilleures décisions et résultats commerciaux, faisant évoluer les technologies RH d'un centre de coûts à un partenaire stratégique.",
@@ -2012,6 +2487,34 @@
    "date": "2026-11-09T10:30:00.000Z",
    "image": "https://zdpdvwhvukelzzbzbjvh.supabase.co/storage/v1/object/public/imported-images/1783424222349-9ox13.webp",
    "category": "Société"
+  },
+  {
+   "id": "a0d42caf340b1c5c",
+   "title": "2,5 heures et un jour zéro, plus de 400 élévations de privilèges root : Linux a été mis au crible par l'IA, et il a fallu plusieurs semaines d'ingénierie inverse aux humains pour en comprendre une.",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/6kuDZAK0IFkKviGrGzIR?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "2.5小时一个零日，400多个root提权：Linux被AI挖成了筛子，人类逆向几周才看懂一个",
+   "link": "https://www.infoq.cn/article/6kuDZAK0IFkKviGrGzIR",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T10:25:36.000Z",
+   "image": "https://static001.infoq.cn/resource/image/20/3f/200fdb593fdc5c789901be3f8a8da13f.png",
+   "category": "Régulation"
+  },
+  {
+   "id": "61524b0501b9d157",
+   "title": "La perte de contrôle la plus dangereuse de Huang Renxun",
+   "description": "Huang Renxun ne s'attendait probablement pas à ce qu'il fasse un jour l'objet d'une enquête du conseil d'administration de Nvidia en raison d'une liaison extraconjugale.",
+   "originalTitle": "黄仁勋最危险的一次失控",
+   "link": "https://www.tmtpost.com/8198019.html",
+   "source": "钛媒体",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T10:24:34.000Z",
+   "image": "https://images.tmtpost.com/uploads/images/wx/2026/11/20261109102615125314.jpg",
+   "category": "Matériel"
   },
   {
    "id": "319905a4bc5253c8",
@@ -2098,6 +2601,34 @@
    "category": "Matériel"
   },
   {
+   "id": "360ae8900798b930",
+   "title": "Alibaba Cloud remporte le China Patent Gold Award : résoudre le problème de la planification intelligente de la puissance de calcul à très grande échelle à l'ère de l'IA",
+   "description": "Le 6 novembre, la 26e cérémonie de remise des prix des brevets chinois s'est tenue à Wuxi. Le brevet « Une méthode et un dispositif de traitement des demandes des utilisateurs » soumis par Alibaba Cloud a remporté le China Patent Gold Award. C'est le seul fournisseur de cloud à remporter la médaille d'or cette année. Cette technologie brevetée peut détecter de manière dynamique les changements dans la demande de puis",
+   "originalTitle": "阿里云获中国专利金奖：破解AI时代的超大规模智能算力调度难题",
+   "link": "https://www.leiphone.com/category/industrynews/ljc6ifIFxCUD6DYG.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T10:03:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af1988ad1828.png?imageView2/2/w/740",
+   "category": "Actualité"
+  },
+  {
+   "id": "a1e7d53f17e87694",
+   "title": "De « peut écrire du code » à « peut livrer » : pratique d'orchestration multi-agents Tencent Lightweight Cloud LoopForge | AICon Pékin",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/wUArox9MHiAoyWPgRxpp?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "从“能写代码”到“能交付”：腾讯轻量云 LoopForge 多 Agent 编排实践｜AICon北京",
+   "link": "https://www.infoq.cn/article/wUArox9MHiAoyWPgRxpp",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T10:00:00.000Z",
+   "image": "https://static001.infoq.cn/resource/image/da/9f/daf11b674890e950bbd484f82a62f19f.jpg",
+   "category": "Régulation"
+  },
+  {
    "id": "e0b84dac00138015",
    "title": "NSE lance une plateforme de découverte d'actions et ajoute des fonctionnalités d'IA",
    "description": "La Bourse nationale a introduit une sélection d'actions en langage naturel, des résumés d'annonces d'entreprises assistés par l'IA et un accès aux données de marché.",
@@ -2110,6 +2641,76 @@
    "date": "2026-11-09T09:59:20.000Z",
    "image": "https://zdpdvwhvukelzzbzbjvh.supabase.co/storage/v1/object/public/imported-images/1793273909828-8lzmo.webp",
    "category": "Entreprise"
+  },
+  {
+   "id": "310163d711d98a5f",
+   "title": "ByteDance lance Seedream 5.5, lançant Doubao, Doubao Work et Jimeng",
+   "description": "Le 9 novembre, ByteDance a officiellement publié le modèle de création d'images de poufs Seedream 5.5. Par rapport à la génération précédente Seedream 5.0 Pro, la vitesse de génération du nouveau modèle a été considérablement améliorée et la stabilité de l'édition multi-tours a été améliorée. Il prend en charge nativement la génération de matériaux transparents et a apporté des optimisations clés pour le réalisme de ",
+   "originalTitle": "字节跳动发布Seedream 5.5，上线豆包、豆包工作、即梦",
+   "link": "https://www.leiphone.com/category/industrynews/CoJod8Z9X1pDj1sv.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T09:41:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af19542cc0cb.png?imageMogr2/quality/90",
+   "category": "Modèles"
+  },
+  {
+   "id": "b427817aec7aa1de",
+   "title": "Après l'électrification et la guerre des prix, SEEWAY.AI affirme que les données et les puces pourraient définir la prochaine décennie de concurrence pour les véhicules électriques",
+   "description": "Le prochain chapitre de la concurrence dans l’industrie automobile commence à s’ouvrir. Au cours des dernières années, les constructeurs automobiles ont été largement en concurrence sur l’électrification et les prix. Mais à mesure que les véhicules électriques se généralisent, compter uniquement sur la réduction des prix et le contrôle des coûts n’est plus un moyen durable d’obtenir un avantage. Ce que les consommate",
+   "originalTitle": "After electrification and price wars, SEEWAY.AI says data and chips may define the next decade of EV competition",
+   "link": "https://technode.com/2026/11/09/after-electrification-and-price-wars-seeway-ai-says-data-and-chips-may-define-the-next-decade-of-ev-competition",
+   "source": "TechNode",
+   "sourceLang": "en",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T09:29:49.000Z",
+   "image": "https://i0.wp.com/technode.com/wp-content/uploads/2026/11/seeway-1.jpg?fit=1024%2C683&ssl=1",
+   "category": "Matériel"
+  },
+  {
+   "id": "f1d843bd5a3a6629",
+   "title": "Quelle IA écoute autant les conseils ? Seedream 5.5 révise l'interface de l'iPhone Duo, précise au niveau du pixel",
+   "description": "L'ère de la version IA de PS est arrivée # Bienvenue pour suivre le compte public officiel WeChat d'Aifaner : Aifaner (WeChat ID : ifanr), un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "谁家 AI 这么听劝？Seedream 5.5 爆改 iPhone Duo 界面，精准到像素级",
+   "link": "https://www.ifanr.com/1688514",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T09:19:02.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/lark2pad-1794212823168-3.jpg",
+   "category": "Société"
+  },
+  {
+   "id": "7ebef9afeb8222aa",
+   "title": "Baidu Wenxin a divulgué pour la première fois les progrès du RSI : ERNIE Evolve a été utilisé dans le développement du dernier modèle, et Wenxin 5.5 Flash pourrait bientôt être publié",
+   "description": "Le 9 novembre, Baidu Wenxin a dévoilé pour la première fois les derniers progrès de RSI, en annonçant ERNIE Evolve, un système de recherche automatique qui a participé au développement de Wenxin 5.5 Flash. Il peut proposer de manière indépendante des orientations de recherche, mener des expériences, vérifier les résultats et accumuler de l'expérience autour des objectifs et des contraintes. Il peut non seulement opti",
+   "originalTitle": "百度文心首次披露RSI进展：ERNIE Evolve已用于最新模型研发，文心5.5 Flash 或将近期发布",
+   "link": "https://www.leiphone.com/category/industrynews/FO9Dx6HKj5Bvno5y.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T09:18:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af18ee38b55d.png?imageView2/2/w/740",
+   "category": "Recherche"
+  },
+  {
+   "id": "99d6b0ebd7e19458",
+   "title": "Le plus grand Embodied Model Challenge de l'industrie atteint la finale : 15 équipes s'affronteront pendant 48 heures sur des machines réelles",
+   "description": "Le 6 novembre, les équipes qualifiées pour la finale du premier Ant Lingbo Embodied Model Challenge ont été officiellement annoncées : 15 équipes et 59 joueurs se sont démarqués parmi 1 855 équipes et 3 252 joueurs à travers le monde, garantissant ainsi les qualifications pour la finale hors ligne. (Photo : Les finalistes du premier Ant Lingbo Embodied Large Model Challenge) Le Top 15 s'est réuni pour une confrontati",
+   "originalTitle": "行业最大规模具身模型挑战赛迎来决赛：15支战队将展开48小时真机角逐",
+   "link": "https://www.leiphone.com/category/industrynews/5ejIhKWAtmfZvdqx.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T09:16:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af18f673a43a.jpg?imageMogr2/quality/90",
+   "category": "Actualité"
   },
   {
    "id": "7655cd30deab9b50",
@@ -2252,6 +2853,20 @@
    "category": "Régulation"
   },
   {
+   "id": "d5a60b596dfc1ca8",
+   "title": "À quelle distance se trouve une fraise d’usine de votre assiette de fruits ? Duoduo Agricultural Research vous rapproche du terrain",
+   "description": "Auteur | Xu Shan Editeur | Zheng Xuan C'est peut-être le « champ de fraises » le plus calme que vous ayez jamais vu. Il n’y avait pas de gazouillis d’insectes ou d’oiseaux. Dans la pièce de 50 mètres carrés, des plants de fraisiers étaient entassés jusqu’au sommet de la tête. Les feuilles étaient étendues et il n’y avait presque pas d’œil d’insecte. Les branches étaient couvertes de fruits verts qui n’étaient pas enc",
+   "originalTitle": "一颗植物工厂草莓，离你的果盘还有多远？多多农研拉近现场",
+   "link": "http://www.geekpark.net/news/373715",
+   "source": "极客公园",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T08:15:03.000Z",
+   "image": "https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/all/X3fubAMUXoJAdlxQfKFcJ9mgn1c/?mount_node_token=doxcnM5F4d5vvOmEUeidY5Cl6Pd&mount_point=docx_image",
+   "category": "Actualité"
+  },
+  {
    "id": "61f5cd55ad98aab1",
    "title": "Nvidia ouvre une enquête sur son PDG Jensen Huang, soupçonné d’avoir été ciblé par le renseignement chinois",
    "description": "Jensen Huang a reconnu une liaison avec une dirigeante de Megaspeed, société que Washington soupçonne d’aider Pékin à obtenir des puces. Nvidia ouvre une enquête indépendante et trois commissions de la Chambre demandent à l’entendre à huis clos le 18 novembre.",
@@ -2322,6 +2937,34 @@
    "category": "Actualité"
   },
   {
+   "id": "51203f48ca89e079",
+   "title": "Apple annonce rarement les progrès des robots humanoïdes, Yushu G1 embarque un Mac mini qui fonctionne depuis des milliers d'années",
+   "description": "Enfin, il ne s'agit plus de faire des saltos arrière, de danser et de courir # Bienvenue pour suivre le compte public officiel WeChat d'Aifaner : Aifaner (ID WeChat : ifanr), un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "苹果罕见公布人形机器人进展，宇树 G1 背着一台跑千问的 Mac mini",
+   "link": "https://www.ifanr.com/1688485",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T07:56:58.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/coverapple.jpg",
+   "category": "Robotique"
+  },
+  {
+   "id": "88cdd5de26da7f1c",
+   "title": "Qianwen Office 2.0 est sorti, le premier Team Agent prenant en charge la collaboration multi-personnes avec Agent est ici",
+   "description": "Le 9 novembre, Qianwen Office a publié la version 2.0, qui constitue la plus grande mise à niveau au cours des trois mois écoulés depuis son lancement. Cette version lance la première fonction de « collaboration » du secteur qui prend en charge plusieurs personnes travaillant avec des agents. Il lance également des fonctionnalités de base telles que la « co-création homme-machine », « l'espace de données », les « tâc",
+   "originalTitle": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
+   "link": "https://www.leiphone.com/category/industrynews/D80ceE4xuglkLvIu.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T07:46:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af17a1348262.png?imageView2/2/w/740",
+   "category": "Actualité"
+  },
+  {
    "id": "dabc80e1f68ac97b",
    "title": "Salesforce veut que les PME indiennes abandonnent WhatsApp pour Slack",
    "description": "Salesforce positionne Slack comme un système d'exploitation professionnel pour les entreprises, avec Slackbot réunissant les données organisationnelles, les applications et les agents d'IA.",
@@ -2333,6 +2976,34 @@
    "translated": true,
    "date": "2026-11-09T07:30:23.000Z",
    "image": "https://zdpdvwhvukelzzbzbjvh.supabase.co/storage/v1/object/public/imported-images/1794214027375-g2ade.webp",
+   "category": "Entreprise"
+  },
+  {
+   "id": "288844aa1b89ae14",
+   "title": "Le Groupe Pierre Fabre et Jingtai Technology ont conclu une coopération en matière de découverte de médicaments basée sur l'IA et mèneront conjointement plusieurs projets de recherche et développement dans le domaine de l'oncologie.",
+   "description": "Selon l'actualité Leifeng.com, le 6 novembre 2026, le Groupe Pierre Fabre et Jingtai Technology (2228.HK) ont annoncé un accord de coopération. Les deux parties mèneront conjointement plusieurs projets de recherche et développement dans le domaine de l'oncologie, découvriront conjointement de nouveaux candidats médicaments cliniques et devraient s'étendre à la dermatologie, aux maladies rares et à d'autres domaines. ",
+   "originalTitle": "皮尔法伯集团与晶泰科技达成AI驱动药物发现合作，将在肿瘤领域联合开展多个研发项目",
+   "link": "https://www.leiphone.com/category/shengwuyiyao/HMCKdmWiZA0bT07Q.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T07:28:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109//6af1758ba75dc.jpg?imageMogr2/quality/90",
+   "category": "Recherche"
+  },
+  {
+   "id": "df727c0c0e294fcd",
+   "title": "D’un investissement à un écosystème : Pudong Venture Capital fait entrer les entrepreneurs en IA dans le « cercle d’amis »",
+   "description": "Le 22 septembre, dans une salle de présentation de la ville d'innovation en intelligence artificielle de Zhangjiang, plus de 20 équipes entrepreneuriales très précoces sont montées sur scène. Il n'y a pas beaucoup de réponses standard pour les entreprises matures ici : de nombreuses entreprises sont créées depuis moins d'un an et certaines n'ont pas encore de produits complets, encore moins de revenus stables. Mais l",
+   "originalTitle": "从一笔投资到一个生态：浦东创投把AI创业者带进了“朋友圈”",
+   "link": "https://www.leiphone.com/category/industrynews/sGptXfOtHwkxuGrm.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T07:17:00.000Z",
+   "image": null,
    "category": "Entreprise"
   },
   {
@@ -2348,6 +3019,20 @@
    "date": "2026-11-09T07:11:59.000Z",
    "image": "https://www.zdnet.fr/wp-content/uploads/zdnet/2025/09/jensen-huang555gettyimages-2225847972.webp",
    "category": "Recherche"
+  },
+  {
+   "id": "4f17d89f17ebea2a",
+   "title": "Investir tôt, investir petit, investir dans la technologie dure : Pudong est un point chaud pour les entrepreneurs en IA qui souhaitent réaliser leurs rêves technologiques",
+   "description": "Pour une équipe entrepreneuriale d'IA nouvellement formée, le moment le plus difficile n'est souvent pas après le lancement du produit, mais avant la formation du produit : la feuille de route technique est en place, les membres principaux sont en place et ils ont même vu un marché dans lequel il vaut la peine d'investir, mais ils ne peuvent pas produire des produits matures et des données sur les revenus. À ce stade",
+   "originalTitle": "投早、投小、投硬科技：浦东是AI创业者绕不开的科技梦想启航热土",
+   "link": "https://www.leiphone.com/category/industrynews/XXfvZnVJPOL1N6yx.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T07:05:00.000Z",
+   "image": null,
+   "category": "Entreprise"
   },
   {
    "id": "c03a28271fc21c94",
@@ -2376,6 +3061,20 @@
    "date": "2026-11-09T07:00:04.000Z",
    "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/11/09/82eff986-7a28-4434-ac7d-f18d12c638c5_23ab52a8.jpg?itok=8ZMC7ptc&v=1794203774",
    "category": "Modèles"
+  },
+  {
+   "id": "c116b9679ec67b2c",
+   "title": "Ouverture officielle du FAV Lab Future Audiovisual Laboratory : Huaqiangbei « le premier endroit pour les produits à la mode à technologie dure »",
+   "description": "Le 1er novembre, le laboratoire audiovisuel du futur FAV Lab, situé dans la zone centrale de Huaqiang Nord, « la rue électronique n°1 de Chine » et adjacent à l'avenue Shennan, a officiellement annoncé son ouverture. FAV Lab est lancé conjointement par la World Artificial Intelligence Glasses Alliance (WAEA) et la World Ultra-HD Video Industry Alliance (UWA), avec Mirror World Exploration responsable de l'investissem",
+   "originalTitle": "FAV Lab 未来视听实验室正式开业：华强北“硬科技潮品首发地”",
+   "link": "https://www.leiphone.com/category/industrynews/XMSv9fRcpKP6fRXD.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T06:23:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af166bed6e15.jpg?imageMogr2/quality/90",
+   "category": "Régulation"
   },
   {
    "id": "ceb7d95cde84e576",
@@ -2826,20 +3525,6 @@
    "category": "Régulation"
   },
   {
-   "id": "c5536f6e12371c5d",
-   "title": "Les recettes NVIDIA Dynamo mettent en production les principaux modèles ouverts de Corée",
-   "description": "NVIDIA publie des recettes de déploiement optimisées pour Dynamo pour les principaux modèles ouverts coréens : A.X K2 de SK Telecom, K-EXAONE 2.0 de LG AI Research, Solar Open 2 d'Upstage et Motif-3 de Motif Technologies. À mesure que les modèles dépassent la capacité d'un seul GPU, ils doivent être répartis sur plusieurs GPU, ce qui nécessite une coordination minutieuse du routage des requêtes [...]",
-   "originalTitle": "NVIDIA Dynamo Recipes Bring Korea’s Leading Open Models to Production",
-   "link": "https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models",
-   "source": "NVIDIA Blog",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-09T05:00:00.000Z",
-   "image": "https://blogs.nvidia.com/wp-content/uploads/2026/11/dynamo-korea-ai-day.jpg",
-   "category": "Entreprise"
-  },
-  {
    "id": "8422634c9a069030",
    "title": "Un seul modèle d'IA simule le comportement de nombreuses substances, du sable glissant aux protéines repliables",
    "description": "En apprenant comment la matière se déplace, le système WorldParticle pourrait aider au développement de robots logiciels, de médicaments et bien plus encore.",
@@ -2866,6 +3551,20 @@
    "date": "2026-11-09T05:00:00.000Z",
    "image": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202611/MIT-FLEX-01-press.jpg?itok=811PS9Sd",
    "category": "Robotique"
+  },
+  {
+   "id": "c5536f6e12371c5d",
+   "title": "Les recettes NVIDIA Dynamo mettent en production les principaux modèles ouverts de Corée",
+   "description": "NVIDIA publie des recettes de déploiement optimisées pour Dynamo pour les principaux modèles ouverts coréens : A.X K2 de SK Telecom, K-EXAONE 2.0 de LG AI Research, Solar Open 2 d'Upstage et Motif-3 de Motif Technologies. À mesure que les modèles dépassent la capacité d'un seul GPU, ils doivent être répartis sur plusieurs GPU, ce qui nécessite une coordination minutieuse du routage des requêtes [...]",
+   "originalTitle": "NVIDIA Dynamo Recipes Bring Korea’s Leading Open Models to Production",
+   "link": "https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models",
+   "source": "NVIDIA Blog",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-09T05:00:00.000Z",
+   "image": "https://blogs.nvidia.com/wp-content/uploads/2026/11/dynamo-korea-ai-day.jpg",
+   "category": "Entreprise"
   },
   {
    "id": "a92b66ff2488787a",
@@ -2910,6 +3609,34 @@
    "category": "Entreprise"
   },
   {
+   "id": "7acb1c51d6fca5f0",
+   "title": "Expérience d'enregistrement WeChat AI : un artefact de bureau qui peut être installé sur votre téléphone mobile, gratuitement !",
+   "description": "Vous pouvez à nouveau pêcher # Bienvenue pour suivre le compte public officiel WeChat d'Aifaner : Aifaner (WeChat ID : ifanr), un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "微信 AI 录音笔体验：手机都能装的办公神器，免费！",
+   "link": "https://www.ifanr.com/1688410",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T04:00:04.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/cover-1.jpg",
+   "category": "Société"
+  },
+  {
+   "id": "a34ac26b1d979d03",
+   "title": "Test actuel HY4 : Le grand modèle le plus « puissant » de Tencent, à quelle distance se trouve-t-il de la ligne de front ?",
+   "description": "Source de l'image d'en-tête : Tencent Hunyuan Le 4 novembre, Hunyuan Hy4 a été officiellement publié. Les poids des modèles seront prochainement open source et la version allégée du flash Hy4, axée sur le rapport coût/performance, sera également dévoilée. Tencent le positionne pour la première fois comme l’un des modèles open source les plus puissants. Au cours de l'année écoulée, les produits d'IA de Tencent ont été",
+   "originalTitle": "实测 HY4：腾讯最「夯」大模型，离一线还有多远？",
+   "link": "http://www.geekpark.net/news/373644",
+   "source": "极客公园",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T03:57:03.000Z",
+   "image": "https://imgslim.geekpark.net/uploads/image/file/20/45/2045dfdd4277ecd2c232ec63c1c37487.png",
+   "category": "Modèles"
+  },
+  {
    "id": "664c7a3ff14770da",
    "title": "Quand l’IA accélère, qu’est-ce qui devrait « ralentir » ?",
    "description": "\"Ça rassure les gens et les magnifie.\"",
@@ -2922,6 +3649,20 @@
    "date": "2026-11-09T03:47:12.000Z",
    "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Actualité"
+  },
+  {
+   "id": "f164c1517c602138",
+   "title": "La 8e Conférence mondiale des entrepreneurs du Zhejiang a organisé un événement spécial sur l'IA et Alipay a partagé les pratiques de service d'IA",
+   "description": "Le 6 novembre, la 8e Conférence mondiale des entrepreneurs du Zhejiang s'est ouverte à Hangzhou. La conférence a été organisée par le Comité provincial du Parti du Zhejiang et le gouvernement provincial, ainsi que par le Département du travail du Front uni du Comité provincial du Parti, la Fédération provinciale de l'industrie et du commerce et l'Association des entrepreneurs du Zhejiang. La cérémonie d'ouverture a p",
+   "originalTitle": "第八届世界浙商大会举行AI专题活动支付宝分享AI办事实践",
+   "link": "https://www.leiphone.com/category/industrynews/41xBwd2JagAdaaxT.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T03:43:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af14165ba942.jpg?imageMogr2/quality/90",
+   "category": "Société"
   },
   {
    "id": "18b63796637f0b0f",
@@ -2952,6 +3693,34 @@
    "category": "Sécurité"
   },
   {
+   "id": "7ab1549e38ec590b",
+   "title": "Jen-Hsun Huang a admis avoir eu une « liaison extraconjugale » et NVIDIA a lancé une enquête ; ChatGPT a soudainement subi des interdictions de compte, et les utilisateurs du Pro à 200 $ en ont également souffert ; Tencent Yao Shunyu parle du « fossé de l'entreprise IA » : au niveau du produit, pas au niveau du modèle",
+   "description": "Jensen Huang a admis avoir eu une « liaison extraconjugale » et Nvidia a ouvert une enquête. Selon les informations du 9 novembre, le PDG de Nvidia, Jensen Huang, a publié une lettre ouverte à tous les employés sur le site officiel de l'entreprise à la 8e heure locale, s'excusant pour des raisons personnelles et révélant que le conseil d'administration lancerait une enquête indépendante sur les problèmes de sécurité ",
+   "originalTitle": "黄仁勋承认「婚外情」，英伟达启动调查；ChatGPT 突现封号风波，200 美元 Pro 用户也遭殃；腾讯姚顺雨谈「AI 公司护城河」：在产品层，而不是模型层",
+   "link": "http://www.geekpark.net/news/373687",
+   "source": "极客公园",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T02:58:04.000Z",
+   "image": "https://imgslim.geekpark.net/uploads/image/file/00/ea/00eac58e58610d574fce85c596f85521.png",
+   "category": "Sécurité"
+  },
+  {
+   "id": "dc4ae7c0e39c8aed",
+   "title": "Tout à l'heure, Musk a commenté l'incident de tricherie de Huang Renxun",
+   "description": "Lorsque le fondateur deviendra synonyme de l'entreprise # Bienvenue pour suivre le compte public officiel WeChat d'Aifaner : Aifaner (WeChat ID : ifanr), un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "刚刚，马斯克评价黄仁勋出轨事件",
+   "link": "https://www.ifanr.com/1688626",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T02:56:41.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/1111-1.jpg",
+   "category": "Entreprise"
+  },
+  {
    "id": "e67c5fa31434cd7f",
    "title": "Pourquoi les pays du CCG et l'informatique indienne s'associent à l'échelle de l'entreprise",
    "description": "Découvrez comment les pays du CCG et les entreprises informatiques indiennes s'associent pour tirer parti de l'IA pour la transformation des entreprises et l'évolution du paysage technologique.",
@@ -2980,6 +3749,20 @@
    "category": "Recherche"
   },
   {
+   "id": "c7c0c98e06ff79c9",
+   "title": "Quand l’IA accélère, qu’est-ce qui devrait « ralentir » ?",
+   "description": "Le paradoxe de l’ère accélérée : quand « votre IA » commence à parler à « mon IA » En 2026, l’intelligence artificielle connaît une profonde transition de rôle : de « l’interaction conversationnelle » de ces dernières années à une évolution globale vers une « livraison autonome ». Dans le passé, l’IA restait dans la boîte de dialogue sur la barre latérale de l’écran. Vous avez posé et répondu à vos questions et fourn",
+   "originalTitle": "当 AI 在加速狂奔，什么反而应该“慢”下来？",
+   "link": "https://www.leiphone.com/category/industrynews/zGBfQTDDCpSCfYIK.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T02:23:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261106/6aedb006b0439.png?imageView2/2/w/740",
+   "category": "Robotique"
+  },
+  {
    "id": "1a8caa4830e7d96b",
    "title": "À la recherche des créateurs d'IA les plus doués pour raconter des histoires, le concours de création d'IA Orca Entertainment Whale Rui arrive à l'Université Tsinghua",
    "description": "Le 6 novembre, l'Université Tsinghua a organisé un événement de dialogue avec des célébrités dans le cadre du concours de création d'IA de Jinggrui, intitulé « Les nouvelles technologies stimulent une nouvelle vitalité culturelle et utilisent l'IA pour raconter des histoires chinoises ».",
@@ -2992,6 +3775,20 @@
    "date": "2026-11-09T02:19:08.000Z",
    "image": "https://www.qbitai.com/wp-content/uploads/imgs/qbitai-logo-1.png",
    "category": "Recherche"
+  },
+  {
+   "id": "32f244eb058ae201",
+   "title": "L’intelligence incorporée, a-t-elle atteint son heure API ?",
+   "description": "Le moment de l'intelligence incorporée des API signifie que certains modèles incorporés ont commencé à avoir la capacité de migrer à travers l'ontologie et de s'adapter à de nouvelles tâches dans une certaine plage. Auteur｜Li Yuan Editeur｜Zheng Xuan L'intelligence incarnée, a-t-elle atteint le moment de l'API ? Dans le passé, si vous vouliez connaître la force d'un modèle incarné, vous deviez souvent regarder quelles",
+   "originalTitle": "具身智能，也到了 API 时刻？",
+   "link": "http://www.geekpark.net/news/373683",
+   "source": "极客公园",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T02:18:55.000Z",
+   "image": "https://imgslim.geekpark.net/uploads/image/file/86/c2/86c2188de0ea10a31e7313f01a5e6eea.jpg",
+   "category": "Modèles"
   },
   {
    "id": "0aa442c03bee04c5",
@@ -3008,6 +3805,20 @@
    "category": "Recherche"
   },
   {
+   "id": "0a735ce471d43f47",
+   "title": "Interprétation丨Après 2000, il a fallu plus de 1 000 jours pour refaire un rouleau en mousse",
+   "description": "La société a réalisé trois tours de financement et son produit de deuxième génération Yunwang A1 Lite a été officiellement lancé hors ligne. Auteur丨Yang Wenjing Editeur丨Yao Dan L'investisseur n'a eu qu'une conversation de football avec lui avant de prendre sa décision. Il n'y a pas si longtemps, le rouleau en mousse entièrement automatique A1 Lite de deuxième génération de Yunwang Innovation a été lancé hors ligne et",
+   "originalTitle": "解读丨00 后，用 1000 多天重做一款泡沫轴",
+   "link": "https://www.leiphone.com/category/weiwu/TNH35shf3JHDI9FW.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T01:56:00.000Z",
+   "image": "https://static.leiphone.com/6a6c4981e5bcb.jpg?imageMogr2/quality/90",
+   "category": "Entreprise"
+  },
+  {
    "id": "8535226ff9914c46",
    "title": "Présentation d'un modèle ouvert basé sur Qwen3.8-27B qui « renforce les valeurs occidentales », critiqué pour son « biais opposé » Développeur d'Hermes Agent",
    "description": "Nous Research, qui fournit \"Hermes Agent\", a annoncé \"Arete-27B\", basé sur \"Qwen3.8-27B\" et qui a \"renforcé les valeurs occidentales\".",
@@ -3020,6 +3831,20 @@
    "date": "2026-11-09T01:55:45.000Z",
    "image": "https://www.itmedia.co.jp/aiplus/article/ogp/2611/09/2000003002/10011585/2048",
    "category": "Entreprise"
+  },
+  {
+   "id": "e4bf0b075b34b5d4",
+   "title": "\"X-Day\" Xilihu Roadshow L'événement spécial Asie-Pacifique sur l'innovation en matière d'intelligence numérique a eu lieu avec succès pour explorer de nouvelles opportunités pour le matériel d'IA destiné à être exporté à l'étranger",
+   "description": "Dans l'après-midi du 5 novembre 2026, le « X-Day » Xili Lake Roadshow Asia-Pacific Digital Intelligence Innovation Special s'est tenu avec succès au Centre de conférences international de la ville universitaire de Shenzhen. Ayant pour thème « Adopter l'intelligence numérique et connecter le monde », l'événement s'est concentré sur les avantages industriels transfrontaliers du matériel d'IA et la coopération en matièr",
+   "originalTitle": "“X-Day”西丽湖路演社亚太数智创新专场成功举办 共探AI硬件出海新机遇",
+   "link": "https://www.leiphone.com/category/weiwu/ZpO4WNiF4Go9XTtQ.html",
+   "source": "雷锋网",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T01:50:00.000Z",
+   "image": "https://static.leiphone.com/uploads/new/images/20261109/6af12669a20e1.jpg?imageView2/2/w/740",
+   "category": "Recherche"
   },
   {
    "id": "127f984f19ba1b11",
@@ -3078,6 +3903,20 @@
    "category": "Entreprise"
   },
   {
+   "id": "c0b36072141655c4",
+   "title": "Message du matin | A révélé que Ternus a demandé d'accélérer la recherche et le développement de l'IA/Win 11 optimise la fluidité des ordinateurs à mémoire de 8 Go/Musk : le chiffre d'affaires annualisé de SpaceX pourrait dépasser 500 milliards de dollars en décembre de l'année prochaine",
+   "description": "· Apple a déclaré que plus de 100 000 applications ont été adaptées à l'iPhone Duo · Anthropic prévoit de lancer une tournée d'introduction en bourse cette semaine · BYD Li Ke a répondu aux rumeurs d'acquisition de Maserati # Bienvenue pour suivre le compte public officiel WeChat d'Aifaner : Aifaner (WeChat ID : ifanr), un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "早报｜曝特努斯要求加快AI研发/Win 11优化8GB内存电脑流畅度/马斯克：SpaceX明年12月年化营收或超5000亿美元",
+   "link": "https://www.ifanr.com/1688379",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T00:34:19.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/260922_john_ternus.jpg",
+   "category": "Recherche"
+  },
+  {
    "id": "2b527a5d8a869d76",
    "title": "Nvidia ouvre une enquête après que le PDG Jensen Huang ait été la cible de renseignements étrangers",
    "description": "<p>Le PDG aurait ‌eu des relations étroites‌avec une femme d'affaires chinoise qui a transmis des informations à ‌Pékin</p><p><a href=\"https://www.theguardian.com/technology/nvidia\">Nvidia</a> a déclaré ⁠dimanche qu'elle « ouvrait une enquête indépendante à la lumière d'informations récentes selon lesquelles le fondateur et PDG Jensen Huang était le <a href=\"https://www.theguardian.com/technology/2026/oct/29/nvidia-c",
@@ -3090,6 +3929,20 @@
    "date": "2026-11-09T00:25:28.000Z",
    "image": "https://i.guim.co.uk/img/media/3fc6a5d68684a58fece0294bce9094ed76072ecd/2488_14_5430_4347/master/5430.jpg?width=140&quality=85&auto=format&fit=max&s=57b1a4b39c9e4d81da1942f21f2da458",
    "category": "Matériel"
+  },
+  {
+   "id": "1861ad9ff83434e7",
+   "title": "Plus les Agents sont utilisés, pourquoi les entreprises ne sont-elles toujours pas assez IA Native ?",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/YZx670AAiudsqZjx3UNo?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "Agent 越用越多，企业为何仍不够 AI Native？",
+   "link": "https://www.infoq.cn/article/YZx670AAiudsqZjx3UNo",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-09T00:08:00.000Z",
+   "image": "https://static001.infoq.cn/resource/image/af/0d/afec7ce2fc005bed6b9527e761b3d50d.png",
+   "category": "Régulation"
   },
   {
    "id": "1a619e4ef7f0ca8c",
@@ -3146,6 +3999,20 @@
    "date": "2026-11-08T22:19:00.000Z",
    "image": "https://image.cnbcfm.com/api/v1/image/108353994-1787675884337-gettyimages-2266718050-NVIDIA_GTC.jpeg?v=1787832040&w=1920&h=1080",
    "category": "Régulation"
+  },
+  {
+   "id": "ea515c03aae7d3e8",
+   "title": "Comment Dong Mingzhu, la « dame de fer » de l’industrie manufacturière chinoise, garde son sang-froid à l’ère de l’IA",
+   "description": "Dong Mingzhu préside Gree Electric Appliances, un géant de l’électroménager basé dans la province du Guangdong, dans le sud de la Chine. Ayant gravi les échelons depuis un poste de vente de première ligne, elle est l’une des figures les plus connues du secteur manufacturier chinois. En tant que députée à l’Assemblée populaire nationale, elle milite depuis longtemps en faveur de l’innovation manufacturière, de revenus",
+   "originalTitle": "How Dong Mingzhu, China’s manufacturing ‘iron lady’, is maintaining her cool in the AI era",
+   "link": "https://www.scmp.com/tech/article/3373325/how-dong-mingzhu-chinas-manufacturing-iron-lady-maintaining-her-cool-ai-era",
+   "source": "SCMP Tech",
+   "sourceLang": "en",
+   "country": "HK",
+   "translated": true,
+   "date": "2026-11-08T22:00:12.000Z",
+   "image": "https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/11/06/d6d6113f-7a6a-4f14-9596-d02ea37962e0_15c09cb9.jpg?itok=Ua-W_jBU&v=1793961666",
+   "category": "Actualité"
   },
   {
    "id": "71d028e47a2b6de4",
@@ -3218,6 +4085,48 @@
    "category": "Entreprise"
   },
   {
+   "id": "4d691eace94f7a0d",
+   "title": "Quand les vidéos générées par l’IA diront-elles adieu au « tirage de cartes » ? Problèmes de retouche et de coûts cachés derrière une génération efficace",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/xd9o6TyQ8GLON3dmiWpG?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "AI 生成视频何时才能告别“抽卡”？藏在高效生成背后的返工与成本难题",
+   "link": "https://www.infoq.cn/article/xd9o6TyQ8GLON3dmiWpG",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-08T16:19:44.000Z",
+   "image": "https://static001.infoq.cn/resource/image/0f/9e/0f50490207f1bf58d94d19d967d1759e.png",
+   "category": "Régulation"
+  },
+  {
+   "id": "20b77550da3a3546",
+   "title": "Les meilleurs laboratoires d’IA deviennent des « trous noirs de talents » ! Premier entretien de l'ingénieur de l'équipe Claude Code après son départ de l'entreprise",
+   "description": "<div align='right'><a href='https://www.infoq.cn/article/Qs0pJ5M43c56hdozHiR0?utm_source=rss&utm_medium=article'>Cliquez pour afficher le texte original></a></div>",
+   "originalTitle": "顶尖 AI 实验室正在成为“人才黑洞”！Claude Code 团队工程师离职后首次受访",
+   "link": "https://www.infoq.cn/article/Qs0pJ5M43c56hdozHiR0",
+   "source": "InfoQ 中文",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-08T15:03:06.000Z",
+   "image": "https://static001.infoq.cn/resource/image/90/47/90de5309109c5071aff6d290639f4047.png",
+   "category": "Régulation"
+  },
+  {
+   "id": "eb3a506a0e304ddf",
+   "title": "Des expériences récentes avec des agents d'IA révèlent un avenir risqué pour le « travail d'équipe » des machines au sein des entreprises",
+   "description": "Les agents d’IA travaillent désormais ensemble régulièrement. La recherche montre qu’ils ne recherchent pas toujours le même objectif ou n’opèrent pas toujours avec éthique.",
+   "originalTitle": "Recent AI agent experiments reveal a risky future of machine 'teamwork' inside corporations",
+   "link": "https://www.cnbc.com/2026/11/08/ai-agents-risks.html",
+   "source": "CNBC Tech",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-08T14:14:11.000Z",
+   "image": "https://image.cnbcfm.com/api/v1/image/108520477-1793823798855-gettyimages-2297748926-_04a0065_yahpbvob.jpeg?v=1793823822&w=1920&h=1080",
+   "category": "Régulation"
+  },
+  {
    "id": "8c0798cef7304430",
    "title": "L’affaiblissement de la loi sur le droit d’auteur sur l’IA serait un « désastre pour la créativité », prévient Albanese",
    "description": "<p><strong>Exclusif</strong> : le directeur de l'IFPI déclare que permettre aux entreprises d'IA d'accéder au contenu en ligne serait une « énorme erreur » et nuirait à la réputation de l'Australie.</p><ul><li><p>Recevez notre <a href=\"https://www.theguardian.com/email-newsletters?CMP=cvau_sfl\">e-mail de dernière minute</a>, <a href=\"https://app.adjust.com/w4u7jx3\">gratuitement application</a> ou <a href=\"https://www",
@@ -3230,6 +4139,20 @@
    "date": "2026-11-08T14:00:43.000Z",
    "image": "https://i.guim.co.uk/img/media/a9d776b6ee27daeda7be27a2ffc273f39b966850/200_0_6000_4800/master/6000.jpg?width=140&quality=85&auto=format&fit=max&s=d7cfb9e02bdb165293c91e886fccd4f9",
    "category": "Régulation"
+  },
+  {
+   "id": "6093c5ed15b7c936",
+   "title": "6 réglages par défaut du Pixel 11 que j'ai modifiés et qui ont fait une grande différence",
+   "description": "Si vous venez d'acquérir un Pixel 11, voici six réglages que je vous recommande de modifier dès maintenant pour tirer le meilleur parti de votre téléphone.",
+   "originalTitle": null,
+   "link": "https://www.zdnet.fr/pratique/6-reglages-par-defaut-du-pixel-11-que-jai-modifies-et-qui-ont-fait-une-grande-difference-507500.htm",
+   "source": "ZDNet.fr",
+   "sourceLang": "fr",
+   "country": "FR",
+   "translated": false,
+   "date": "2026-11-08T12:11:09.000Z",
+   "image": "https://www.zdnet.fr/wp-content/uploads/zdnet/2026/11/pxl_20261105_154231218-scaled.webp",
+   "category": "Société"
   },
   {
    "id": "138e1d924385b16d",
@@ -3330,6 +4253,20 @@
    "category": "Sécurité"
   },
   {
+   "id": "13cd61cac6513860",
+   "title": "Les caméras thermiques haut de gamme valent-elles le coup ? J’ai testé un modèle à 350 euros avec mon iPhone pour le savoir",
+   "description": "La Magic Pro de Rision coûte près de deux fois plus cher que sa petite sœur. Mais il arrive que cette résolution supplémentaire en vaille la peine.",
+   "originalTitle": null,
+   "link": "https://www.zdnet.fr/guide-achat/les-cameras-thermiques-haut-de-gamme-valent-elles-le-coup-jai-teste-un-modele-a-350-euros-avec-mon-iphone-pour-le-savoir-507338.htm",
+   "source": "ZDNet.fr",
+   "sourceLang": "fr",
+   "country": "FR",
+   "translated": false,
+   "date": "2026-11-08T10:11:18.000Z",
+   "image": "https://www.zdnet.fr/wp-content/uploads/zdnet/2026/11/rision-magic-pro.jpg",
+   "category": "Modèles"
+  },
+  {
    "id": "6e70fe048dede744",
    "title": "Les modèles mondiaux seront bientôt incontournables. Voici ce que vous devez savoir",
    "description": "En faisant passer l'IA du texte à l'espace 3D, les modèles du monde simulent la physique du monde réel pour apprendre aux robots et aux voitures autonomes comment naviguer dans la réalité.",
@@ -3342,6 +4279,34 @@
    "date": "2026-11-08T10:00:00.000Z",
    "image": "https://media.wired.com/photos/6aee7497bf81da8802edc3e6/master/pass/gear-ai-world-models-3d.jpg",
    "category": "Régulation"
+  },
+  {
+   "id": "f129f7ed82c29e37",
+   "title": "Pourquoi la « camaraderie » est destinée à être au cœur de l’IA personnelle",
+   "description": "Auteur | Éditeur Yuhangyuan | Jingyu La récente vague d'IA personnelle est si populaire que j'ai également enregistré une Muse pour en faire l'expérience. Après toute l’expérience, j’ai l’impression que les capacités de Muse sont juste moyennes, loin d’être étonnantes. Mais curieusement, cela apporte un réel sentiment de camaraderie. Ce sentiment de camaraderie a même directement changé mes habitudes d'utilisation, m",
+   "originalTitle": "为什么「陪伴」，注定是 Personal AI 的核心",
+   "link": "http://www.geekpark.net/news/373653",
+   "source": "极客公园",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-08T09:52:45.000Z",
+   "image": "https://imgslim.geekpark.net/uploads/image/file/0d/4b/0d4b91a4d39890858e0486f041fd14c5.jpg",
+   "category": "Actualité"
+  },
+  {
+   "id": "543d3d88be782443",
+   "title": "Rebond de l’IA : les entreprises regrettent les licenciements à cause de l’IA",
+   "description": "La tendance au « rebond de l’IA » montre que les entreprises ont sous-estimé l’expertise humaine nécessaire pour sécuriser efficacement leurs opérations.",
+   "originalTitle": "AI Rebounding: Unternehmen bereuen Entlassungen wegen KI",
+   "link": "https://www.silicon.de/41724304/ai-rebounding-unternehmen-bereuen-entlassungen-wegen-ki",
+   "source": "Silicon.de",
+   "sourceLang": "de",
+   "country": "DE",
+   "translated": true,
+   "date": "2026-11-08T09:35:45.000Z",
+   "image": "https://www.silicon.de/wp-content/uploads/2026/06/Firefly_Ich-brauche-ein-Bild-das-fuer-eine-Webseite-die-Kategorie-KI-News-darstellt-133735.png",
+   "category": "Entreprise"
   },
   {
    "id": "f22d837c2d1d7f6e",
@@ -3386,6 +4351,20 @@
    "category": "Sécurité"
   },
   {
+   "id": "f2a884ceac53c445",
+   "title": "L’IA accélère le recrutement et met les frais d’agence sous pression",
+   "description": "Les recruteurs affirment que l’IA accélère la sélection et remodèle le travail des agences, soulevant la question de savoir si les frais de placement basés sur un pourcentage peuvent tenir.",
+   "originalTitle": "AI is speeding up recruitment — and putting agency fees under pressure",
+   "link": "https://www.cnbc.com/2026/11/08/ai-recruitment-agency-fees.html",
+   "source": "CNBC Tech",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-08T06:00:01.000Z",
+   "image": "https://image.cnbcfm.com/api/v1/image/105671436-1547150719833gettyimages-862718244.jpeg?v=1579791016&w=1920&h=1080",
+   "category": "Modèles"
+  },
+  {
    "id": "486b3da576eca18e",
    "title": "Cette entreprise distribuera 200 milliards de dollars à ses salariés à condition qu'ils restent au travail",
    "description": "L'entrée en Bourse d'Anthropic promet de transformer les actions de ses salariés en fortunes colossales. Mais entre les impôts et les délais de carence, la richesse de ces nouveaux millionnaires restera d'abord virtuelle.",
@@ -3397,6 +4376,48 @@
    "translated": false,
    "date": "2026-11-08T05:55:02.000Z",
    "image": "https://img-0.journaldunet.com/Nr4E-QPg5WOOAo0utr1wpnvr6PE=/1280x/smart/9c7813e118884498b282a758fbb6910b/ccmcms-jdn/39545842.jpg",
+   "category": "Entreprise"
+  },
+  {
+   "id": "441b4bf2cc548fc0",
+   "title": "Les cassettes oubliées des jeunes font fortune à l’ère de l’IA",
+   "description": "Les bandes connaissent un deuxième printemps à l’ère de l’IA. # Bienvenue pour suivre le compte public officiel WeChat d'aifaner : aifaner (WeChat ID : ifanr). Un contenu plus passionnant vous sera fourni dès que possible.",
+   "originalTitle": "被年轻人遗忘的磁带，正在 AI 时代闷声发大财",
+   "link": "https://www.ifanr.com/1688364",
+   "source": "爱范儿",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-08T03:35:42.000Z",
+   "image": "https://s3.ifanr.com/wp-content/uploads/2026/11/1111.jpg",
+   "category": "Société"
+  },
+  {
+   "id": "848efd8bcd76fb36",
+   "title": "Y a-t-il une chance de survie pour les entrepreneurs travaillant comme agents personnels ?",
+   "description": "Ces derniers temps, Personal Agent est très populaire. Ce qui est intéressant, c’est que ce concept est rapidement devenu populaire et qu’un consensus s’est rapidement dégagé. Après plusieurs séries de discussions, l’opinion générale semblait être la suivante : les opportunités offertes aux agents personnels sont réservées aux grandes entreprises et les entrepreneurs n’ont pratiquement aucune chance. Bien que dans de",
+   "originalTitle": "创业者做 Personal Agent，有没有一线生机？",
+   "link": "http://www.geekpark.net/news/373650",
+   "source": "极客公园",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-08T02:40:20.000Z",
+   "image": "https://imgslim.geekpark.net/uploads/image/file/50/80/50805abde885298a4a723780c0bf5adb.jpg",
+   "category": "Entreprise"
+  },
+  {
+   "id": "5c775e6b89c5c3e3",
+   "title": "Après avoir acquis EA, Silver Lake Capital et un fonds saoudien ont fait une offre de 25 milliards de dollars sur Unity ; plus de 100 000 applications ont été adaptées à l'iPhone Duo ; un autre vol d'appareil NVIDIA AI s'est produit aux États-Unis",
+   "description": "Après avoir acquis EA, Silver Lake Capital et le Fonds d'investissement public saoudien auraient proposé 25 milliards de dollars pour acquérir Unity. Un consortium d'investisseurs composé de la société américaine de capital-investissement Silver Lake Partners et du fonds souverain saoudien, le Public Investment Fund (PIF), a fait une offre d'acquisition pour Unity Software, valorisant l'entreprise à environ 25 millia",
+   "originalTitle": "收购 EA 后，银湖资本与沙特基金 250 亿美元报价 Unity；超10万款应用已适配iPhone Duo；美国再发生 NVIDIA AI 设备失窃案",
+   "link": "http://www.geekpark.net/news/373649",
+   "source": "极客公园",
+   "sourceLang": "zh",
+   "country": "CN",
+   "translated": true,
+   "date": "2026-11-08T00:57:46.000Z",
+   "image": "https://imgslim.geekpark.net/uploads/image/file/c0/3c/c03ce0b97f0bce50d35f59c869fc2303.png",
    "category": "Entreprise"
   },
   {
@@ -3428,6 +4449,20 @@
    "category": "Actualité"
   },
   {
+   "id": "f09c46fc907967c9",
+   "title": "Dave Wehner, directeur de la stratégie de Meta, quitte Fireworks pour rejoindre la start-up d'infrastructure d'IA en tant que directeur financier",
+   "description": "Dave Wehner, directeur de la stratégie de Meta, quitte l'entreprise pour devenir directeur financier de Fireworks, la startup d'infrastructure d'IA évaluée à 17,5 milliards de dollars en juillet.",
+   "originalTitle": "Meta chief strategy officer Dave Wehner leaves to join AI infrastructure startup Fireworks as CFO",
+   "link": "https://www.cnbc.com/2026/11/07/dave-wehner-meta-fireworks-cfo.html",
+   "source": "CNBC Tech",
+   "sourceLang": "en",
+   "country": "US",
+   "translated": true,
+   "date": "2026-11-07T22:01:17.000Z",
+   "image": "https://image.cnbcfm.com/api/v1/image/108544587-1794070170749-gettyimages-1529862577-ALLEN__CO_2023.jpeg?v=1794070180&w=1920&h=1080",
+   "category": "Entreprise"
+  },
+  {
    "id": "2c93e9013ac15b4c",
    "title": "Un dirigeant de Megaspeed a été recruté pour espionner le PDG de Nvidia, selon une note du renseignement américain",
    "description": "Une note diffusée plus tôt cette année aurait affirmé que le ministère chinois de la Sécurité d'État avait recruté une femme responsable du secteur technologique pour espionner le PDG de Nvidia.",
@@ -3440,426 +4475,6 @@
    "date": "2026-11-07T21:17:08.000Z",
    "image": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2294936867.jpg?resize=1200,800",
    "category": "Sécurité"
-  },
-  {
-   "id": "81aeae3b418c0aae",
-   "title": "La FAA annonce les premières tours de contrôle numériques du trafic aérien aux États-Unis en Floride et en Alaska",
-   "description": "<p>Les systèmes offrent une vue à 360 degrés des opérations aéroportuaires, mais des inquiétudes ont été soulevées concernant la technologie</p><p>La Federal Aviation Administration (FAA) a annoncé que les premières tours de contrôle numériques du trafic aérien aux États-Unis sont officiellement opérationnelles, apportant d'abord la nouvelle technologie aux petits aéroports de <a href=\"https://www.theguardian.com/us-",
-   "originalTitle": "FAA announces first US digital air traffic control towers in Florida and Alaska",
-   "link": "https://www.theguardian.com/us-news/2026/nov/07/faa-digital-air-traffic-control-tower-technology",
-   "source": "The Guardian AI",
-   "sourceLang": "en",
-   "country": "GB",
-   "translated": true,
-   "date": "2026-11-07T20:03:23.000Z",
-   "image": "https://i.guim.co.uk/img/media/e713b6ce0cb3abec030579736ea07b0d1821a0da/334_0_3338_2670/master/3338.jpg?width=140&quality=85&auto=format&fit=max&s=0dec4bcc78b00a8ba4fada6d106eee57",
-   "category": "Recherche"
-  },
-  {
-   "id": "022e329a512042ed",
-   "title": "Faire obstacle aux gamelles : la femme bloque les robots de livraison de nourriture",
-   "description": "<p>La professeure semi-retraitée Carolyn Marvin est devenue une célébrité locale face à l'armée grandissante des livreurs de robots de Philadelphie : \"C'est mon premier amendement, le droit de protester\".</p><p>\"L'un de vous doit être à l'affût des flics pendant que je bloque le robot, d'accord ?\"</p><p>C'est un matin d'automne frais à Philadelphie. Nichée dans une ruelle sombre, en face d'un garage appelé Patriot Pa",
-   "originalTitle": "Standing in the way of slop bowls: the woman blocking food delivery robots",
-   "link": "https://www.theguardian.com/technology/ng-interactive/2026/nov/07/philadelphia-blocking-food-delivery-robots",
-   "source": "The Guardian AI",
-   "sourceLang": "en",
-   "country": "GB",
-   "translated": true,
-   "date": "2026-11-07T14:00:12.000Z",
-   "image": "https://i.guim.co.uk/img/media/6c9b99624b2d4f830d94948c591fde5d07839cf9/148_0_6358_5086/master/6358.jpg?width=140&quality=85&auto=format&fit=max&s=731516b3b10b69bcfb54fdbce5864718",
-   "category": "Régulation"
-  },
-  {
-   "id": "cfad394d1a95f5a8",
-   "title": "Flock : sale temps pour les gros bros",
-   "description": "Ah, j’avoue avoir eu une semaine compliquée, mais je ne suis pas le seul : ça chiale outre-Atlantique ! Rien ne va pour les tech bros : on peut refuser d’utiliser l’ia, ce qui malheureusement n’empêche pas les sacrifices humains. Et que ça se prend des claques, en politique, en jeu vidéo, en sciences et […]",
-   "originalTitle": null,
-   "link": "https://next.ink/266278/flock-sale-temps-pour-les-gros-bros",
-   "source": "Next INpact",
-   "sourceLang": "fr",
-   "country": "FR",
-   "translated": false,
-   "date": "2026-11-07T12:37:00.000Z",
-   "image": "https://next.ink/wp-content/uploads/2025/03/dediee_flock.webp",
-   "category": "Actualité"
-  },
-  {
-   "id": "b64f9c5c9d11790b",
-   "title": "Steve Jones sur les innovations technologiques dangereuses – dessin animé",
-   "description": "<a href=\"https://www.theguardian.com/commentisfree/picture/2026/nov/07/steve-jones-dangerous-tech-innovations-cartoon-ai-fire\">Continuer la lecture...</a>",
-   "originalTitle": "Steve Jones on dangerous tech innovations – cartoon",
-   "link": "https://www.theguardian.com/commentisfree/picture/2026/nov/07/steve-jones-dangerous-tech-innovations-cartoon-ai-fire",
-   "source": "The Guardian AI",
-   "sourceLang": "en",
-   "country": "GB",
-   "translated": true,
-   "date": "2026-11-07T11:00:09.000Z",
-   "image": "https://i.guim.co.uk/img/media/86994054c0f6a4c972c5c9ffc994a75e79ab91f4/0_0_5000_4000/master/5000.jpg?width=140&quality=85&auto=format&fit=max&s=a9ee0f23697571494e489a42eaa27b93",
-   "category": "Société"
-  },
-  {
-   "id": "7689272c32cddea8",
-   "title": "Les applications pour les soignants reçoivent une dose d’IA, mais cela pourrait ne pas suffire",
-   "description": "Les applications et les plateformes qui aident les aidants familiaux à gérer les besoins de leurs proches sont de plus en plus performantes, mais le problème plus large du bien-être des aidants reste entier.",
-   "originalTitle": "Apps for Caregivers Get a Dose of AI, but That Might Not Be Enough",
-   "link": "https://www.wired.com/story/apps-for-caregivers-get-a-dose-of-ai-but-that-might-not-be-enough",
-   "source": "Wired AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-07T11:00:00.000Z",
-   "image": "https://media.wired.com/photos/6aed04343576db1689ab3d03/master/pass/Caregiving%20app.jpg",
-   "category": "Actualité"
-  },
-  {
-   "id": "aae7d52c6eaba4c2",
-   "title": "Le centre de données AI du Lanarkshire s'appuiera entièrement sur le réseau national malgré les affirmations sur les énergies renouvelables",
-   "description": "<p>DataVita a révisé son plan pour que les besoins en énergie du développement de Chapelhall de 1 GW soient entièrement issus d'énergies renouvelables.</p><p>Une société de centre de données qui a déclaré qu'elle alimenterait un développement massif d'IA près de Glasgow avec des énergies renouvelables a admis que le projet serait entièrement desservi par le réseau national.</p><p>DataVita, un élément clé de la straté",
-   "originalTitle": "Lanarkshire AI datacentre to fully rely on national grid despite renewables claim",
-   "link": "https://www.theguardian.com/uk-news/2026/nov/07/lanarkshire-ai-datacentre-datavita-chapelhall-national-grid-renewable-energy",
-   "source": "The Guardian AI",
-   "sourceLang": "en",
-   "country": "GB",
-   "translated": true,
-   "date": "2026-11-07T10:00:08.000Z",
-   "image": "https://i.guim.co.uk/img/media/c1b8eb2d05fbcf3925b8a30a9e3d4612d3eaa8c7/1365_0_6827_5464/master/6827.jpg?width=140&quality=85&auto=format&fit=max&s=3ef7aa4b0036b9e0fb5e9137ca280cb4",
-   "category": "Société"
-  },
-  {
-   "id": "0819cd72b72eb53b",
-   "title": "Du premier rang à la sellette – ce que les mi-mandats signifient pour Big Tech",
-   "description": "Après avoir passé deux ans à se rapprocher de la Maison Blanche, les Big Tech tentent soudainement de se lier d'amitié avec les démocrates, et la question ouverte est de savoir si cette transformation de l'image peut résister à ce que les États, les communautés locales et les marchés sont sur le point de faire.",
-   "originalTitle": "From the front row to the hot seat — what the midterms mean for Big Tech",
-   "link": "https://techcrunch.com/2026/11/06/from-the-front-row-to-the-hot-seat-what-the-midterms-mean-for-big-tech",
-   "source": "TechCrunch AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-07T04:16:43.000Z",
-   "image": "https://techcrunch.com/wp-content/uploads/2026/11/SHAWN-THEW-Contributor-Getty.jpg?w=1024",
-   "category": "Entreprise"
-  },
-  {
-   "id": "c2107a5a7cf60537",
-   "title": "Crusoe vend à Google un projet de centre de données en difficulté dans le Wyoming",
-   "description": "L’accord met en évidence les défis liés au développement de centres de données d’IA massifs.",
-   "originalTitle": "Crusoe sells troubled Wyoming data center project to Google",
-   "link": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google",
-   "source": "TechCrunch AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-07T01:40:28.000Z",
-   "image": "https://techcrunch.com/wp-content/uploads/2026/09/crusoe-ceo-getty.jpg?resize=1200,800",
-   "category": "Actualité"
-  },
-  {
-   "id": "118369de89f061c4",
-   "title": "OpenAI aurait levé 11 milliards de dollars supplémentaires pour une valorisation de 1,25 billion de dollars",
-   "description": "OpenAI aurait levé 11 milliards de dollars supplémentaires dans le cadre d'un cycle de financement qui n'est pas encore clôturé mais qui devrait le faire dans les semaines à venir.",
-   "originalTitle": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
-   "link": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation",
-   "source": "TechCrunch AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T22:53:46.000Z",
-   "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024",
-   "category": "Entreprise"
-  },
-  {
-   "id": "f0ab78f35232f3fd",
-   "title": "Même si vous avez introduit les entretiens par IA, les informations sur les candidats sont-elles toujours saisies manuellement ? Éliminer le « double travail » sur les sites de recrutement",
-   "description": "Même si les opérations d’entretien peuvent être rendues plus efficaces grâce à l’introduction de l’IA, le travail manuel des recruteurs a tendance à perdurer, comme l’enregistrement des informations sur les candidats et la transcription des résultats de sélection.",
-   "originalTitle": "AI面接を導入したのに、応募者情報は手入力？ 採用現場の「二度手間」を解消へ",
-   "link": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002951",
-   "source": "ITmedia AI+",
-   "sourceLang": "ja",
-   "country": "JP",
-   "translated": true,
-   "date": "2026-11-06T22:00:00.000Z",
-   "image": "https://kn.itmedia.co.jp/kn/article/ogp/2611/07/2000002951/10011496/2048",
-   "category": "Société"
-  },
-  {
-   "id": "718d10c109f1bd20",
-   "title": "\"Aucun lien dans la réponse ChatGPT = non vu\" En fait, collecte d'informations sur l'IA différente",
-   "description": "Si votre site n'est pas cité par l'IA générée comme ChatGPT ou Claude, vous avez tendance à penser que l'information n'est pas référencée par l'IA. Cependant, il n'est pas possible de savoir à quel site Web l'IA faisait référence simplement en regardant le lien affiché dans la réponse.",
-   "originalTitle": "「ChatGPTの回答にリンクがない＝見られていない」 実は違うAIの情報収集",
-   "link": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002948",
-   "source": "ITmedia AI+",
-   "sourceLang": "ja",
-   "country": "JP",
-   "translated": true,
-   "date": "2026-11-06T22:00:00.000Z",
-   "image": "https://kn.itmedia.co.jp/kn/article/ogp/2611/07/2000002948/10011491/2048",
-   "category": "Modèles"
-  },
-  {
-   "id": "19abb401f6a3d114",
-   "title": "L’IA a rendu les ventes plus efficaces, mais pourquoi ne vendons-nous pas ? Ce que les gens qui réussissent apprécient",
-   "description": "Même si l’IA peut rendre la création de propositions et la collecte d’informations plus efficaces, cela améliorera-t-il à lui seul les résultats des ventes ? Ce qui est désormais remis en question dans les sites de vente qui ont introduit l’IA, ce n’est pas seulement la capacité à utiliser des outils.",
-   "originalTitle": "AIで営業は効率化した、でもなぜ売れない？ 成果を出す人が大切にしていること",
-   "link": "https://kn.itmedia.co.jp/kn/article/2611/07/2000002945",
-   "source": "ITmedia AI+",
-   "sourceLang": "ja",
-   "country": "JP",
-   "translated": true,
-   "date": "2026-11-06T22:00:00.000Z",
-   "image": "https://kn.itmedia.co.jp/kn/article/ogp/2611/07/2000002945/10011487/2048",
-   "category": "Société"
-  },
-  {
-   "id": "9b71d9975984da1c",
-   "title": "Du matériel Nvidia d'une valeur de 11,4 millions de dollars a disparu entre Oakland et le Texas",
-   "description": "6 palettes de matériel ont disparu en route vers le Texas, sans aucune arrestation 2 mois plus tard.",
-   "originalTitle": "Nvidia hardware worth $11.4M vanished between Oakland and Texas",
-   "link": "https://arstechnica.com/gadgets/2026/11/nvidia-hardware-worth-11-4m-vanished-between-oakland-and-texas",
-   "source": "Ars Technica",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T20:05:30.000Z",
-   "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2303158972-1152x648.jpg",
-   "category": "Entreprise"
-  },
-  {
-   "id": "ba5f1cdb14f57903",
-   "title": "Comment prédire le comportement des molécules à partir de rares données",
-   "description": "Une approche d'apprentissage automatique appelée CheMeleon offre un moyen pratique de développer de nouveaux médicaments ou d'autres molécules avec une expérimentation beaucoup moins détaillée et coûteuse.",
-   "originalTitle": "How to predict the behavior of molecules from scant data",
-   "link": "https://news.mit.edu/2026/how-to-predict-molecule-behavior-with-scant-data-1106",
-   "source": "MIT News AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T19:00:00.000Z",
-   "image": "https://news.mit.edu/sites/default/files/styles/news_article__cover_image__original/public/images/202610/mit-cheme-chemeleon.jpg?itok=sxUBAH56",
-   "category": "Société"
-  },
-  {
-   "id": "f59caa100a4350e9",
-   "title": "Google accusé : un jeune de 13 ans aurait planifié son suicide avec l'IA sur l'ordinateur de l'école",
-   "description": "Les parents d'une jeune fille de Caroline du Nord accusent Google de l'exposer à des conversations dangereuses avec son intelligence artificielle via l'ordinateur d'une école. Au centre du boîtier se trouve AI Mode, la fonction conversationnelle intégrée au moteur de recherche",
-   "originalTitle": "Google sotto accusa: una 13enne avrebbe pianificato il suicidio con l’IA sul computer della scuola",
-   "link": "https://www.repubblica.it/tecnologia/2026/11/06/news/google-piano-suicidio-13enne-ia-scuola-425705284/?rss",
-   "source": "Repubblica Tecnologia",
-   "sourceLang": "it",
-   "country": "IT",
-   "translated": true,
-   "date": "2026-11-06T18:52:29.000Z",
-   "image": "https://www.repstatic.it/content/contenthub/img/2026/11/06/195142032-e1437bd8-8c7c-4d40-bd7d-1dc0f959bf7c.jpg",
-   "category": "Recherche"
-  },
-  {
-   "id": "29c568495a81ef6e",
-   "title": "Des centaines d’outils de piratage Artex AI découverts publiquement sur le Web",
-   "description": "Les chercheurs en sécurité ont découvert des centaines de serveurs hébergeant l’outil de test d’intrusion Artex exposés à Internet, permettant à quiconque d’accéder à l’outil de piratage.",
-   "originalTitle": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
-   "link": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web",
-   "source": "TechCrunch AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T18:44:38.000Z",
-   "image": "https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1424498694.jpg?resize=1200,800",
-   "category": "Sécurité"
-  },
-  {
-   "id": "016e849ea3abf5a8",
-   "title": "Meta présente Spaces, une nouvelle façon de collaborer avec votre agent Muse",
-   "description": "Les agents Meta's Muse continuent de bénéficier de nouvelles fonctionnalités et intégrations. Spaces promet d'être une nouvelle façon d'interagir avec les assistants de l'IA.",
-   "originalTitle": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
-   "link": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent",
-   "source": "TechCrunch AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T18:44:20.000Z",
-   "image": "https://techcrunch.com/wp-content/uploads/2026/09/muse-ai-meta.jpg?w=1200",
-   "category": "Actualité"
-  },
-  {
-   "id": "6167fe88734ab044",
-   "title": "Les modèles d'IA chinois gratuits deviennent effrayants en matière de piratage",
-   "description": "Une expérience dans laquelle des modèles d’IA ont été invités à pénétrer dans des réseaux simulés a montré que les compétences de piratage de DeepSeek et de GLM n’étaient pas loin derrière le cyber-modèle le plus avancé d’OpenAI, qui n’est pas public.",
-   "originalTitle": "Free Chinese AI Models Are Getting Scary Good at Hacking",
-   "link": "https://www.wired.com/story/free-chinese-ai-models-are-getting-scary-good-at-hacking",
-   "source": "Wired AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T18:43:43.000Z",
-   "image": "https://media.wired.com/photos/6aebae965d3f8b6dd99468be/master/pass/Security_Open-WeightAIModels.gif",
-   "category": "Sécurité"
-  },
-  {
-   "id": "fc8f30aee8f3f7ca",
-   "title": "Comment une vague bleue à mi-parcours pourrait remodeler l’industrie de l’IA",
-   "description": "Les victoires historiques des démocrates aux élections de mi-mandat américaines de cette semaine pourraient également transformer l’industrie technologique. Le public a voté mardi sur 41 mesures liées aux centres de données – dans toutes sauf une, la majorité a voté pour imposer davantage de restrictions au développement des centres de données. Et même lorsque les centres de données ne figuraient pas directement sur ",
-   "originalTitle": "How a Blue Wave midterm might reshape the AI industry",
-   "link": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry",
-   "source": "TechCrunch AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T18:00:00.000Z",
-   "image": "https://techcrunch.com/wp-content/uploads/2022/11/GettyImages-1368458052.jpg?resize=1200,750",
-   "category": "Société"
-  },
-  {
-   "id": "b624a9b874d45cba",
-   "title": "Google, Microsoft, Anthropic et OpenAI veulent changer robots.txt pour refuser les IA",
-   "description": "Quatre entreprises de la tech souhaitent ajouter une ligne dans le fichier robots.txt pour que les données des sites concernés ne soient pas utilisées dans l’entrainement des IA. S’agissant d’une démarche déclarative, ses limites sont claires. Le 30 octobre, Google, Microsoft, Anthropic et OpenAI ont annoncé qu’ils respecteraient une même ligne dans le fichier robots.txt […]",
-   "originalTitle": null,
-   "link": "https://next.ink/266259/google-microsoft-anthropic-et-openai-veulent-changer-robots-txt-pour-refuser-les-ia",
-   "source": "Next INpact",
-   "sourceLang": "fr",
-   "country": "FR",
-   "translated": false,
-   "date": "2026-11-06T16:32:31.000Z",
-   "image": "https://next.ink/wp-content/uploads/2025/04/Surf-robot1.webp",
-   "category": "Robotique"
-  },
-  {
-   "id": "2b3eb4eb79de73e7",
-   "title": "Comment les outils Open Source de NVIDIA aident les chercheurs à créer des réseaux 6G de nouvelle génération",
-   "description": "Il y a un an, NVIDIA a rendu open source son logiciel sans fil Aerial, rejoignant Sionna et une suite plus large d'outils open source pour accélérer le développement du réseau 6G de nouvelle génération. Ensemble, ils donnent aux chercheurs une base pour tester des idées, comparer les résultats et s'appuyer sur les travaux de chacun – en reliant la simulation et la formation en IA avec des expériences sur de véritable",
-   "originalTitle": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Networks",
-   "link": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks",
-   "source": "NVIDIA Blog",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T16:00:35.000Z",
-   "image": "https://blogs.nvidia.com/wp-content/uploads/2026/11/Screenshot-2026-11-05-at-8.30.25-PM-scaled.png",
-   "category": "Recherche"
-  },
-  {
-   "id": "67e3c6ace421b869",
-   "title": "Les entreprises d’IA veulent vraiment, vraiment acheter vos fichiers de travail et vos e-mails",
-   "description": "Les courtiers en données collectent toutes sortes de fichiers internes à l'entreprise pour aider à former des modèles d'IA. Tout le monde n’est pas ravi.",
-   "originalTitle": "AI Companies Really, Really Want to Buy Your Work Files and Emails",
-   "link": "https://www.wired.com/story/ai-companies-really-really-want-to-buy-your-work-files-and-emails",
-   "source": "Wired AI",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T16:00:00.000Z",
-   "image": "https://media.wired.com/photos/6aece5b7cb93131011507281/master/pass/Backchannel-11062026_Option2.jpg",
-   "category": "Entreprise"
-  },
-  {
-   "id": "47a2b34071c9d344",
-   "title": "Google déréférence 9 des plus gros sites d’infos générés par IA qui polluent Discover",
-   "description": "Google a modifié ses règles de sorte de pénaliser les profils d’auteurs fictifs, d’obliger à « vérifier manuellement » les contenus générés par IA, et de privilégier le « travail humain » aux pages générées automatiquement. Contacté par Next, Google vient de déréférencer neuf des principaux sites d’infos générés par IA qu’il promouvait jusqu’alors via son algorithme Discover mais […]",
-   "originalTitle": null,
-   "link": "https://next.ink/263676/google-dereference-9-des-plus-gros-sites-dinfos-generes-par-ia-qui-polluent-discover",
-   "source": "Next INpact",
-   "sourceLang": "fr",
-   "country": "FR",
-   "translated": false,
-   "date": "2026-11-06T15:01:30.000Z",
-   "image": "https://next.ink/wp-content/uploads/2024/12/Google-surveillance-1.webp",
-   "category": "Actualité"
-  },
-  {
-   "id": "0f83f4e6317e0252",
-   "title": "Airbnb prépare un agent IA qui pourrait organiser vos vacances de A à Z",
-   "description": "La plateforme de réservation Airbnb va prochainement lancer un agent IA. Ce dernier pourrait organiser vos vacances de A à Z, de la préparation de votre séjour à la réservation de votre logement. Un agent IA pour simplifier l’organisation des vacances Réussir à organiser un séjour qui plaît à tout le monde est loin d’être […]",
-   "originalTitle": null,
-   "link": "https://siecledigital.fr/2026/11/06/airbnb-prepare-un-agent-ia-qui-pourrait-organiser-vos-vacances-de-a-a-z",
-   "source": "Siecle Digital",
-   "sourceLang": "fr",
-   "country": "FR",
-   "translated": false,
-   "date": "2026-11-06T14:26:27.000Z",
-   "image": "https://siecledigital.fr/wp-content/uploads/2026/11/9536291180-600x350.jpg",
-   "category": "Actualité"
-  },
-  {
-   "id": "3ad8537b78e19953",
-   "title": "Amodei demande de ralentir le développement de l'IA, mais Anthropic tourne à double vitesse",
-   "description": "Une étude indépendante révèle que les modèles d'Anthropic s'améliorent plus rapidement que dans un passé récent. Dans la brochure d'information accompagnant l'introduction en bourse, la société dirigée par Dario Amodei indique une accélération excessive parmi les risques liés au développement de l'IA",
-   "originalTitle": "Amodei chiede di rallentare lo sviluppo delle IA, ma Anthropic corre a doppia velocità",
-   "link": "https://www.repubblica.it/tecnologia/2026/11/06/news/amodei_rallentare_ia_ma_anthropic_corre-425704050/?rss",
-   "source": "Repubblica Tecnologia",
-   "sourceLang": "it",
-   "country": "IT",
-   "translated": true,
-   "date": "2026-11-06T14:20:09.000Z",
-   "image": "https://www.repstatic.it/content/contenthub/img/2026/11/06/124850759-9f309f01-5a49-4cdb-8539-fff3426ed289.jpg",
-   "category": "Recherche"
-  },
-  {
-   "id": "be1ba71e55b7f125",
-   "title": "ToyBlocks : un monde contrôlé pour l'apprentissage et l'évaluation des robots",
-   "description": "",
-   "originalTitle": "ToyBlocks: A controlled world for robot learning and evaluation",
-   "link": "https://huggingface.co/blog/allenai/toyblocks",
-   "source": "Hugging Face",
-   "sourceLang": "en",
-   "country": "US",
-   "translated": true,
-   "date": "2026-11-06T14:00:48.000Z",
-   "image": "https://cdn-uploads.huggingface.co/production/uploads/638e39b249de7ae552d977b5/OAJMu2jr7i5jVAbmsKdZW.jpeg",
-   "category": "Robotique"
-  },
-  {
-   "id": "4aa9ff091095c3b9",
-   "title": "Jeudi noir pour l’IA : la fin de l’investissement sans limite ?",
-   "description": "Les valeurs de la tech états-unienne ont connu jeudi leur pire séance depuis avril 2025 à Wall Street, entraînant dans leur sillage plusieurs grands indices et des répercussions sur les bourses asiatiques. Les fournisseurs de l’infrastructure IA sont touchés au premier plan. De quoi raviver les craintes d’un éclatement de la bulle IA, même si […]",
-   "originalTitle": null,
-   "link": "https://next.ink/266035/jeudi-noir-pour-lia-la-fin-de-linvestissement-sans-limite",
-   "source": "Next INpact",
-   "sourceLang": "fr",
-   "country": "FR",
-   "translated": false,
-   "date": "2026-11-06T13:37:46.000Z",
-   "image": "https://next.ink/wp-content/uploads/2026/09/Bulles1.webp",
-   "category": "Entreprise"
-  },
-  {
-   "id": "4a3f4faac6fd6ec6",
-   "title": "Les aéroports US vont remplacer des systèmes de contrôle qui tournaient sur des disquettes",
-   "description": "Alors que l’administration Trump a longuement communiqué sur l’introduction de l’IA pour mieux gérer le contrôle aérien sur son territoire, elle s’enorgueillit maintenant de la mise en place d’un système qui doit enfin remplacer des logiciels qui tournaient encore sur des disquettes. D’ici 2028, les aéroports états-uniens devraient avoir abandonné des systèmes qui tournaient encore […]",
-   "originalTitle": null,
-   "link": "https://next.ink/266068/les-aeroports-us-vont-remplacer-des-systemes-de-controle-qui-tournaient-sur-des-disquettes",
-   "source": "Next INpact",
-   "sourceLang": "fr",
-   "country": "FR",
-   "translated": false,
-   "date": "2026-11-06T12:37:00.000Z",
-   "image": "https://next.ink/wp-content/uploads/2025/09/Avion.webp",
-   "category": "Actualité"
-  },
-  {
-   "id": "2ebdb1eb3036e03e",
-   "title": "« Ne méprisez pas l’intelligence de vos utilisateurs » : des développeurs accusent Claude Code de divulguer leur adresse email à des sites web",
-   "description": "Un ticket GitHub très commenté accuse Claude Code d’avoir transmis l’adresse email de ses utilisateurs à des sites tiers pendant des recherches web. Un correctif existe depuis le 3 novembre, mais il ne bloque qu’une partie des cas.",
-   "originalTitle": null,
-   "link": "https://www.numerama.com/cyberguerre/2369181-ne-meprisez-pas-lintelligence-de-vos-utilisateurs-des-developpeurs-accusent-claude-code-de-divulguer-leur-adresse-email-a-des-sites-web.html",
-   "source": "Numerama IA",
-   "sourceLang": "fr",
-   "country": "FR",
-   "translated": false,
-   "date": "2026-11-06T12:30:00.000Z",
-   "image": "https://img.numerama.com/www.numerama.com/wp-content/uploads/2026/07/design-sans-titre-2026-07-27t102750209.jpg?resize=1200,675&key=6e43219a",
-   "category": "Recherche"
-  },
-  {
-   "id": "213c658272318a52",
-   "title": "IA : Wall Street dévisse, la bulle est-elle en train d'éclater ?",
-   "description": "L’article IA : Wall Street dévisse, la bulle est-elle en train d'éclater ? est apparu en premier sur Maddyness - Le média pour comprendre l'économie de demain .",
-   "originalTitle": null,
-   "link": "https://www.maddyness.com/2026/11/06/ia-wall-street-devisse-la-bulle-est-elle-en-train-declater",
-   "source": "Maddyness",
-   "sourceLang": "fr",
-   "country": "FR",
-   "translated": false,
-   "date": "2026-11-06T11:56:27.000Z",
-   "image": "https://www.maddyness.com/app/uploads/2021/07/bourse-bitcoin-.jpg",
-   "category": "Société"
   }
  ]
 }

@@ -1,5 +1,50 @@
 [
   {
+    "name": "01net",
+    "url": "https://www.01net.com/feed/",
+    "homepage": "https://www.01net.com",
+    "lang": "fr",
+    "country": "FR",
+    "scope": "tech",
+    "tier": 2
+  },
+  {
+    "name": "爱范儿",
+    "url": "https://www.ifanr.com/feed",
+    "homepage": "https://www.ifanr.com",
+    "lang": "zh",
+    "country": "CN",
+    "scope": "tech",
+    "tier": 2
+  },
+  {
+    "name": "极客公园",
+    "url": "https://www.geekpark.net/rss",
+    "homepage": "https://www.geekpark.net",
+    "lang": "zh",
+    "country": "CN",
+    "scope": "tech",
+    "tier": 2
+  },
+  {
+    "name": "雷锋网",
+    "url": "https://www.leiphone.com/feed",
+    "homepage": "https://www.leiphone.com",
+    "lang": "zh",
+    "country": "CN",
+    "scope": "tech",
+    "tier": 2
+  },
+  {
+    "name": "钛媒体",
+    "url": "https://www.tmtpost.com/feed",
+    "homepage": "https://www.tmtpost.com",
+    "lang": "zh",
+    "country": "CN",
+    "scope": "tech",
+    "tier": 2
+  },
+  {
     "name": "ActuIA",
     "url": "https://www.actuia.com/feed/",
     "homepage": "https://www.actuia.com",
@@ -7,6 +52,24 @@
     "country": "FR",
     "scope": "ai",
     "tier": 1
+  },
+  {
+    "name": "AI2 Allen Institute",
+    "url": "https://allenai.org/rss.xml",
+    "homepage": "https://allenai.org/blog",
+    "lang": "en",
+    "country": "US",
+    "scope": "ai",
+    "tier": 2
+  },
+  {
+    "name": "Analytics India Magazine",
+    "url": "https://analyticsindiamag.com/feed",
+    "homepage": "https://analyticsindiamag.com",
+    "lang": "en",
+    "country": "IN",
+    "scope": "ai",
+    "tier": 2
   },
   {
     "name": "Ars Technica",
@@ -36,6 +99,15 @@
     "tier": 1
   },
   {
+    "name": "Clubic",
+    "url": "https://www.clubic.com/feed/rss",
+    "homepage": "https://www.clubic.com",
+    "lang": "fr",
+    "country": "FR",
+    "scope": "tech",
+    "tier": 2
+  },
+  {
     "name": "CNBC Tech",
     "url": "https://www.cnbc.com/id/19854910/device/rss/rss.html",
     "homepage": "https://www.cnbc.com/technology/",
@@ -52,6 +124,15 @@
     "country": "ES",
     "scope": "tech",
     "tier": 1
+  },
+  {
+    "name": "Golem.de",
+    "url": "https://rss.golem.de/rss.php?feed=RSS2.0",
+    "homepage": "https://www.golem.de",
+    "lang": "de",
+    "country": "DE",
+    "scope": "tech",
+    "tier": 2
   },
   {
     "name": "Google DeepMind",
@@ -81,6 +162,33 @@
     "tier": 1
   },
   {
+    "name": "IEEE Spectrum AI",
+    "url": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
+    "homepage": "https://spectrum.ieee.org/artificial-intelligence",
+    "lang": "en",
+    "country": "US",
+    "scope": "ai",
+    "tier": 2
+  },
+  {
+    "name": "InfoQ 中文",
+    "url": "https://www.infoq.cn/feed",
+    "homepage": "https://www.infoq.cn",
+    "lang": "zh",
+    "country": "CN",
+    "scope": "tech",
+    "tier": 3
+  },
+  {
+    "name": "ITmedia AI+",
+    "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
+    "homepage": "https://www.itmedia.co.jp/aiplus/",
+    "lang": "ja",
+    "country": "JP",
+    "scope": "ai",
+    "tier": 2
+  },
+  {
     "name": "Journal du Net",
     "url": "https://www.journaldunet.com/rss/",
     "homepage": "https://www.journaldunet.com",
@@ -108,6 +216,33 @@
     "tier": 1
   },
   {
+    "name": "Le Temps",
+    "url": "https://www.letemps.ch/articles.rss",
+    "homepage": "https://www.letemps.ch",
+    "lang": "fr",
+    "country": "CH",
+    "scope": "tech",
+    "tier": 2
+  },
+  {
+    "name": "Maddyness",
+    "url": "https://www.maddyness.com/feed/",
+    "homepage": "https://www.maddyness.com",
+    "lang": "fr",
+    "country": "FR",
+    "scope": "tech",
+    "tier": 3
+  },
+  {
+    "name": "Microsoft Research",
+    "url": "https://www.microsoft.com/en-us/research/feed/",
+    "homepage": "https://www.microsoft.com/en-us/research/blog/",
+    "lang": "en",
+    "country": "US",
+    "scope": "ai",
+    "tier": 2
+  },
+  {
     "name": "Mistral AI",
     "url": "https://mistral.ai/news/rss",
     "homepage": "https://mistral.ai/news",
@@ -117,6 +252,15 @@
     "tier": 1
   },
   {
+    "name": "MIT News AI",
+    "url": "https://news.mit.edu/rss/topic/artificial-intelligence2",
+    "homepage": "https://news.mit.edu/topic/artificial-intelligence2",
+    "lang": "en",
+    "country": "US",
+    "scope": "ai",
+    "tier": 2
+  },
+  {
     "name": "MIT Technology Review AI",
     "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
     "homepage": "https://www.technologyreview.com/topic/artificial-intelligence/",
@@ -124,6 +268,33 @@
     "country": "US",
     "scope": "ai",
     "tier": 1
+  },
+  {
+    "name": "Nature Machine Intelligence",
+    "url": "https://www.nature.com/natmachintell.rss",
+    "homepage": "https://www.nature.com/natmachintell/",
+    "lang": "en",
+    "country": "GB",
+    "scope": "ai",
+    "tier": 3
+  },
+  {
+    "name": "Next INpact",
+    "url": "https://next.ink/feed/",
+    "homepage": "https://next.ink",
+    "lang": "fr",
+    "country": "FR",
+    "scope": "tech",
+    "tier": 2
+  },
+  {
+    "name": "Numerama",
+    "url": "https://www.numerama.com/feed/",
+    "homepage": "https://www.numerama.com",
+    "lang": "fr",
+    "country": "FR",
+    "scope": "tech",
+    "tier": 2
   },
   {
     "name": "Numerama IA",
@@ -151,168 +322,6 @@
     "country": "US",
     "scope": "ai",
     "tier": 1
-  },
-  {
-    "name": "TechCrunch AI",
-    "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
-    "homepage": "https://techcrunch.com/category/artificial-intelligence/",
-    "lang": "en",
-    "country": "US",
-    "scope": "ai",
-    "tier": 1
-  },
-  {
-    "name": "The Guardian AI",
-    "url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
-    "homepage": "https://www.theguardian.com/technology/artificialintelligenceai",
-    "lang": "en",
-    "country": "GB",
-    "scope": "ai",
-    "tier": 1
-  },
-  {
-    "name": "The Register AI",
-    "url": "https://www.theregister.com/software/ai_ml/headlines.atom",
-    "homepage": "https://www.theregister.com/software/ai_ml/",
-    "lang": "en",
-    "country": "GB",
-    "scope": "ai",
-    "tier": 1
-  },
-  {
-    "name": "The Verge AI",
-    "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
-    "homepage": "https://www.theverge.com/ai-artificial-intelligence",
-    "lang": "en",
-    "country": "US",
-    "scope": "ai",
-    "tier": 1
-  },
-  {
-    "name": "Wired AI",
-    "url": "https://www.wired.com/feed/tag/ai/latest/rss",
-    "homepage": "https://www.wired.com/tag/ai/",
-    "lang": "en",
-    "country": "US",
-    "scope": "ai",
-    "tier": 1
-  },
-  {
-    "name": "Xataka",
-    "url": "https://www.xataka.com/feedburner.xml",
-    "homepage": "https://www.xataka.com",
-    "lang": "es",
-    "country": "ES",
-    "scope": "tech",
-    "tier": 1
-  },
-  {
-    "name": "01net",
-    "url": "https://www.01net.com/feed/",
-    "homepage": "https://www.01net.com",
-    "lang": "fr",
-    "country": "FR",
-    "scope": "tech",
-    "tier": 2
-  },
-  {
-    "name": "AI2 Allen Institute",
-    "url": "https://allenai.org/rss.xml",
-    "homepage": "https://allenai.org/blog",
-    "lang": "en",
-    "country": "US",
-    "scope": "ai",
-    "tier": 2
-  },
-  {
-    "name": "Analytics India Magazine",
-    "url": "https://analyticsindiamag.com/feed",
-    "homepage": "https://analyticsindiamag.com",
-    "lang": "en",
-    "country": "IN",
-    "scope": "ai",
-    "tier": 2
-  },
-  {
-    "name": "Clubic",
-    "url": "https://www.clubic.com/feed/rss",
-    "homepage": "https://www.clubic.com",
-    "lang": "fr",
-    "country": "FR",
-    "scope": "tech",
-    "tier": 2
-  },
-  {
-    "name": "Golem.de",
-    "url": "https://rss.golem.de/rss.php?feed=RSS2.0",
-    "homepage": "https://www.golem.de",
-    "lang": "de",
-    "country": "DE",
-    "scope": "tech",
-    "tier": 2
-  },
-  {
-    "name": "IEEE Spectrum AI",
-    "url": "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss",
-    "homepage": "https://spectrum.ieee.org/artificial-intelligence",
-    "lang": "en",
-    "country": "US",
-    "scope": "ai",
-    "tier": 2
-  },
-  {
-    "name": "ITmedia AI+",
-    "url": "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
-    "homepage": "https://www.itmedia.co.jp/aiplus/",
-    "lang": "ja",
-    "country": "JP",
-    "scope": "ai",
-    "tier": 2
-  },
-  {
-    "name": "Le Temps",
-    "url": "https://www.letemps.ch/articles.rss",
-    "homepage": "https://www.letemps.ch",
-    "lang": "fr",
-    "country": "CH",
-    "scope": "tech",
-    "tier": 2
-  },
-  {
-    "name": "Microsoft Research",
-    "url": "https://www.microsoft.com/en-us/research/feed/",
-    "homepage": "https://www.microsoft.com/en-us/research/blog/",
-    "lang": "en",
-    "country": "US",
-    "scope": "ai",
-    "tier": 2
-  },
-  {
-    "name": "MIT News AI",
-    "url": "https://news.mit.edu/rss/topic/artificial-intelligence2",
-    "homepage": "https://news.mit.edu/topic/artificial-intelligence2",
-    "lang": "en",
-    "country": "US",
-    "scope": "ai",
-    "tier": 2
-  },
-  {
-    "name": "Next INpact",
-    "url": "https://next.ink/feed/",
-    "homepage": "https://next.ink",
-    "lang": "fr",
-    "country": "FR",
-    "scope": "tech",
-    "tier": 2
-  },
-  {
-    "name": "Numerama",
-    "url": "https://www.numerama.com/feed/",
-    "homepage": "https://www.numerama.com",
-    "lang": "fr",
-    "country": "FR",
-    "scope": "tech",
-    "tier": 2
   },
   {
     "name": "QbitAI",
@@ -369,6 +378,15 @@
     "tier": 2
   },
   {
+    "name": "TechCrunch AI",
+    "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "homepage": "https://techcrunch.com/category/artificial-intelligence/",
+    "lang": "en",
+    "country": "US",
+    "scope": "ai",
+    "tier": 1
+  },
+  {
     "name": "TechNode",
     "url": "https://technode.com/feed/",
     "homepage": "https://technode.com",
@@ -378,6 +396,51 @@
     "tier": 2
   },
   {
+    "name": "The Guardian AI",
+    "url": "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+    "homepage": "https://www.theguardian.com/technology/artificialintelligenceai",
+    "lang": "en",
+    "country": "GB",
+    "scope": "ai",
+    "tier": 1
+  },
+  {
+    "name": "The Register AI",
+    "url": "https://www.theregister.com/software/ai_ml/headlines.atom",
+    "homepage": "https://www.theregister.com/software/ai_ml/",
+    "lang": "en",
+    "country": "GB",
+    "scope": "ai",
+    "tier": 1
+  },
+  {
+    "name": "The Verge AI",
+    "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+    "homepage": "https://www.theverge.com/ai-artificial-intelligence",
+    "lang": "en",
+    "country": "US",
+    "scope": "ai",
+    "tier": 1
+  },
+  {
+    "name": "Wired AI",
+    "url": "https://www.wired.com/feed/tag/ai/latest/rss",
+    "homepage": "https://www.wired.com/tag/ai/",
+    "lang": "en",
+    "country": "US",
+    "scope": "ai",
+    "tier": 1
+  },
+  {
+    "name": "Xataka",
+    "url": "https://www.xataka.com/feedburner.xml",
+    "homepage": "https://www.xataka.com",
+    "lang": "es",
+    "country": "ES",
+    "scope": "tech",
+    "tier": 1
+  },
+  {
     "name": "ZDNet.fr",
     "url": "https://www.zdnet.fr/feeds/rss/actualites/",
     "homepage": "https://www.zdnet.fr",
@@ -385,23 +448,5 @@
     "country": "FR",
     "scope": "tech",
     "tier": 2
-  },
-  {
-    "name": "Maddyness",
-    "url": "https://www.maddyness.com/feed/",
-    "homepage": "https://www.maddyness.com",
-    "lang": "fr",
-    "country": "FR",
-    "scope": "tech",
-    "tier": 3
-  },
-  {
-    "name": "Nature Machine Intelligence",
-    "url": "https://www.nature.com/natmachintell.rss",
-    "homepage": "https://www.nature.com/natmachintell/",
-    "lang": "en",
-    "country": "GB",
-    "scope": "ai",
-    "tier": 3
   }
 ]

@@ -349,8 +349,8 @@ figure {
 }
 
 .brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   flex: none;
   border-radius: 50%;
   object-fit: cover;
@@ -1445,8 +1445,8 @@ figure {
 }
 
 .footer-logo {
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -1799,6 +1799,16 @@ html.reader-open {
 
   .brand-word {
     font-size: 18px;
+  }
+
+  .brand-mark {
+    width: 48px;
+    height: 48px;
+  }
+
+  .footer-logo {
+    width: 48px;
+    height: 48px;
   }
 
   .menu-toggle {

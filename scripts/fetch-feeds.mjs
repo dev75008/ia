@@ -22,20 +22,20 @@ const args = process.argv.slice(2)
 const only = args.find((arg) => arg.startsWith('--only='))?.slice(7)
 const limit = Number(args.find((arg) => arg.startsWith('--limit='))?.slice(8)) || 24
 const translateEnabled = !args.includes('--no-translate')
-const EDITION_SIZE = 240
+const EDITION_SIZE = 280
 
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36 IA-News/2.0'
-const RELEVANT = /(\bia\b|intelligence artificielle|ia générative|ia agentique|machine learning|apprentissage automatique|deep learning|llm|modèle de langage|agents? intelligents?|chatgpt|openai|anthropic|mistral|gemini|llama|copilot|gpt-|claude|nvidia|robotique|humanoïde|informatique quantique|quantum computing|semi-conducteur|puces? ia)/i
+const RELEVANT = /(\bia\b|\bai\b|intelligence artificielle|ia générative|ia agentique|machine learning|apprentissage automatique|deep learning|llm|modèle de langage|agents? intelligents?|chatgpt|openai|anthropic|mistral|gemini|llama|copilot|gpt-|claude|nvidia|robotique|humanoïde|informatique quantique|quantum computing|semi-conducteur|puces? ia|人工智能|生成式|大模型|大语言模型|机器学习|深度学习|智能体|多模态|算法|算力|芯片|半导体|机器人|人形机器人|自动驾驶|数据中心|英伟达|黄仁勋|谷歌|字节跳动|豆包|百度|文心|阿里|通义|腾讯|混元|华为|昇腾|月之暗面|智谱|商汤|科大讯飞)/i
 
 const CATEGORIES = [
-  ['Sécurité', /cyberattaque|cybersécurité|sécurité|vulnérabilité|piratage|deepfake|fraude|malware|faille/i],
-  ['Régulation', /réglement|régul|loi\b|ai act|ai act|textes?|législat|éthique|droit|commission européenne|tribunal|cnil|rgpd|procès/i],
-  ['Robotique', /robot|humanoïde|autonom|drone|robotique|véhicule autonome/i],
-  ['Recherche', /recherche|chercheur|étude|scientifi|universit|institut|laboratoire|papier|arxiv|benchmark|entraînement|dataset/i],
-  ['Entreprise', /entreprise|invest|startup|levée de fonds|acquisition|partenariat|déploiement|emploi|marché|bourse|valeurs?|milliards?|rachat/i],
-  ['Modèles', /génératif|chatgpt|openai|anthropic|mistral|gemini|llama|copilot|gpt-|modèle|claude|diffusion|multimodal|fine-tun/i],
-  ['Matériel', /nvidia|gpu\b|tpu\b|puces?|semi-conducteur|datacenter|data center|refroidissement|arm\b|tsmc|gravure/i],
-  ['Société', /société|sociétal|formation|école|éducation|santé|hôpital|art|culture|média|opinion|public|citoyen|consommateur/i],
+  ['Sécurité', /cyberattaque|cybersécurité|sécurité|vulnérabilité|piratage|deepfake|fraude|malware|faille|安全|攻击|漏洞|黑客|诈骗|深度伪造|隐私|勒索/i],
+  ['Régulation', /réglement|régul|loi\b|ai act|ai act|textes?|législat|éthique|droit|commission européenne|tribunal|cnil|rgpd|procès|监管|法规|政策|法律|合规|欧盟|反垄断|诉讼|立法/i],
+  ['Robotique', /robot|humanoïde|autonom|drone|robotique|véhicule autonome|机器人|人形|自动驾驶|无人机|具身|机械臂/i],
+  ['Recherche', /recherche|chercheur|étude|scientifi|universit|institut|laboratoire|papier|arxiv|benchmark|entraînement|dataset|研究|论文|科学家|实验室|大学|基准|训练|数据集|开源/i],
+  ['Entreprise', /entreprise|invest|startup|levée de fonds|acquisition|partenariat|déploiement|emploi|marché|bourse|valeurs?|milliards?|rachat|融资|投资|收购|上市|公司|企业|合作|营收|估值|裁员|创业/i],
+  ['Modèles', /génératif|chatgpt|openai|anthropic|mistral|gemini|llama|copilot|gpt-|modèle|claude|diffusion|multimodal|fine-tun|大模型|生成式|多模态|推理|智能体|算法|文心|通义|豆包|混元/i],
+  ['Matériel', /nvidia|gpu\b|tpu\b|puces?|semi-conducteur|datacenter|data center|refroidissement|arm\b|tsmc|gravure|芯片|半导体|算力|数据中心|英伟达|台积电|存储|服务器/i],
+  ['Société', /société|sociétal|formation|école|éducation|santé|hôpital|art|culture|média|opinion|public|citoyen|consommateur|教育|医疗|就业|社会|文化|用户|生活/i],
 ]
 
 export function categorize(text) {
@@ -60,7 +60,7 @@ function canonical(link) {
 // la page d'article, avec un cache persistant et un budget par exécution pour
 // ne pas transformer l'édition en crawl.
 
-const IMAGE_BUDGET = 200
+const IMAGE_BUDGET = 280
 
 function readImageCache() {
   try { return JSON.parse(readFileSync(IMAGES_CACHE, 'utf8')) } catch { return {} }

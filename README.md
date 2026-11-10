@@ -23,7 +23,7 @@ les éditeurs : il lit uniquement `feed-snapshot.json`, servi depuis la même or
 
 ## Édition
 
-Chaque exécution retient les **240 articles les plus récents** toutes sources confondues,
+Chaque exécution retient les **280 articles les plus récents** toutes sources confondues,
 puis les traduit dans cet ordre, du plus récent au plus ancien. Le budget est de 900
 requêtes par exécution : au-delà, l'article reste dans sa langue d'origine
 (`translated: false`), et le cache évite de retraduire ce qui l'a déjà été.
@@ -33,14 +33,17 @@ La page répartit l'édition sans répéter deux fois le même article : une tê
 paliers de 36.
 
 Les vignettes manquantes sont complétées à l'édition en lisant l'`og:image` de la page
-d'article, avec un cache (`data/images.json`, non versionné) et un budget de 200 pages par
+d'article, avec un cache (`data/images.json`, non versionné) et un budget de 280 pages par
 exécution. Les rares articles sans image gardent un visuel typographique de secours.
 
 ## Sources
 
-`data/sources.json` est la source de vérité unique (45 flux : nom, flux, langue, pays,
-portée, niveau). Portée `ai` : le flux est déjà spécialisé IA, aucun filtre. Portée `tech` :
-les articles sont filtrés par mots-clés avant publication.
+`data/sources.json` est la source de vérité unique (50 flux : nom, flux, langue, pays,
+portée, niveau), dont six sources chinoises (QbitAI, 雷锋网, 极客公园, 钛媒体, 爱范儿,
+InfoQ 中文) pour couvrir l'un des pôles IA les plus actifs. Portée `ai` : le flux est déjà
+spécialisé IA, aucun filtre. Portée `tech` : les articles sont filtrés par mots-clés avant
+publication — les motifs couvrent le français, l'anglais et le chinois (人工智能, 大模型,
+芯片, 机器人, 智能体…).
 
 Pour ajouter une source : ajouter une entrée, vérifier qu'elle répond, lancer
 `npm run feeds` en local. Une source en erreur reste affichée dans la section Sources du
@@ -86,7 +89,7 @@ npm run build:local # même build, sans rechargement du fichier de config (envir
 
 | Chemin | Rôle |
 | --- | --- |
-| `data/sources.json` | Liste des 45 sources validées |
+| `data/sources.json` | Liste des 50 sources validées |
 | `data/translations.json` | Cache de traduction (non versionné) |
 | `data/images.json` | Cache des vignettes `og:image` (non versionné) |
 | `scripts/fetch-feeds.mjs` | Édition : collecte, filtre, vignettes, traduction, snapshot |

@@ -10,8 +10,8 @@ export default function Footer({ stats, updatedAt }) {
               className="footer-logo"
               src={`${import.meta.env.BASE_URL}images/logo.webp`}
               alt=""
-              width="44"
-              height="44"
+              width="56"
+              height="56"
             />
             <span className="brand-word">IA<span>•</span>NEWS</span>
           </span>
