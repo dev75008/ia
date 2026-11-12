@@ -23,6 +23,10 @@ const only = args.find((arg) => arg.startsWith('--only='))?.slice(7)
 const limit = Number(args.find((arg) => arg.startsWith('--limit='))?.slice(8)) || 24
 const translateEnabled = !args.includes('--no-translate')
 const EDITION_SIZE = 280
+// Seuils de santé d'une édition. En dessous, on refuse d'écrire : une panne
+// générale des flux ne doit pas remplacer le site par une page vide.
+const MIN_ARTICLES = 100
+const MIN_SOURCES_OK = 10
 
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36 IA-News/2.0'
 const RELEVANT = /(\bia\b|\bai\b|intelligence artificielle|ia générative|ia agentique|machine learning|apprentissage automatique|deep learning|llm|modèle de langage|agents? intelligents?|chatgpt|openai|anthropic|mistral|gemini|llama|copilot|gpt-|claude|nvidia|robotique|humanoïde|informatique quantique|quantum computing|semi-conducteur|puces? ia|人工智能|生成式|大模型|大语言模型|机器学习|深度学习|智能体|多模态|算法|算力|芯片|半导体|机器人|人形机器人|自动驾驶|数据中心|英伟达|黄仁勋|谷歌|字节跳动|豆包|百度|文心|阿里|通义|腾讯|混元|华为|昇腾|月之暗面|智谱|商汤|科大讯飞)/i
@@ -290,9 +294,15 @@ async function main() {
     articles,
   }
 
+  // Contrôle avant écriture : sous le seuil, le script échoue, le workflow est
+  // marqué en erreur et n'écrase pas la dernière édition publiée.
+  const ok = snapshot.sources.filter((source) => source.status === 'ok').length
+  if (articles.length < MIN_ARTICLES || ok < MIN_SOURCES_OK) {
+    throw new Error(`édition sous le seuil : ${articles.length} articles, ${ok}/${fetched.length} sources valides — snapshot non écrit`)
+  }
+
   await mkdir(path.dirname(SNAPSHOT), { recursive: true })
   await writeFile(SNAPSHOT, JSON.stringify(snapshot, null, 1), 'utf8')
-  const ok = snapshot.sources.filter((source) => source.status === 'ok').length
   console.log(`\n✓ ${articles.length} articles · ${ok}/${fetched.length} sources · ${snapshot.translatedCount} traduits`)
   console.log(`  écrit dans ${path.relative(root, SNAPSHOT)} (${(JSON.stringify(snapshot).length / 1024).toFixed(0)} Ko)`)
 }
