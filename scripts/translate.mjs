@@ -1,7 +1,8 @@
 /**
  * translate.mjs — dependency-free FR translation for news items.
  *
- * Engines: Google's unofficial gtx endpoint (primary), MyMemory (fallback).
+ * Engines: Azure Translator (primary, needs AZURE_TRANSLATOR_KEY), DeepL
+ * (needs DEEPL_API_KEY), Google's unofficial gtx endpoint, MyMemory (fallback).
  * Nothing is ever thrown for a single item: failures degrade to the original
  * string with `translated: false` so attribution still has the source text.
  *
@@ -21,8 +22,30 @@ import { dirname, resolve } from 'node:path';
 
 /* ------------------------------------------------------------------ config */
 
+const AZURE_ENDPOINT = 'https://api.cognitive.microsofttranslator.com/translate';
+const DEEPL_PRO_ENDPOINT = 'https://api.deepl.com/v2/translate';
+const DEEPL_FREE_ENDPOINT = 'https://api-free.deepl.com/v2/translate';
 const GOOGLE_ENDPOINT = 'https://translate.googleapis.com/translate_a/single';
 const MYMEMORY_ENDPOINT = 'https://api.mymemory.translated.net/get';
+
+/** Source languages DeepL accepts; anything else is sent as auto-detect. */
+const DEEPL_SOURCE_LANGS = new Set([
+  'BG', 'CS', 'DA', 'DE', 'EL', 'EN', 'ES', 'ET', 'FI', 'FR', 'HU', 'ID', 'IT',
+  'JA', 'KO', 'LT', 'LV', 'NB', 'NL', 'PL', 'PT', 'RO', 'RU', 'SK', 'SL', 'SV',
+  'TR', 'UK', 'ZH',
+]);
+
+/**
+ * Azure spells Chinese with a script suffix; our feeds say `zh` for simplified.
+ * Sending the bare code is rejected, which would cost the 39 Chinese articles a
+ * silent fallback to Google every day.
+ */
+const AZURE_LANG_ALIASES = { zh: 'zh-Hans', 'zh-cn': 'zh-Hans', 'zh-tw': 'zh-Hant' };
+
+function azureLang(code) {
+  const base = baseLang(code);
+  return AZURE_LANG_ALIASES[base] ?? base;
+}
 
 const DEFAULT_TO = 'fr';
 const DEFAULT_BUDGET = 300;        // outbound attempts per translateBatch run
@@ -32,7 +55,10 @@ const RETRY_BACKOFF_MS = 450;      // one retry, jittered upward
 const MAX_ATTEMPTS = 2;            // primary attempt + one retry on 429/5xx
 const MIN_MATCH = 0.5;             // MyMemory confidence floor
 const CACHE_VERSION = 1;
-const ENGINE_PRIORITY = ['google', 'mymemory', 'cache', 'passthrough', 'budget', 'none'];
+const ENGINE_PRIORITY = ['azure', 'deepl', 'google', 'mymemory', 'cache', 'passthrough', 'budget', 'none'];
+
+/** Engines whose output is a real translation: only these are cached and published. */
+const TRANSLATING_ENGINES = new Set(['azure', 'deepl', 'google', 'mymemory']);
 
 /* ------------------------------------------------------------------ helpers */
 
@@ -122,12 +148,19 @@ function decodeStrayEntities(source, translated) {
  * Per-run context: counts every outbound attempt against a hard budget so a
  * scheduled build cannot hammer the endpoint, and pins the fetch seam.
  */
-function createContext({ signal, fetchImpl, timeoutMs, budget }) {
+function createContext({ signal, fetchImpl, timeoutMs, budget, deeplKey, azureKey, azureRegion }) {
   let remaining = Number.isFinite(budget) && budget >= 0 ? budget : DEFAULT_BUDGET;
   return {
     timeoutMs: Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : REQUEST_TIMEOUT_MS,
     fetchImpl: typeof fetchImpl === 'function' ? fetchImpl : globalThis.fetch,
     signal,
+    // An empty key disables the engine and leaves the free ones in charge.
+    deeplKey: String(deeplKey !== undefined ? deeplKey : (process.env.DEEPL_API_KEY ?? '')).trim(),
+    azure: {
+      key: String(azureKey !== undefined ? azureKey : (process.env.AZURE_TRANSLATOR_KEY ?? '')).trim(),
+      // Required by multi-service resources; harmless for a dedicated one.
+      region: String(azureRegion !== undefined ? azureRegion : (process.env.AZURE_TRANSLATOR_REGION ?? '')).trim(),
+    },
     remaining: () => remaining,
     /** Reserve one attempt; throws a BUDGET error when the run is out of budget. */
     take() {
@@ -149,12 +182,14 @@ function checkSignal(ctx) {
  * One HTTP attempt. Returns { status, text }. Network errors and timeouts
  * propagate; non-2xx become httpError so retry/fallback can classify them.
  */
-async function request(ctx, url, { accept = 'application/json, text/plain, */*' } = {}) {
+async function request(ctx, url, { accept = 'application/json, text/plain, */*', method = 'GET', body, headers } = {}) {
   checkSignal(ctx);
   ctx.take();
   const res = await ctx.fetchImpl(url, {
+    method,
+    body,
     signal: AbortSignal.timeout(ctx.timeoutMs),
-    headers: { accept, 'accept-language': 'fr,en;q=0.8' },
+    headers: { accept, 'accept-language': 'fr,en;q=0.8', ...headers },
     redirect: 'follow',
   });
   const text = await res.text();
@@ -203,6 +238,79 @@ async function viaGoogle(ctx, text, from, to) {
     `&tl=${encodeURIComponent(to)}&dt=t&q=${encodeURIComponent(text)}`;
   const { text: body } = await withRetry(ctx, () => request(ctx, url));
   return parseGoogle(body);
+}
+
+/**
+ * Azure answers `[{ detectedLanguage, translations: [{ text, to }] }]`, one entry
+ * per input text. A spent monthly quota (403, code 403001) is an ordinary
+ * httpError, so the chain moves on instead of leaving the site untranslated.
+ */
+function parseAzure(text) {
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch {
+    throw new Error('azure: response was not JSON');
+  }
+  const translated = Array.isArray(data) ? data[0]?.translations?.[0]?.text : null;
+  if (typeof translated !== 'string' || !translated.trim()) throw new Error('azure: empty translation');
+  return translated;
+}
+
+async function viaAzure(ctx, text, from, to) {
+  const { key, region } = ctx.azure;
+  if (!key) throw new Error('azure: no api key');
+  const params = new URLSearchParams({ 'api-version': '3.0', to: azureLang(to) });
+  // Omitting `from` lets Azure auto-detect, which covers every source language.
+  const source = azureLang(from);
+  if (source && source !== 'auto') params.set('from', source);
+  const headers = { 'content-type': 'application/json', 'Ocp-Apim-Subscription-Key': key };
+  if (region) headers['Ocp-Apim-Subscription-Region'] = region;
+  const { text: body } = await withRetry(ctx, () =>
+    request(ctx, `${AZURE_ENDPOINT}?${params}`, {
+      method: 'POST',
+      body: JSON.stringify([{ Text: text }]),
+      headers,
+    }),
+  );
+  return parseAzure(body);
+}
+
+/**
+ * DeepL answers `{ translations: [{ detected_source_language, text }] }`.
+ * A 456 body ("Quota exceeded") is an ordinary httpError, so the chain simply
+ * moves on to Google: a spent monthly quota must not leave the site untranslated.
+ */
+function parseDeepL(text) {
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch {
+    throw new Error('deepl: response was not JSON');
+  }
+  const translated = data?.translations?.[0]?.text;
+  if (typeof translated !== 'string' || !translated.trim()) throw new Error('deepl: empty translation');
+  return translated;
+}
+
+async function viaDeepL(ctx, text, from, to) {
+  const key = ctx.deeplKey;
+  if (!key) throw new Error('deepl: no api key');
+  // Free keys end in `:fx` and live on a separate host.
+  const url = key.endsWith(':fx') ? DEEPL_FREE_ENDPOINT : DEEPL_PRO_ENDPOINT;
+  const payload = { text: [text], target_lang: baseLang(to).toUpperCase() };
+  const source = baseLang(from).toUpperCase();
+  // Omitting source_lang lets DeepL auto-detect, which covers every language it
+  // translates but does not accept as an explicit source.
+  if (DEEPL_SOURCE_LANGS.has(source)) payload.source_lang = source;
+  const { text: body } = await withRetry(ctx, () =>
+    request(ctx, url, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: { 'content-type': 'application/json', authorization: `DeepL-Auth-Key ${key}` },
+    }),
+  );
+  return parseDeepL(body);
 }
 
 /** MyMemory reports errors as HTTP 200 with an uppercase English sentence. */
@@ -254,6 +362,24 @@ async function translateOne(ctx, text, from, to) {
     text: decodeStrayEntities(text, restoreEntities(raw, shielded.tokens)),
     engine,
   });
+
+  if (ctx.azure.key) {
+    try {
+      return finish(await viaAzure(ctx, shielded.text, from, to), 'azure');
+    } catch (e) {
+      if (e?.code === 'BUDGET') sawBudget = true;
+      if (e?.name === 'AbortError' && ctx.signal?.aborted) throw e;
+    }
+  }
+
+  if (ctx.deeplKey) {
+    try {
+      return finish(await viaDeepL(ctx, shielded.text, from, to), 'deepl');
+    } catch (e) {
+      if (e?.code === 'BUDGET') sawBudget = true;
+      if (e?.name === 'AbortError' && ctx.signal?.aborted) throw e;
+    }
+  }
 
   try {
     return finish(await viaGoogle(ctx, shielded.text, from, to), 'google');
@@ -393,9 +519,9 @@ export function createCache(filePath) {
  * `fetchImpl` / `timeoutMs` / `signal` are optional seams; the documented
  * call shape is `translateText(text, { from, to })`.
  */
-export async function translateText(text, { from = 'auto', to = DEFAULT_TO, fetchImpl, timeoutMs = REQUEST_TIMEOUT_MS, signal } = {}) {
+export async function translateText(text, { from = 'auto', to = DEFAULT_TO, fetchImpl, timeoutMs = REQUEST_TIMEOUT_MS, signal, deeplKey, azureKey, azureRegion } = {}) {
   if (typeof text !== 'string' || text.trim() === '') return typeof text === 'string' ? text : '';
-  const ctx = createContext({ signal, fetchImpl, timeoutMs, budget: DEFAULT_BUDGET });
+  const ctx = createContext({ signal, fetchImpl, timeoutMs, budget: DEFAULT_BUDGET, deeplKey, azureKey, azureRegion });
   try {
     const { text: out } = await translateOne(ctx, text, from, to);
     return out;
@@ -426,6 +552,9 @@ function combineEngines(engines) {
  *   budget       max outbound attempts for the whole run, default 300
  *   fetchImpl    fetch replacement (test seam / custom dispatcher)
  *   signal       AbortSignal for the whole run
+ *   deeplKey     DeepL key; defaults to $DEEPL_API_KEY, empty disables DeepL
+ *   azureKey     Azure Translator key; defaults to $AZURE_TRANSLATOR_KEY
+ *   azureRegion  Azure region; defaults to $AZURE_TRANSLATOR_REGION
  */
 export async function translateBatch(entries, options = {}) {
   const {
@@ -437,12 +566,15 @@ export async function translateBatch(entries, options = {}) {
     timeoutMs = REQUEST_TIMEOUT_MS,
     signal,
     autoSave = true,
+    deeplKey,
+    azureKey,
+    azureRegion,
   } = options;
 
   if (!Array.isArray(entries) || entries.length === 0) return [];
 
   const target = baseLang(to) || DEFAULT_TO;
-  const ctx = createContext({ signal, fetchImpl, timeoutMs, budget });
+  const ctx = createContext({ signal, fetchImpl, timeoutMs, budget, deeplKey, azureKey, azureRegion });
   const lanes = Math.max(1, Math.min(Number.isFinite(concurrency) && concurrency > 0 ? Math.floor(concurrency) : DEFAULT_CONCURRENCY, 32));
 
   /** Resolve one field: cache, then engines, then the untouched original. */
@@ -464,7 +596,7 @@ export async function translateBatch(entries, options = {}) {
     }
     const { text: out, engine } = await translateOne(ctx, original, from, target);
     engines.push(engine);
-    const changed = engine === 'google' || engine === 'mymemory';
+    const changed = TRANSLATING_ENGINES.has(engine);
     if (changed && cache) cache.set(key, { t: out, d: original });
     return changed ? out : original;
   }
@@ -511,7 +643,7 @@ export async function translateBatch(entries, options = {}) {
         description: outDescription,
         originalTitle: title,
         originalDescription: description,
-        translated: engines.some((e) => e === 'google' || e === 'mymemory' || e === 'cache'),
+        translated: engines.some((e) => TRANSLATING_ENGINES.has(e) || e === 'cache'),
         engine: combineEngines(engines),
       };
     }

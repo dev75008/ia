@@ -46,6 +46,11 @@ jobs:
 
       - name: Refresh static RSS snapshot
         run: node scripts/fetch-feeds.mjs
+        env:
+          # Secrets absents ou vides : moteur ignoré, Google prend le relais.
+          AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
+          AZURE_TRANSLATOR_REGION: ${{ secrets.AZURE_TRANSLATOR_REGION }}
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
 
       - name: Build React app
         run: npm run build
