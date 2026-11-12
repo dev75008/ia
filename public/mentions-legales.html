@@ -65,11 +65,20 @@
       <h2>Services tiers</h2>
       <ul>
         <li>
-          <strong>Traduction automatique</strong> — les titres et résumés des articles de langue
-          étrangère, ainsi que le texte des articles lorsque vous ouvrez le lecteur intégré, sont
-          transmis par le serveur du site à un service de traduction automatique (Microsoft
-          Translator, DeepL, Google Translate ou MyMemory). Aucune donnée de visiteur ne leur est
-          transmise : seuls les textes des articles le sont.
+          <strong>Traduction des titres et résumés</strong> — au moment de la publication, le
+          serveur du site transmet les titres et résumés des articles de langue étrangère à un
+          service de traduction automatique (Microsoft Translator, DeepL, Google Translate ou
+          MyMemory). Aucune donnée de visiteur ne leur est transmise : seuls les textes des
+          articles le sont.
+        </li>
+        <li>
+          <strong>Lecteur d'article, à la demande</strong> — quand vous ouvrez un article en
+          lecture immersive, c'est <em>votre navigateur</em> qui interroge Jina Reader
+          (<code>r.jina.ai</code>) pour extraire le texte, puis Google Translate
+          (<code>translate.googleapis.com</code>) pour le traduire. Votre adresse IP et l'adresse
+          de l'article sont transmises à ces deux services. Si vous ne voulez pas de ce
+          traitement, n'ouvrez pas le lecteur : le lien vers l'éditeur reste disponible sur
+          chaque carte.
         </li>
         <li>
           <strong>Images</strong> — les vignettes sont chargées directement depuis les serveurs de
