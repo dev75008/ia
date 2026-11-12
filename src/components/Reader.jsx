@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, LoaderCircle, X } from 'lucide-react'
+import './reader.css'
 import {
   cleanBlocks, fetchArticleText, readCached, translateBlocks, translateProxy, writeCached,
 } from '../reader.js'
