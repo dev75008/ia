@@ -7,9 +7,9 @@ function ArticleCard({ article, index, onOpen }) {
   return (
     <a
       className="article-card"
-      href={article.link}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={article.translated ? `${import.meta.env.BASE_URL}article/${article.id}/` : article.link}
+      target={article.translated ? undefined : '_blank'}
+      rel={article.translated ? undefined : 'noopener noreferrer'}
       style={{ '--i': index }}
       onClick={(event) => onOpen(event, article)}
       title={article.translated ? 'Lire la traduction en français' : undefined}
