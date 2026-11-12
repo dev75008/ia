@@ -19,7 +19,7 @@ export default function Footer({ stats, updatedAt }) {
           <p>Veille indépendante sur l’intelligence artificielle. Sources publiques, traduction automatique signalée, aucun contenu hébergé.</p>
         </div>
         <div className="footer-meta">
-          <Audience />
+          <Audience updatedAt={updatedAt} />
           <p>{stats.sources} sources · {stats.articles} articles · dernière édition {clockLabel(updatedAt)}</p>
           <p>© {new Date().getFullYear()} IA•News · Les contenus appartiennent à leurs éditeurs.</p>
         </div>

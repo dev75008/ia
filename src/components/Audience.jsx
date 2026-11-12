@@ -1,82 +1,37 @@
 import { useEffect, useState } from 'react'
+import { relativeDate } from '../lib/format.js'
 
-const COUNTER = 'https://abacus.jasoncameron.dev'
-const GEO = 'https://ipwho.is/'
+// Le point « en direct » ne s'allume que si l'édition a moins de 45 minutes : le
+// cron GitHub Actions dérive souvent au-delà, et une pastille verte sur des
+// données vieilles de six heures serait un mensonge plus qu'un ornement.
+const LIVE_WINDOW_MS = 45 * 60 * 1000
 
-function flagFor(code) {
-  if (!code || code.length !== 2) return ''
-  return String.fromCodePoint(...[...code.toUpperCase()].map((letter) => 127397 + letter.charCodeAt(0)))
-}
-
-// Bandeau d'audience : le pays de la connexion (géolocalisation IP publique) et
-// un compteur global de visites. Aucun cookie, aucune donnée conservée côté site.
-export default function Audience() {
-  const [geo, setGeo] = useState(null)
-  const [visits, setVisits] = useState(null)
+// Bandeau du pied de page : l'âge de l'édition courante, recalculé chaque minute.
+// Entièrement local : aucun appel réseau, donc aucune adresse IP transmise, aucun
+// cookie et rien à consentir. (Un pays déduit de l'IP a été écarté : ipwho.is
+// répond 429 dès quelques requêtes, et une mesure d'audience tierce exigerait
+// un consentement que ce site n'a pas.)
+export default function Audience({ updatedAt }) {
+  const [now, setNow] = useState(() => Date.now())
 
   useEffect(() => {
-    let cancelled = false
+    setNow(Date.now())
+    const timer = setInterval(() => setNow(Date.now()), 60_000)
+    return () => clearInterval(timer)
+  }, [updatedAt])
 
-    const loadCountry = async () => {
-      try {
-        const cached = sessionStorage.getItem('ianews-country')
-        if (cached) {
-          const parsed = JSON.parse(cached)
-          if (!cancelled) setGeo(parsed)
-          return
-        }
-      } catch {
-        // sessionStorage indisponible
-      }
-      try {
-        const response = await fetch(GEO, { signal: AbortSignal.timeout(8000) })
-        if (!response.ok) return
-        const data = await response.json()
-        if (data?.success === false || !data?.country_code) return
-        const country = { name: data.country, code: data.country_code }
-        try { sessionStorage.setItem('ianews-country', JSON.stringify(country)) } catch { /* session */ }
-        if (!cancelled) setGeo(country)
-      } catch {
-        // géolocalisation indisponible
-      }
-    }
-
-    const loadVisits = async () => {
-      try {
-        const counted = sessionStorage.getItem('ianews-visit')
-        const endpoint = counted ? `${COUNTER}/get/ianews/visits` : `${COUNTER}/hit/ianews/visits`
-        const response = await fetch(endpoint, { signal: AbortSignal.timeout(8000) })
-        if (!response.ok) return
-        const data = await response.json()
-        if (typeof data?.value !== 'number') return
-        if (!counted) {
-          try { sessionStorage.setItem('ianews-visit', '1') } catch { /* session */ }
-        }
-        if (!cancelled) setVisits(data.value)
-      } catch {
-        // compteur indisponible
-      }
-    }
-
-    loadCountry()
-    loadVisits()
-    return () => { cancelled = true }
-  }, [])
-
-  if (!geo && visits === null) return null
+  const age = now - new Date(updatedAt).getTime()
+  const live = Number.isFinite(age) && age >= 0 && age < LIVE_WINDOW_MS
 
   return (
     <p className="audience">
-      <span className="audience-live">
-        <span className="live-dot is-on" aria-hidden="true" />
-        En direct
-      </span>
-      {geo ? <span className="audience-country"><span aria-hidden="true">{flagFor(geo.code)}</span> {geo.name}</span> : null}
-      {visits !== null ? (
-        <span title="Compteur global de visites, sans cookie">
-          <b>{visits.toLocaleString('fr-FR')}</b> visites
+      {live ? (
+        <span className="audience-live">
+          <span className="live-dot is-on" aria-hidden="true" />
+          En direct
         </span>
       ) : null}
+      <span className="audience-edition">édition {relativeDate(updatedAt)}</span>
     </p>
   )
 }

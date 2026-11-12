@@ -1479,13 +1479,7 @@ figure {
   font-size: 11px;
 }
 
-.audience b {
-  color: var(--text);
-  font-weight: 400;
-  font-variant-numeric: tabular-nums;
-}
-
-.audience-country {
+.audience-edition {
   white-space: nowrap;
 }
 
