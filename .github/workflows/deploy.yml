@@ -14,7 +14,9 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # Un déclenchement planifié peut arriver pendant un déploiement : l'annuler
+  # laisserait le build précédent en ligne sans raison. On met en file.
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -31,6 +33,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # Une régression du câblage traduction ne casse pas le build : elle jette
+      # les traductions et le site repart en langue d'origine. D'où ce contrôle.
+      - name: Translation wiring check
+        run: node scripts/translate-smoke.mjs
 
       # Les caches de traduction et de vignettes évitent de refaire le même travail
       # à chaque édition.
