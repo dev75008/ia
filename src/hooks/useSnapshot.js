@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
 const SNAPSHOT_URL = `${import.meta.env.BASE_URL}feed-snapshot.json`
-const POLL_MS = 5 * 60 * 1000
+const POLL_MS = 15 * 60 * 1000
 
 // Charge l'édition statique puis la rafraîchit toutes les cinq minutes. Le
 // navigateur ne contacte jamais les éditeurs : tout vient du même snapshot.
