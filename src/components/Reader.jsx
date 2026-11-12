@@ -61,6 +61,7 @@ export default function Reader({ article, onClose }) {
       className="reader"
       ref={dialogRef}
       onClose={onClose}
+      aria-modal="true"
       aria-labelledby="reader-title"
     >
       <div className="reader-panel">
