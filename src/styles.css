@@ -1483,6 +1483,17 @@ figure {
   white-space: nowrap;
 }
 
+.footer-legal a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-legal a:hover,
+.footer-legal a:focus-visible {
+  color: var(--accent);
+}
+
 .audience-live {
   display: inline-flex;
   align-items: center;

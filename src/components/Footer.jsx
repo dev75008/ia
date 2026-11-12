@@ -21,7 +21,11 @@ export default function Footer({ stats, updatedAt }) {
         <div className="footer-meta">
           <Audience updatedAt={updatedAt} />
           <p>{stats.sources} sources · {stats.articles} articles · dernière édition {clockLabel(updatedAt)}</p>
-          <p>© {new Date().getFullYear()} IA•News · Les contenus appartiennent à leurs éditeurs.</p>
+          <p className="footer-legal">
+            © {new Date().getFullYear()} IA•News · Les contenus appartiennent à leurs éditeurs.
+            {' · '}
+            <a href="/mentions-legales.html">Mentions légales</a>
+          </p>
         </div>
       </div>
     </footer>
