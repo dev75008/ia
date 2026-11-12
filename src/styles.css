@@ -45,7 +45,7 @@
   --wrap: 1320px;
   --gutter: 32px;
   --topbar-h: 34px;
-  --nav-h: 88px;
+  --nav-h: 96px;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   color-scheme: dark;
 }
@@ -349,8 +349,8 @@ figure {
 }
 
 .brand-mark {
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   flex: none;
   border-radius: 50%;
   object-fit: cover;
@@ -358,7 +358,7 @@ figure {
 
 .brand-word {
   font-family: Oswald, sans-serif;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
   letter-spacing: 0.13em;
   line-height: 1;
@@ -1445,8 +1445,8 @@ figure {
 }
 
 .footer-logo {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -1466,6 +1466,39 @@ figure {
   color: var(--muted);
   font-size: 11px;
   text-align: right;
+}
+
+.audience {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.audience b {
+  color: var(--text);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.audience-country {
+  white-space: nowrap;
+}
+
+.audience-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-family: Oswald, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 /* -------------------------------------------------------------- lecteur FR */
@@ -1794,11 +1827,15 @@ html.reader-open {
   .footer-meta {
     text-align: left;
   }
+
+  .audience {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 860px) {
   :root {
-    --nav-h: 72px;
+    --nav-h: 76px;
   }
 
   .masthead-inner {
@@ -1810,13 +1847,13 @@ html.reader-open {
   }
 
   .brand-mark {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
   }
 
   .footer-logo {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
   }
 
   .menu-toggle {

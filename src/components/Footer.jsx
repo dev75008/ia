@@ -1,3 +1,4 @@
+import Audience from './Audience.jsx'
 import { clockLabel } from '../lib/format.js'
 
 export default function Footer({ stats, updatedAt }) {
@@ -10,14 +11,15 @@ export default function Footer({ stats, updatedAt }) {
               className="footer-logo"
               src={`${import.meta.env.BASE_URL}images/logo.webp`}
               alt=""
-              width="64"
-              height="64"
+              width="72"
+              height="72"
             />
             <span className="brand-word">IA<span>•</span>NEWS</span>
           </span>
           <p>Veille indépendante sur l’intelligence artificielle. Sources publiques, traduction automatique signalée, aucun contenu hébergé.</p>
         </div>
         <div className="footer-meta">
+          <Audience />
           <p>{stats.sources} sources · {stats.articles} articles · dernière édition {clockLabel(updatedAt)}</p>
           <p>© {new Date().getFullYear()} IA•News · Les contenus appartiennent à leurs éditeurs.</p>
         </div>
